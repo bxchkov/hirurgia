@@ -8,6 +8,8 @@
 define("MODX_API_MODE",true);
 require_once dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/index.php';
 
+
+/** @var $modx gitModx  */
 $modx->setLogTarget('ECHO');
 $modx->setLogLevel(MODX_LOG_LEVEL_INFO);
 
@@ -21,8 +23,7 @@ foreach($files as $file)
     $pieces = explode('/',$file);
     $name = end($pieces);
     $name = trim(preg_replace('#\.tpl$#ui','',$name));
-    $fileRelative = str_replace(MODX_BASE_PATH,'',$file);
-
+    $fileRelative = str_replace(str_replace('\\','/',MODX_BASE_PATH),'',str_replace('\\','/',$file));
     if($template = $modx->getObject('modTemplate',array(
         'static_file' => $fileRelative
     )))
