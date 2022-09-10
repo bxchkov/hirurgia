@@ -7,19 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hirurg</title>
     <base href="{$_modx->config.site_url}">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body class="body">
 <div class="body-content">
     <header class="header">
         <div class="logo-anim-background"></div>
         <a class="logo header__logo">
-            <img src="assets/icons/logos/full-logo.bold.svg">
+            <img src="/assets/icons/logos/full-logo.bold.svg" alt="logo">
         </a>
         <script>
             if(sessionStorage.isLoaded ){}
             else{
-                //sessionStorage.isLoaded = JSON.stringify(true);
+                sessionStorage.isLoaded = JSON.stringify(true);
                 document.querySelector('.header__logo').style.animation = 'start-logo 2.5s ease';
                 document.querySelector('.logo-anim-background').style.animation = 'start-logo-background 3s ease';
             }
@@ -44,19 +44,19 @@
     <aside class="aside">
         <div class="aside__inner">
             <div class="aside-item">
-                <img class="aside-item__icon" src="assets/icons/location30.svg">
+                <img class="aside-item__icon" src="/assets/icons/location.svg">
             </div>
             <div class="aside-item">
-                <img class="aside-item__icon" src="assets/icons/scalpel30.svg">
+                <img class="aside-item__icon" src="/assets/icons/scalpel.svg">
             </div>
             <div class="aside-item">
-                <img class="aside-item__icon" src="assets/icons/medical30.svg">
+                <img class="aside-item__icon" src="/assets/icons/medical.svg">
             </div>
             <div class="aside-item">
-                <img class="aside-item__icon" src="assets/icons/ruble30.svg">
+                <img class="aside-item__icon" src="/assets/icons/ruble.svg">
             </div>
             <div class="aside-item">
-                <img class="aside-item__icon" src="assets/icons/feedback30.svg">
+                <img class="aside-item__icon" src="/assets/icons/feedback.svg">
             </div>
         </div>
     </aside>
@@ -68,7 +68,7 @@
                     Центр коррекции гинекомастии
                 </span>
                 <div class="page__player">
-                    <img src="assets/icons/plus.svg">
+                    <img src="/assets/icons/plus.svg">
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
                     Центр коррекции гинекомастии
                 </span>
                 <div class="page__player">
-                    <img src="assets/icons/plus.svg">
+                    <img src="/assets/icons/plus.svg">
                 </div>
             </div>
         </div>
@@ -90,7 +90,7 @@
                     Центр коррекции гинекомастии
                 </span>
                 <div class="page__player">
-                    <img src="assets/icons/plus.svg">
+                    <img src="/assets/icons/plus.svg">
                 </div>
             </div>
         </div>
@@ -101,7 +101,7 @@
                     Центр коррекции гинекомастии
                 </span>
                 <div class="page__player">
-                    <img src="assets/icons/plus.svg">
+                    <img src="/assets/icons/plus.svg">
                 </div>
             </div>
         </div>
@@ -112,7 +112,7 @@
                     Центр коррекции гинекомастии
                 </span>
                 <div class="page__player">
-                    <img src="assets/icons/plus.svg">
+                    <img src="/assets/icons/plus.svg">
                 </div>
             </div>
         </div>
@@ -149,7 +149,7 @@
     </div>
     <div class="menu__items">
         <a href="" class="menu-item">
-            <img src="assets/images/kotik.jpg" alt="" class="menu-item__image">
+            <img src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
             <svg class="menu-item__icon" width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.1562 19.4934V22.4076C11.1562 22.7935 10.9342 23.145 10.5856 23.3107L3.35331 26.7488C1.61048 27.5773 0.5 29.3348 0.5 31.2646V34.6908M19.875 19.4934V22.3844C19.875 22.7822 20.1108 23.1422 20.4755 23.3011L28.4974 26.7968C30.3209 27.5915 31.5 29.3914 31.5 31.3805V38.25C31.5 38.8023 31.0523 39.25 30.5 39.25H1.5C0.947716 39.25 0.5 38.8023 0.5 38.25V37.2237" stroke="white" stroke-linecap="round"/>
                 <path d="M7.5 24.5592C13.6883 29.3059 17.1897 29.3328 23.5 24.5592" stroke="white"/>
@@ -169,7 +169,7 @@
             <div class="menu-item__title">Центр</div>
         </a>
         <a href="" class="menu-item">
-            <img src="assets/images/kotik.jpg" alt="" class="menu-item__image">
+            <img src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
             <svg class="menu-item__icon" width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.1562 19.4934V22.4076C11.1562 22.7935 10.9342 23.145 10.5856 23.3107L3.35331 26.7488C1.61048 27.5773 0.5 29.3348 0.5 31.2646V34.6908M19.875 19.4934V22.3844C19.875 22.7822 20.1108 23.1422 20.4755 23.3011L28.4974 26.7968C30.3209 27.5915 31.5 29.3914 31.5 31.3805V38.25C31.5 38.8023 31.0523 39.25 30.5 39.25H1.5C0.947716 39.25 0.5 38.8023 0.5 38.25V37.2237" stroke="white" stroke-linecap="round"/>
                 <path d="M7.5 24.5592C13.6883 29.3059 17.1897 29.3328 23.5 24.5592" stroke="white"/>
@@ -189,7 +189,7 @@
             <div class="menu-item__title">Коррекции</div>
         </a>
         <a href="" class="menu-item">
-            <img src="assets/images/kotik.jpg" alt="" class="menu-item__image">
+            <img src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
             <svg class="menu-item__icon" width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.1562 19.4934V22.4076C11.1562 22.7935 10.9342 23.145 10.5856 23.3107L3.35331 26.7488C1.61048 27.5773 0.5 29.3348 0.5 31.2646V34.6908M19.875 19.4934V22.3844C19.875 22.7822 20.1108 23.1422 20.4755 23.3011L28.4974 26.7968C30.3209 27.5915 31.5 29.3914 31.5 31.3805V38.25C31.5 38.8023 31.0523 39.25 30.5 39.25H1.5C0.947716 39.25 0.5 38.8023 0.5 38.25V37.2237" stroke="white" stroke-linecap="round"/>
                 <path d="M7.5 24.5592C13.6883 29.3059 17.1897 29.3328 23.5 24.5592" stroke="white"/>
@@ -209,7 +209,7 @@
             <div class="menu-item__title">Гинекомастии</div>
         </a>
         <a href="" class="menu-item">
-            <img src="assets/images/kotik.jpg" alt="" class="menu-item__image">
+            <img src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
             <svg class="menu-item__icon" width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.1562 19.4934V22.4076C11.1562 22.7935 10.9342 23.145 10.5856 23.3107L3.35331 26.7488C1.61048 27.5773 0.5 29.3348 0.5 31.2646V34.6908M19.875 19.4934V22.3844C19.875 22.7822 20.1108 23.1422 20.4755 23.3011L28.4974 26.7968C30.3209 27.5915 31.5 29.3914 31.5 31.3805V38.25C31.5 38.8023 31.0523 39.25 30.5 39.25H1.5C0.947716 39.25 0.5 38.8023 0.5 38.25V37.2237" stroke="white" stroke-linecap="round"/>
                 <path d="M7.5 24.5592C13.6883 29.3059 17.1897 29.3328 23.5 24.5592" stroke="white"/>
@@ -229,7 +229,7 @@
             <div class="menu-item__title"></div>
         </a>
         <a href="" class="menu-item">
-            <img src="assets/images/kotik.jpg" alt="" class="menu-item__image">
+            <img src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
             <svg class="menu-item__icon" width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.1562 19.4934V22.4076C11.1562 22.7935 10.9342 23.145 10.5856 23.3107L3.35331 26.7488C1.61048 27.5773 0.5 29.3348 0.5 31.2646V34.6908M19.875 19.4934V22.3844C19.875 22.7822 20.1108 23.1422 20.4755 23.3011L28.4974 26.7968C30.3209 27.5915 31.5 29.3914 31.5 31.3805V38.25C31.5 38.8023 31.0523 39.25 30.5 39.25H1.5C0.947716 39.25 0.5 38.8023 0.5 38.25V37.2237" stroke="white" stroke-linecap="round"/>
                 <path d="M7.5 24.5592C13.6883 29.3059 17.1897 29.3328 23.5 24.5592" stroke="white"/>
@@ -249,7 +249,7 @@
             <div class="menu-item__title"></div>
         </a>
         <a href="" class="menu-item">
-            <img src="assets/images/kotik.jpg" alt="" class="menu-item__image">
+            <img src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
             <svg class="menu-item__icon" width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.1562 19.4934V22.4076C11.1562 22.7935 10.9342 23.145 10.5856 23.3107L3.35331 26.7488C1.61048 27.5773 0.5 29.3348 0.5 31.2646V34.6908M19.875 19.4934V22.3844C19.875 22.7822 20.1108 23.1422 20.4755 23.3011L28.4974 26.7968C30.3209 27.5915 31.5 29.3914 31.5 31.3805V38.25C31.5 38.8023 31.0523 39.25 30.5 39.25H1.5C0.947716 39.25 0.5 38.8023 0.5 38.25V37.2237" stroke="white" stroke-linecap="round"/>
                 <path d="M7.5 24.5592C13.6883 29.3059 17.1897 29.3328 23.5 24.5592" stroke="white"/>
@@ -269,7 +269,7 @@
             <div class="menu-item__title"></div>
         </a>
         <a href="" class="menu-item">
-            <img src="assets/images/kotik.jpg" alt="" class="menu-item__image">
+            <img src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
             <svg class="menu-item__icon" width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.1562 19.4934V22.4076C11.1562 22.7935 10.9342 23.145 10.5856 23.3107L3.35331 26.7488C1.61048 27.5773 0.5 29.3348 0.5 31.2646V34.6908M19.875 19.4934V22.3844C19.875 22.7822 20.1108 23.1422 20.4755 23.3011L28.4974 26.7968C30.3209 27.5915 31.5 29.3914 31.5 31.3805V38.25C31.5 38.8023 31.0523 39.25 30.5 39.25H1.5C0.947716 39.25 0.5 38.8023 0.5 38.25V37.2237" stroke="white" stroke-linecap="round"/>
                 <path d="M7.5 24.5592C13.6883 29.3059 17.1897 29.3328 23.5 24.5592" stroke="white"/>
@@ -290,7 +290,7 @@
         </a>
     </div>
 </div>
-<script src="assets/js/menu.js"></script>
-<script src="assets/js/pages.js"></script>
+<script src="/assets/js/menu.js"></script>
+<script src="/assets/js/pages.js"></script>
 </body>
 </html>
