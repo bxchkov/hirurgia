@@ -138,13 +138,14 @@ a,a:visited{
 }
 .body{
   perspective: 1700px;
-  &.menu-open &-menu{
+  &.right-open &-right{
     left: calc(100% - 840px);
   }
-  &.menu-open &-content{
+  &.right-open &-left{
     transform: rotateY(40deg) scaleY(.8);
+    pointer-events: none;
   }
-  &-menu{
+  &-right{
     position: fixed;
     left: 100%;
     top: 0;
@@ -153,7 +154,7 @@ a,a:visited{
     height: 100vh;
     background-color: #424141;
   }
-  &-content{
+  &-left{
     position: relative;
     transform: translate3d(0,0,0);
     transform-origin: 0 50% 0;
@@ -166,6 +167,7 @@ a,a:visited{
   color: white;
   display: flex;
   flex-direction: column;
+  height: 100%;
   &__header{
     display: flex;
     height: 80px;

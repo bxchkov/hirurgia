@@ -8,6 +8,7 @@ function setActivePage(index){
         item.classList.remove('active');
     })
     pages[((index % pages.length) + pages.length) % pages.length].classList.add('active');
+    pages[((index % pages.length) + pages.length) % pages.length].classList.add('is-loaded');
     let main = document.querySelector('.main');
     main.style.top = '-'+(((index % pages.length) + pages.length) % pages.length)*100+'vh';
     let asideItems = document.querySelectorAll('.aside-item');

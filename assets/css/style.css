@@ -88,13 +88,14 @@ a, a:visited {
 .body {
   perspective: 1700px;
 }
-.body.menu-open .body-menu {
+.body.right-open .body-right {
   left: calc(100% - 840px);
 }
-.body.menu-open .body-content {
+.body.right-open .body-left {
   transform: rotateY(40deg) scaleY(0.8);
+  pointer-events: none;
 }
-.body-menu {
+.body-right {
   position: fixed;
   left: 100%;
   top: 0;
@@ -103,7 +104,7 @@ a, a:visited {
   height: 100vh;
   background-color: #424141;
 }
-.body-content {
+.body-left {
   position: relative;
   transform: translate3d(0, 0, 0);
   transform-origin: 0 50% 0;
@@ -116,6 +117,7 @@ a, a:visited {
   color: white;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 .menu__header {
   display: flex;
