@@ -6,7 +6,7 @@
  * to Data Base as static templates
  */
 define("MODX_API_MODE",true);
-require_once dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/index.php';
+require_once dirname(__FILE__, 5) . '/index.php';
 
 
 /** @var $modx gitModx  */
@@ -15,7 +15,7 @@ $modx->setLogLevel(MODX_LOG_LEVEL_INFO);
 
 $firstTemplate = $modx->getObject('modTemplate',1);
 
-$files = glob(dirname(dirname(__FILE__)).'/elements/templates/*.tpl');
+$files = glob(dirname(__FILE__, 2) .'/elements/templates/*.tpl');
 $indexWasSaved = false;
 foreach($files as $file)
 {

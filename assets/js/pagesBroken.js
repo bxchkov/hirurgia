@@ -1,12 +1,22 @@
+let pages = document.querySelectorAll('.page');
+let pageActive = document.querySelector('.page.active');
+let pagePrev = document.querySelector('.page.prev');
+let pageNext = document.querySelector('.page.next');
+let onAnimation = false;
 setActivePage(0);
 function setActivePage(index){
+    if(onAnimation)
+        return;
     let pages = document.querySelectorAll('.page');
     pages.forEach(item=>{
         item.classList.remove('active');
+        item.classList.remove('next');
+        item.classList.remove('prev');
     })
     pages[((index % pages.length) + pages.length) % pages.length].classList.add('active');
-    let main = document.querySelector('.main');
-    main.style.top = '-'+(((index % pages.length) + pages.length) % pages.length)*100+'vh';
+    pages[(((index-1) % pages.length) + pages.length) % pages.length].classList.add('prev');
+    pages[(((index+1) % pages.length) + pages.length) % pages.length].classList.add('next');
+
     let asideItems = document.querySelectorAll('.aside-item');
     asideItems.forEach(item=>{
         item.classList.remove('active');
@@ -16,6 +26,10 @@ function setActivePage(index){
     asideItems[((index % pages.length) + pages.length) % pages.length].classList.add('active');
     asideItems[(((index-1) % pages.length) + pages.length) % pages.length].classList.add('prev');
     asideItems[(((index+1) % pages.length) + pages.length) % pages.length].classList.add('next');
+    onAnimation = true;
+    setTimeout(()=>{
+        onAnimation = false;
+    },500)
 }
 function getElementIndex(element){
     var nodes = Array.prototype.slice.call(element.parentNode.children);

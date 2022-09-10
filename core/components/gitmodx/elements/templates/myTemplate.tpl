@@ -15,8 +15,6 @@
         <div class="logo-anim-background"></div>
         <a class="logo header__logo">
             <img src="assets/icons/logos/full-logo.bold.svg">
-            <!--            <div class="logo__name">Гинекомастик</div>-->
-            <!--            <div class="logo__full-name">Центр коррекции гинекомастии</div>-->
         </a>
         <script>
             if(sessionStorage.isLoaded ){}
@@ -45,10 +43,10 @@
     </header>
     <aside class="aside">
         <div class="aside__inner">
-            <div class="aside-item active">
+            <div class="aside-item">
                 <img class="aside-item__icon" src="assets/icons/location30.svg">
             </div>
-            <div class="aside-item next">
+            <div class="aside-item">
                 <img class="aside-item__icon" src="assets/icons/scalpel30.svg">
             </div>
             <div class="aside-item">
@@ -57,14 +55,13 @@
             <div class="aside-item">
                 <img class="aside-item__icon" src="assets/icons/ruble30.svg">
             </div>
-            <div class="aside-item prev">
+            <div class="aside-item">
                 <img class="aside-item__icon" src="assets/icons/feedback30.svg">
             </div>
         </div>
     </aside>
     <main class="main">
-        <div class="page active">
-            <input type="text" value="" data-value="1" name="page" hidden>
+        <div class="page">
             <div class="page__preview">
                 ГИНЕКОМАСТИК1<br>
                 <span>
@@ -75,8 +72,7 @@
                 </div>
             </div>
         </div>
-        <div class="page next">
-            <input type="text" value="" data-value="2" name="page" hidden>
+        <div class="page">
             <div class="page__preview">
                 ГИНЕКОМАСТИК2<br>
                 <span>
@@ -88,7 +84,6 @@
             </div>
         </div>
         <div class="page">
-            <input type="text" value="" data-value="3" name="page" hidden>
             <div class="page__preview">
                 ГИНЕКОМАСТИК3<br>
                 <span>
@@ -100,7 +95,6 @@
             </div>
         </div>
         <div class="page">
-            <input type="text" value="" data-value="4" name="page" hidden>
             <div class="page__preview">
                 ГИНЕКОМАСТИК4<br>
                 <span>
@@ -111,10 +105,9 @@
                 </div>
             </div>
         </div>
-        <div class="page prev">
-            <input type="text" value="" data-value="5" name="page" hidden>
+        <div class="page">
             <div class="page__preview">
-                ГИНЕКОМАСТИК1<br>
+                ГИНЕКОМАСТИК5<br>
                 <span>
                     Центр коррекции гинекомастии
                 </span>

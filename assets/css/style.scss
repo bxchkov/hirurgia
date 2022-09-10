@@ -309,11 +309,6 @@ a,a:visited{
     z-index: 100;
   }
 }
-.main{
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-}
 .aside{
   display: flex;
   align-items: center;
@@ -371,34 +366,22 @@ a,a:visited{
     width: 25px;
   }
 }
+.main{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 000vh;
+  left: 0;
+  transition: top .5s ease;
+}
 .page{
-  top: 10vh;
   width: 100vw;
   height: 100vh;
   background: #cbc4c0;
-  display: none;
-  position: absolute;
-  transition: top 0.3s ease;
+  display: flex;
   align-items: center;
   justify-content: center;
-  &:nth-child(2n){
-
-  }
-  &:nth-child(3n){
-
-  }
-  &.prev,&.active,&.next{
-    display: flex;
-  }
-  &.prev{
-    top: -100vh;
-  }
-  &.active{
-    top: 0;
-  }
-  &.next{
-    top: 100vh;
-  }
   &__preview{
     position: relative;
     display: flex;
@@ -443,53 +426,57 @@ a,a:visited{
 }
 
 @font-face {
-  font-family: Dopis;
+  font-family: "Dopis";
+  font-weight: 900;
+  font-style: normal;
+  src: url("/assets/fonts/Dopis/Dopis-Black.ttf") format("truetype");
 }
 @font-face {
-  font-family: "DopisBlack";
-  font-weight: normal;
+  font-family: "Dopis";
+  font-weight: 700;
   font-style: normal;
-  src: url("assets/fonts/Dopis/Dopis-Black.ttf") format("truetype");
+  src: url("/assets/fonts/Dopis/Dopis-bold.ttf") format("truetype");
 }
 @font-face {
-  font-family: "DopisBold";
-  font-weight: normal;
+  font-family: "Dopis";
+  font-weight: 200;
   font-style: normal;
-  src: url("assets/fonts/Dopis/Dopis-bold.ttf") format("truetype");
+  src: url("/assets/fonts/Dopis/Dopis-Light.ttf") format("truetype");
 }
 @font-face {
-  font-family: "DopisLight";
-  font-weight: normal;
+  font-family: "Dopis";
+  font-weight: 400;
   font-style: normal;
-  src: url("assets/fonts/Dopis/Dopis-Light.ttf") format("truetype");
+  src: url("/assets/fonts/Dopis/Dopis-Regular.ttf") format("truetype");
 }
 @font-face {
-  font-family: "DopisRegular";
-  font-weight: normal;
-  font-style: normal;
-  src: url("assets/fonts/Dopis/Dopis-Regular.ttf") format("truetype");
+  font-family: "Dopis";
+  font-weight: 900;
+  font-style: italic;
+  src: url("/assets/fonts/Dopis/Dopis-BlackCondensed.ttf") format("truetype");
 }
 @font-face {
-  font-family: "DopisBlackCondensed";
-  font-weight: normal;
-  font-style: normal;
-  src: url("assets/fonts/Dopis/Dopis-BlackCondensed.ttf") format("truetype");
+  font-family: "Dopis";
+  font-weight: 700;
+  font-style: italic;
+  src: url("/assets/fonts/Dopis/Dopis-BoldCondensed.ttf") format("truetype");
 }
 @font-face {
-  font-family: "DopisBoldCondensed";
-  font-weight: normal;
-  font-style: normal;
-  src: url("assets/fonts/Dopis/Dopis-BoldCondensed.ttf") format("truetype");
+  font-family: "Dopis";
+  font-weight: 200;
+  font-style: italic;
+  src: url("/assets/fonts/Dopis/Dopis-LightCondensed.ttf") format("truetype");
 }
 @font-face {
-  font-family: "DopisLightCondensed";
-  font-weight: normal;
-  font-style: normal;
-  src: url("assets/fonts/Dopis/Dopis-LightCondensed.ttf") format("truetype");
+  font-family: "Dopis";
+  font-weight: 400;
+  font-style: italic;
+  src: url("/assets/fonts/Dopis/Dopis-RegularCondensed.ttf") format("truetype");
 }
+/*Meta-Serif-Pro*/
 @font-face {
-  font-family: "DopisRegularCondensed";
-  font-weight: normal;
+  font-family: "Meta-Serif-Pro";
+  font-weight: 900;
   font-style: normal;
-  src: url("assets/fonts/Dopis/Dopis-RegularCondensed.ttf") format("truetype");
+  src: url("/assets/fonts/MetaSerifPro-Black/MetaSerifPro-Black.ttf") format("truetype");
 }
