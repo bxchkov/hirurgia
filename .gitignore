@@ -1,3 +1,5 @@
 core/cache/*
 core/config/config.inc.php
 .idea
+*.css.map
+assets/css/**/*.css
