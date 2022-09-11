@@ -368,12 +368,12 @@ $duration-page-scroll: .6s;
     border-radius: 100%;
     left: 0;
   }
-  &:hover &__wrapper{
+  &:hover &__wrapper,&.active &__wrapper{
     width: $player-circle-diameter-on-open;
     height: $player-circle-diameter-on-open;
     left: calc((-#{$player-circle-diameter-on-open} + #{$player-circle-diameter-default}) / 2);
   }
-  &:hover &__wrapper &__inner{
+  &:hover &__wrapper &__inner,&.active &__wrapper &__inner{
     opacity: 1;
     transition: opacity .3s ease;
   }
