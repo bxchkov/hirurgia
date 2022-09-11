@@ -78,7 +78,12 @@
                     <span>Центр коррекции гинекомастии</span>
                 </div>
                 <div class="page-player" js-right-action="open" js-right-target=".page-content">
-                    <img class="page-player__arrow" src="/assets/icons/video-arrow.svg">
+                    <div class="page-player__wrapper">
+                        <img class="page-player__arrow" src="/assets/icons/video-arrow.svg">
+                        <div class="page-player__inner">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -530,5 +535,6 @@
 </div>
 <script src="/assets/js/menu.js"></script>
 <script src="/assets/js/pages.js"></script>
+<script src="/assets/js/player.js"></script>
 </body>
 </html>

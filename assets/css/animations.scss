@@ -59,14 +59,34 @@
     stroke-dasharray: 313.644, 313.644;
   }
 }
-@keyframes player-button {
-  0%{
-    position: absolute;
-    width: 110px;
-    height: 110px;
-    right: -55px;
+@keyframes player-button-in {
+  5%{
+    background-color: #424242;
   }
   100%{
-
+    background-color: #424242;
+    width: $player-circle-diameter-on-open;
+    height: $player-circle-diameter-on-open;
+    right: calc(-#{$player-circle-diameter-on-open} / 2);
+  }
+}
+@keyframes player-button-out {
+  0%{
+  }
+  100%{
+    width: $player-circle-diameter-default;
+    height: $player-circle-diameter-default;
+    right: calc (-$player-circle-diameter-default / 2);
+  }
+}
+@keyframes player-background {
+  0%{
+    opacity: 0;
+  }
+  1%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 1;
   }
 }

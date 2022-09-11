@@ -314,8 +314,8 @@ $duration-page-scroll: .6s;
   justify-content: center;
   &__loader{
     position: absolute;
-    width: 785px;
-    height: 785px;
+    width: $preview-circle-diameter;
+    height: $preview-circle-diameter;
     stroke-dashoffset: 0;
     stroke-dasharray: 0, 313.644;
   }
@@ -343,9 +343,6 @@ $duration-page-scroll: .6s;
   }
 }
 .page-player{
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   right: calc(-#{$player-circle-diameter-default} / 2);
   background-color: rgba(255, 0, 0, 0.8);
@@ -354,17 +351,51 @@ $duration-page-scroll: .6s;
   height: $player-circle-diameter-default;
   border-radius: 100%;
   cursor: pointer;
-  transition: background-color .3s ease,width 5s ease,height 5s ease,right 5s ease;
-  &:hover{
-    background-color: #424242;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  $cubic-bezier:cubic-bezier(0.5, 0, 0.04, 1);
+  $duration-increase:3s;
+  &__wrapper{
+    position: absolute;
+    transition: background-color .3s ease,width $duration-increase $cubic-bezier,height $duration-increase $cubic-bezier,left $duration-increase $cubic-bezier;
+    pointer-events: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: $player-circle-diameter-default;
+    height: $player-circle-diameter-default;
+    border-radius: 100%;
+    left: 0;
+  }
+  &:hover &__wrapper{
     width: $player-circle-diameter-on-open;
     height: $player-circle-diameter-on-open;
-    right: calc(-#{$player-circle-diameter-on-open} / 2);
+    left: calc((-#{$player-circle-diameter-on-open} + #{$player-circle-diameter-default}) / 2);
+  }
+  &:hover &__wrapper &__inner{
+    opacity: 1;
+    transition: opacity .3s ease;
   }
   &__arrow{
     padding-left: 5px;
     width: 33px;
     height: 33px;
+    position: absolute;
+    left: calc((100% - 33px) / 2);
+    z-index: 10;
+  }
+  &__inner{
+    opacity: 0;
+    background-color: #424242;
+    transition: opacity 3s ease;
+
+    position: absolute;
+    left: calc(-#{$player-circle-diameter-on-open} / 2 + 50%);
+    top: calc(-50vh + 50%);
+    width: calc($player-circle-diameter-on-open / 2 + (50vw - ($preview-circle-diameter / 2) + ($player-circle-diameter-default / 2)));
+    height: 100vh;
+    z-index: 9;
   }
 }
 .preview{
