@@ -22,6 +22,8 @@
                 //sessionStorage.isLoaded = JSON.stringify(true);
                 document.querySelector('.header__logo').style.animation = 'start-logo 2.5s ease';
                 document.querySelector('.logo-anim-background').style.animation = 'start-logo-background 3s ease';
+                document.querySelector('.page.is-loaded').classList.remove('is-loaded');
+
             }
         </script>
         <a href="tel:79222522232" class="header__tel">
@@ -62,6 +64,13 @@
     </aside>
     <main class="main">
         <div class="page">
+            <svg class="page__loader" viewBox="0 0 100 100">
+                <path d="M 50,50 m 0,-49.9 a 49.9,49.9 0 1 1 0,99.8 a 49.9,49.9 0 1 1 0,-99.8" stroke="transparent"
+                      stroke-width="0.2" fill-opacity="0"></path>
+                <path d="M 50,50 m 0,-49.9 a 49.9,49.9 0 1 1 0,99.8 a 49.9,49.9 0 1 1 0,-99.8"
+                      stroke="rgba(255, 255, 255, .5)" stroke-width="0.2" fill-opacity="0"
+                      ></path>
+            </svg>
             <div class="page__preview">
                 ГИНЕКОМАСТИК1<br>
                 <span>
@@ -73,6 +82,13 @@
             </div>
         </div>
         <div class="page">
+            <svg class="page__loader" viewBox="0 0 100 100">
+                <path d="M 50,50 m 0,-49.9 a 49.9,49.9 0 1 1 0,99.8 a 49.9,49.9 0 1 1 0,-99.8" stroke="transparent"
+                      stroke-width="0.2" fill-opacity="0"></path>
+                <path d="M 50,50 m 0,-49.9 a 49.9,49.9 0 1 1 0,99.8 a 49.9,49.9 0 1 1 0,-99.8"
+                      stroke="rgba(255, 255, 255, .5)" stroke-width="0.2" fill-opacity="0"
+                      ></path>
+            </svg>
             <div class="page__preview">
                 ГИНЕКОМАСТИК2<br>
                 <span>
@@ -84,6 +100,13 @@
             </div>
         </div>
         <div class="page">
+            <svg class="page__loader" viewBox="0 0 100 100">
+                <path d="M 50,50 m 0,-49.9 a 49.9,49.9 0 1 1 0,99.8 a 49.9,49.9 0 1 1 0,-99.8" stroke="transparent"
+                      stroke-width="0.2" fill-opacity="0"></path>
+                <path d="M 50,50 m 0,-49.9 a 49.9,49.9 0 1 1 0,99.8 a 49.9,49.9 0 1 1 0,-99.8"
+                      stroke="rgba(255, 255, 255, .5)" stroke-width="0.2" fill-opacity="0"
+                      ></path>
+            </svg>
             <div class="page__preview">
                 ГИНЕКОМАСТИК3<br>
                 <span>
@@ -95,6 +118,13 @@
             </div>
         </div>
         <div class="page">
+            <svg class="page__loader" viewBox="0 0 100 100">
+                <path d="M 50,50 m 0,-49.9 a 49.9,49.9 0 1 1 0,99.8 a 49.9,49.9 0 1 1 0,-99.8" stroke="transparent"
+                      stroke-width="0.2" fill-opacity="0"></path>
+                <path d="M 50,50 m 0,-49.9 a 49.9,49.9 0 1 1 0,99.8 a 49.9,49.9 0 1 1 0,-99.8"
+                      stroke="rgba(255, 255, 255, .5)" stroke-width="0.2" fill-opacity="0"
+                      ></path>
+            </svg>
             <div class="page__preview">
                 ГИНЕКОМАСТИК4<br>
                 <span>
@@ -106,6 +136,13 @@
             </div>
         </div>
         <div class="page">
+            <svg class="page__loader" viewBox="0 0 100 100">
+                <path d="M 50,50 m 0,-49.9 a 49.9,49.9 0 1 1 0,99.8 a 49.9,49.9 0 1 1 0,-99.8" stroke="transparent"
+                      stroke-width="0.2" fill-opacity="0"></path>
+                <path d="M 50,50 m 0,-49.9 a 49.9,49.9 0 1 1 0,99.8 a 49.9,49.9 0 1 1 0,-99.8"
+                      stroke="rgba(255, 255, 255, .5)" stroke-width="0.2" fill-opacity="0"
+                      ></path>
+            </svg>
             <div class="page__preview">
                 ГИНЕКОМАСТИК5<br>
                 <span>
@@ -118,7 +155,77 @@
         </div>
     </main>
     <footer class="footer">
+        <div class="footer__info">
+            <span>О нас</span>
+            <span>Контакты</span>
+            <span>Наш сайт</span>
+            <span>Карта сайта</span>
+        </div>
+        <div class="footer__contacts">
+            <svg class="contacts__svg" xmlns="http://www.w3.org/2000/svg"
+                 width="17" height="16" viewBox="0 0 17 16">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill-rule: evenodd;
+                        }
+                    </style>
+                </defs>
+                <path id="White" class="cls-1" d="M15.241,0.989H2.767a0.773,0.773,0,0,0-.773.774V14.238a0.773,0.773,0,0,0,.773.774H9.483V9.575H7.648V7.466H9.483V5.9A2.545,2.545,0,0,1,12.2,3.112a15.528,15.528,0,0,1,1.633.078V5.084h-1.12a0.874,0.874,0,0,0-1.043,1.03V7.466h2.089L13.49,9.575H11.674v5.436h3.567a0.773,0.773,0,0,0,.773-0.774V1.763A0.773,0.773,0,0,0,15.241.989Z"/>
+            </svg>
+            <svg class="contacts__svg" xmlns="http://www.w3.org/2000/svg"
+                 width="17" height="16" viewBox="0 0 17 16">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill-rule: evenodd;
+                        }
+                    </style>
+                </defs>
+                <path id="white_logo" class="cls-1" d="M17.315,2.892a6.454,6.454,0,0,1-1.854.508A3.237,3.237,0,0,0,16.88,1.615a6.464,6.464,0,0,1-2.05.783,3.231,3.231,0,0,0-5.5,2.944A9.165,9.165,0,0,1,2.676,1.969a3.231,3.231,0,0,0,1,4.31,3.216,3.216,0,0,1-1.462-.4c0,0.014,0,.027,0,0.041A3.23,3.23,0,0,0,4.8,9.081a3.234,3.234,0,0,1-1.458.055A3.231,3.231,0,0,0,6.36,11.378,6.478,6.478,0,0,1,2.351,12.76a6.589,6.589,0,0,1-.77-0.045,9.138,9.138,0,0,0,4.948,1.45,9.122,9.122,0,0,0,9.184-9.184q0-.21-0.009-0.418A6.561,6.561,0,0,0,17.315,2.892Z"/>
+            </svg>
+            <svg class="contacts__svg" fill="white" xmlns="http://www.w3.org/2000/svg"
+                 width="15" height="15" viewBox="0 0 17 17">
+                <path d="M8.383,13.361h1a0.842,0.842,0,0,0,.454-0.2,0.729,0.729,0,0,0,.137-0.437s-0.019-1.35.6-1.547,1.4,1.291,2.228,1.862a1.507,1.507,0,0,0,1.107.321l2.224,0s1.163-.088.612-1a7.437,7.437,0,0,0-1.654-1.913c-1.395-1.294-1.208-1.085.472-3.324,1.023-1.364,1.432-2.2,1.3-2.553a1,1,0,0,0-.869-0.281h-2.51a0.605,0.605,0,0,0-.323.064,0.706,0.706,0,0,0-.221.289,14.171,14.171,0,0,1-.925,1.972C10.9,8.507,10.455,8.608,10.272,8.49,9.848,8.216,9.954,7.389,9.954,6.8c0-1.835.278-2.6-.542-2.8a4.29,4.29,0,0,0-1.169-.116A5.4,5.4,0,0,0,6.165,4.1c-0.285.14-.5,0.45-0.371,0.468a1.125,1.125,0,0,1,.739.372,2.417,2.417,0,0,1,.248,1.133S6.929,8.233,6.437,8.5c-0.337.184-.8-0.192-1.795-1.91a15.517,15.517,0,0,1-.894-1.871,0.742,0.742,0,0,0-.206-0.279,1.035,1.035,0,0,0-.385-0.155H0.778a0.811,0.811,0,0,0-.488.165,0.519,0.519,0,0,0-.009.424s1.863,4.392,3.972,6.588A5.768,5.768,0,0,0,8.383,13.361Z"/>
+            </svg>
+            <div class="contacts-more">
+                <div class="contacts-more__inner">
+                    <svg class="contacts__svg" xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 15.971 11.194">
+                        <path class="cls-1"
+                              d="M16.387,5.492a5.615,5.615,0,0,0-.343-1.67A1.9,1.9,0,0,0,14.86,2.709,4.211,4.211,0,0,0,13.6,2.53c-1.383-.07-2.768-0.106-4.151-0.122-1.8-.019-3.592.019-5.386,0.093a10.4,10.4,0,0,0-1.581.122,1.893,1.893,0,0,0-1.427,1,3.62,3.62,0,0,0-.282.782,10.744,10.744,0,0,0-.218,2.1,31.534,31.534,0,0,0,.058,3.969,5.366,5.366,0,0,0,.414,1.866,1.679,1.679,0,0,0,.76.8,3.743,3.743,0,0,0,1.613.353c1.707,0.093,3.416.115,5.126,0.106,0.683,0,1.37.006,2.053,0,1.164-.016,2.329-0.058,3.49-0.135A2.113,2.113,0,0,0,16.2,11.735a8.108,8.108,0,0,0,.208-1.568A32.04,32.04,0,0,0,16.387,5.492Zm-4.9,2.283L6.838,10.314V5.229c1.549,0.85,3.083,1.686,4.645,2.542l0,0Z"
+                              transform="translate(-0.515 -2.403)"/>
+                    </svg>
+                    <svg class="contacts__svg" xmlns="http://www.w3.org/2000/svg"
+                         width="17" height="16" viewBox="0 0 17 16">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill-rule: evenodd;
+                                }
+                            </style>
+                        </defs>
+                        <path class="cls-1" d="M3.33,1.006h10.8a1.8,1.8,0,0,1,1.8,1.8V13.6a1.8,1.8,0,0,1-1.8,1.8H3.33a1.8,1.8,0,0,1-1.8-1.8V2.806A1.8,1.8,0,0,1,3.33,1.006ZM3.247,6.031H5.658v7.254H3.247V6.031Zm1.222-3.5A1.257,1.257,0,1,0,4.437,5.04H4.452a1.257,1.257,0,1,0,.016-2.507h0ZM11.577,5.86A2.4,2.4,0,0,0,9.4,7.058V6.031H6.993c0.032,0.68,0,7.254,0,7.254H9.4V9.234a1.647,1.647,0,0,1,.08-0.589,1.32,1.32,0,0,1,1.237-.882c0.872,0,1.222.665,1.222,1.64v3.881h2.411V9.125C14.353,6.9,13.163,5.86,11.577,5.86Z"/>
+                    </svg>
+                    <svg class="contacts__svg" xmlns="http://www.w3.org/2000/svg"
+                         width="17" height="16" viewBox="0 0 17 16">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill-rule: evenodd;
+                                }
+                            </style>
+                        </defs>
+                        <path id="Фигура_4" data-name="Фигура 4" class="cls-1" d="M8.992,8.254A4.122,4.122,0,1,0,4.87,4.133,4.126,4.126,0,0,0,8.992,8.254Zm0-5.828A1.706,1.706,0,1,1,7.285,4.133,1.709,1.709,0,0,1,8.992,2.426Zm1.668,9.191a7.72,7.72,0,0,0,2.394-.991A1.208,1.208,0,0,0,11.767,8.58a5.234,5.234,0,0,1-5.55,0A1.208,1.208,0,0,0,4.93,10.626a7.731,7.731,0,0,0,2.394.991l-2.3,2.3A1.208,1.208,0,0,0,6.728,15.63l2.264-2.265,2.266,2.265a1.207,1.207,0,0,0,1.707-1.708Z"/>
+                    </svg>
+                </div>
+                <span class="contacts-more__text">ещe</span>
+            </div>
 
+        </div>
+        <div class="footer__interaction">
+
+        </div>
     </footer>
 </div>
 <div class="body-right">
@@ -291,7 +398,6 @@
             </a>
         </div>
     </div>
-    .page-info
 </div>
 <script src="/assets/js/menu.js"></script>
 <script src="/assets/js/pages.js"></script>

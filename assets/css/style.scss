@@ -68,13 +68,6 @@ a,a:visited{
 }
 .logo{
   grid-area: logo;
-  display: grid;
-  //grid-template-rows: 60% 40%;
-  //grid-template-columns: 45px 10px auto;
-  //grid-template-areas:  "svg  .... name"
-  //                      "svg  .... fname";
-  flex-direction: row;
-  align-items: center;
   height: 50px;
   &__image{
     grid-area: svg;
@@ -104,14 +97,14 @@ a,a:visited{
   left: 0;
   color: white;
   width: 100%;
-  height: 60px;
+  height: 88px;
   display: grid;
   align-items: center;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 30px auto  1fr auto 30px auto 30px;
   grid-template-areas:  ".... logo  ... tel  .... menu ...."
                         ".... logo  ... tel  .... menu ....";
-  z-index: 100;
+  z-index: 10;
   &__tel{
     grid-area: tel;
     font-size: 15px;
@@ -122,25 +115,27 @@ a,a:visited{
     grid-area: menu;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 15px;
     font-family: Arial;
     font-weight: 450;
     cursor: pointer;
     user-select: none;
     span{
+      letter-spacing: 1.2px;
       @extend .link-hover;
     }
   }
-  &__logo{
+  &__logo {
     width: auto;
     height: 44px;
-    img{
+    img {
       height: 100%;
       width: auto;
       object-fit: contain;
     }
   }
 }
+
 .body{
   perspective: 1700px;
   &.right-open &-right{
@@ -283,7 +278,6 @@ a,a:visited{
   left: 0;
   pointer-events: none;
   z-index: 99;
-
 }
 @keyframes start-logo-background {
   0%{
@@ -320,7 +314,7 @@ a,a:visited{
     overflow: hidden;
     position: absolute;
     left:0;
-    top: 8px;
+    top: 22px;
     z-index: 100;
     max-width: 50px;
     height: 44px;
@@ -329,9 +323,18 @@ a,a:visited{
     overflow: hidden;
     position: absolute;
     left:0;
-    top: 8px;
+    top: 22px;
     z-index: 100;
     max-width: 300px;
+  }
+}
+//анимация создания svg круга page__preview
+@keyframes svg-circle {
+  0%{
+    stroke-dasharray: 0, 313.644;
+  }
+  100%{
+    stroke-dasharray: 313.644, 313.644;
   }
 }
 .aside{
@@ -342,7 +345,7 @@ a,a:visited{
   top: 0;
   height: 100vh;
   width: 40px;
-  z-index: 50;
+  z-index: 5;
   &__inner{
     display: grid;
     grid-auto-rows: 40px;
@@ -391,6 +394,7 @@ a,a:visited{
     width: 25px;
   }
 }
+$duration-page-scroll: .6s;
 .main{
   width: 100vw;
   display: flex;
@@ -398,7 +402,7 @@ a,a:visited{
   position: absolute;
   top: 000vh;
   left: 0;
-  transition: top .5s ease;
+  transition: top $duration-page-scroll ease;
 }
 .page{
   width: 100vw;
@@ -407,22 +411,38 @@ a,a:visited{
   display: flex;
   align-items: center;
   justify-content: center;
+  &__loader{
+    position: absolute;
+    width: 785px;
+    height: 785px;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 0, 313.644;
+  }
+  &.is-loaded &__loader{
+    stroke-dasharray: 313.644, 313.644;
+    animation: svg-circle .6s linear $duration-page-scroll 1;
+  }
   &__preview{
+    font-family: Arial;
+    line-height: 50px;
+    letter-spacing: 7px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 570px;
-    height: 570px;
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    width: 785px;
+    height: 785px;
     border-radius: 100%;
     color: white;
     font-size: 50px;
     font-weight: bold;
     span{
-      font-size: 20px;
-      font-weight: 450;
+      margin-top: 20px;
+      letter-spacing: normal;
+      font-size: 22px;
+      line-height: 27px;
+      font-weight: 400;
     }
   }
   &__player{
@@ -433,8 +453,8 @@ a,a:visited{
     right: -50px;
     background-color: rgba(255, 0, 0, 0.8);
     backdrop-filter: blur(2px);
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     border-radius: 100%;
     cursor: pointer;
     transition: background-color .3s ease;
@@ -447,7 +467,87 @@ a,a:visited{
       background-color: #424242;
     }
   }
-
+}
+.footer{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 55px 305px 52px 500px    1fr 73px        32px;
+  grid-template-areas:  ".... info  .... contacts ... interaction ....";
+  left: 0;
+  bottom: 35px;
+  position: fixed;
+  width: 100%;
+  height: 22px;
+  z-index: 10;
+  &__info{
+    grid-area: info;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 17px;
+    color: white;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 1px;
+    span{
+      height: 14px;
+      cursor: pointer;
+      @extend .link-hover;
+    }
+  }
+  &__contacts{
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    grid-area: contacts;
+    gap: 12px;
+    align-items: center;
+  }
+  &__interaction{
+    display: flex;
+    flex-direction: row;
+    grid-area: interaction;
+    gap: 29px;
+  }
+}
+.contacts{
+  &__svg{
+    width: 17px;
+    height: 16px;
+    fill: #e4e0df;
+    cursor: pointer;
+    transition: fill .3s ease;
+    &:hover{
+      fill: white;
+    }
+  }
+}
+.contacts-more{
+  display: flex;
+  cursor: pointer;
+  font-family: Arial;
+  letter-spacing: 1px;
+  font-size: 12px;
+  color: #e4e0df;
+  &__text{
+    transition: all .3s ease;
+    opacity: 1;
+    border-bottom: 1px #e4e0df dotted;
+  }
+  &:hover &__text{
+    opacity: 0;
+  }
+  &__inner{
+    max-width: 0;
+    overflow: hidden;
+    display: flex;
+    gap: 12px;
+    transition: all .3s ease;
+  }
+  &:hover &__inner{
+    max-width: 100px;
+  }
 }
 
 @font-face {
