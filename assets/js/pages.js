@@ -9,21 +9,25 @@ function setActivePage(index){
     index = getValueLoopRange(index,pages.length);
     if(prevIndex === undefined)
         prevIndex = index;
-    steps += nearestLength(prevIndex, index,pages.length);
-    console.log(nearestLength(prevIndex, index,pages.length),prevIndex,index);
-    prevIndex = index;
+    //pages
     pages.forEach(item=>{
         item.classList.remove('active');
         item.classList.remove('next');
         item.classList.remove('prev');
     });
+    let step = shortestWay(prevIndex, index,pages.length);
+    steps += step;
+    console.log("step:",step," steps:",steps)
+    for (let i = getValueLoopRange(prevIndex+Math.sign(step),pages.length);  getValueLoopRange(index + Math.sign(step),pages.length) !== getValueLoopRange(i,pages.length); i = i + Math.sign(step)){
+        pages[getValueLoopRange(i,pages.length)].style.transform = `translateY(${Math.floor(steps / pages.length)* 100 * pages.length}vh)`;
+    }
     let activePage = getElementByIndex(index,pages);
     activePage.classList.add('active');
     activePage.classList.add('is-loaded');
-    getElementByIndex(index+1,pages).classList.add('next');
-    getElementByIndex(index-1,pages).classList.add('prev');
+    //scroll main
     let main = document.querySelector('.main');
     main.style.top = -steps*100+'vh';
+    //aside
     let asideItems = document.querySelectorAll('.aside-item');
     asideItems.forEach(item=>{
         item.classList.remove('active');
@@ -33,6 +37,7 @@ function setActivePage(index){
     getElementByIndex(index,asideItems).classList.add('active');
     getElementByIndex(index-1,asideItems).classList.add('prev');
     getElementByIndex(index+1,asideItems).classList.add('next');
+    prevIndex = index;
     onAnimation = true;
     setTimeout(()=>{
         onAnimation = false;
@@ -51,7 +56,7 @@ function getElementIndex(element){
     let nodes = Array.prototype.slice.call(element.parentNode.children);
     return nodes.indexOf(element);
 }
-function nearestLength(from,to,range){
+function shortestWay(from,to,range){
     let positiveDirection, negativeDirection;
     if(to > from){
          positiveDirection = to - from;
