@@ -10,7 +10,6 @@ document.addEventListener('click',e=>{
     let action = btn.getAttribute('js-right-action');
     let targetSelector = btn.getAttribute('js-right-target');
     let target = document.querySelector('.body-right > ' + targetSelector);
-
     if(target === null && action === 'open')
         return
     switch (action){
