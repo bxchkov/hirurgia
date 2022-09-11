@@ -12,4 +12,14 @@ document.querySelectorAll('.page-player').forEach(item=>{
             }
         },3000)
     })
+    item.addEventListener('click',e=>{
+        e.target.classList.add('active');
+    })
+})
+document.addEventListener('click',e=>{
+    if(!e.target.closest('.page-player')){
+        document.querySelectorAll('.page-player').forEach(item=>{
+            item.classList.remove('active');
+        })
+    }
 })
