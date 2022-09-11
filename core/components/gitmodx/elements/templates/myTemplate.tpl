@@ -23,8 +23,7 @@
                 //sessionStorage.isLoaded = JSON.stringify(true);
                 document.querySelector('.header__logo').style.animation = 'start-logo 2.5s ease';
                 document.querySelector('.logo-anim-background').style.animation = 'start-logo-background 3s ease';
-                document.querySelector('.page.is-loaded').classList.remove('is-loaded');
-                window.scrollTo(0,0);
+                //document.querySelector('.page.is-loaded').classList.remove('is-loaded');
             }
             window.scrollTo(0,0);
         </script>
@@ -78,8 +77,8 @@
                     ГИНЕКОМАСТИК1<br>
                     <span>Центр коррекции гинекомастии</span>
                 </div>
-                <div class="page__player" js-right-action="open" js-right-target=".page-content">
-                    <img src="/assets/icons/video-arrow.svg">
+                <div class="page-player" js-right-action="open" js-right-target=".page-content">
+                    <img class="page-player__arrow" src="/assets/icons/video-arrow.svg">
                 </div>
             </div>
         </div>

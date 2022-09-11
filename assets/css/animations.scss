@@ -1,12 +1,15 @@
 @keyframes start-logo-background {
   0%{
     opacity: 1;
+    z-index: 99;
   }
   50%{
     opacity: 1;
+    z-index: 99;
   }
   100%{
     opacity: 0;
+    z-index: 99;
   }
 }
 //анимация движения логотипа на своё место с центра
@@ -54,5 +57,16 @@
   }
   100%{
     stroke-dasharray: 313.644, 313.644;
+  }
+}
+@keyframes player-button {
+  0%{
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    right: -55px;
+  }
+  100%{
+
   }
 }
