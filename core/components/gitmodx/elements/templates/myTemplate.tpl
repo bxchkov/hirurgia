@@ -96,7 +96,7 @@
                 <img class="aside-item__icon" src="/assets/icons/feedback.svg">
             </div>
             <div class="aside-item">
-                <img class="aside-item__icon" src="/assets/icons/feedback.svg">
+                <img class="aside-item__icon" src="/assets/icons/doctor.svg">
             </div>
         </div>
     </aside>
