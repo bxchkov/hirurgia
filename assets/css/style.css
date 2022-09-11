@@ -1,4 +1,59 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@font-face {
+  font-family: "Dopis";
+  font-weight: 900;
+  font-style: normal;
+  src: url("/assets/fonts/Dopis/Dopis-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dopis";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/assets/fonts/Dopis/Dopis-bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dopis";
+  font-weight: 200;
+  font-style: normal;
+  src: url("/assets/fonts/Dopis/Dopis-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dopis";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/assets/fonts/Dopis/Dopis-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dopis";
+  font-weight: 900;
+  font-style: italic;
+  src: url("/assets/fonts/Dopis/Dopis-BlackCondensed.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dopis";
+  font-weight: 700;
+  font-style: italic;
+  src: url("/assets/fonts/Dopis/Dopis-BoldCondensed.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dopis";
+  font-weight: 200;
+  font-style: italic;
+  src: url("/assets/fonts/Dopis/Dopis-LightCondensed.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dopis";
+  font-weight: 400;
+  font-style: italic;
+  src: url("/assets/fonts/Dopis/Dopis-RegularCondensed.ttf") format("truetype");
+}
+/*Meta-Serif-Pro*/
+@font-face {
+  font-family: "Meta-Serif-Pro";
+  font-weight: 900;
+  font-style: normal;
+  src: url("/assets/fonts/MetaSerifPro-Black/MetaSerifPro-Black.ttf") format("truetype");
+}
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -17,6 +72,62 @@ a, a:visited {
   cursor: pointer;
 }
 
+@keyframes start-logo-background {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes start-logo {
+  0% {
+    overflow: hidden;
+    position: fixed;
+    left: calc((100vw - 200px) / 2);
+    top: calc((100vh - 200px) / 2);
+    z-index: 100;
+    max-width: 200px;
+    height: 200px;
+  }
+  50% {
+    overflow: hidden;
+    position: fixed;
+    left: calc((100vw - 200px) / 2);
+    top: calc((100vh - 200px) / 2);
+    z-index: 100;
+    max-width: 200px;
+    height: 200px;
+  }
+  85% {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 22px;
+    z-index: 100;
+    max-width: 50px;
+    height: 44px;
+  }
+  100% {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 22px;
+    z-index: 100;
+    max-width: 300px;
+  }
+}
+@keyframes svg-circle {
+  0% {
+    stroke-dasharray: 0, 313.644;
+  }
+  100% {
+    stroke-dasharray: 313.644, 313.644;
+  }
+}
 .body {
   background: #ccc4c0;
   overflow: hidden;
@@ -234,62 +345,6 @@ a, a:visited {
   z-index: 99;
 }
 
-@keyframes start-logo-background {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes start-logo {
-  0% {
-    overflow: hidden;
-    position: fixed;
-    left: calc((100vw - 200px) / 2);
-    top: calc((100vh - 200px) / 2);
-    z-index: 100;
-    max-width: 200px;
-    height: 200px;
-  }
-  50% {
-    overflow: hidden;
-    position: fixed;
-    left: calc((100vw - 200px) / 2);
-    top: calc((100vh - 200px) / 2);
-    z-index: 100;
-    max-width: 200px;
-    height: 200px;
-  }
-  85% {
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    top: 22px;
-    z-index: 100;
-    max-width: 50px;
-    height: 44px;
-  }
-  100% {
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    top: 22px;
-    z-index: 100;
-    max-width: 300px;
-  }
-}
-@keyframes svg-circle {
-  0% {
-    stroke-dasharray: 0, 313.644;
-  }
-  100% {
-    stroke-dasharray: 313.644, 313.644;
-  }
-}
 .aside {
   display: flex;
   align-items: center;
@@ -503,62 +558,6 @@ a, a:visited {
 }
 .contacts-more:hover .contacts-more__inner {
   max-width: 100px;
-}
-
-@font-face {
-  font-family: "Dopis";
-  font-weight: 900;
-  font-style: normal;
-  src: url("/assets/fonts/Dopis/Dopis-Black.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Dopis";
-  font-weight: 700;
-  font-style: normal;
-  src: url("/assets/fonts/Dopis/Dopis-bold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Dopis";
-  font-weight: 200;
-  font-style: normal;
-  src: url("/assets/fonts/Dopis/Dopis-Light.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Dopis";
-  font-weight: 400;
-  font-style: normal;
-  src: url("/assets/fonts/Dopis/Dopis-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Dopis";
-  font-weight: 900;
-  font-style: italic;
-  src: url("/assets/fonts/Dopis/Dopis-BlackCondensed.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Dopis";
-  font-weight: 700;
-  font-style: italic;
-  src: url("/assets/fonts/Dopis/Dopis-BoldCondensed.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Dopis";
-  font-weight: 200;
-  font-style: italic;
-  src: url("/assets/fonts/Dopis/Dopis-LightCondensed.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Dopis";
-  font-weight: 400;
-  font-style: italic;
-  src: url("/assets/fonts/Dopis/Dopis-RegularCondensed.ttf") format("truetype");
-}
-/*Meta-Serif-Pro*/
-@font-face {
-  font-family: "Meta-Serif-Pro";
-  font-weight: 900;
-  font-style: normal;
-  src: url("/assets/fonts/MetaSerifPro-Black/MetaSerifPro-Black.ttf") format("truetype");
 }
 
 /*# sourceMappingURL=style.css.map */

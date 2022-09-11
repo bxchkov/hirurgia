@@ -17,7 +17,6 @@ function setActivePage(index){
     });
     let step = shortestWay(prevIndex, index,pages.length);
     steps += step;
-    console.log("step:",step," steps:",steps)
     for (let i = getValueLoopRange(prevIndex+Math.sign(step),pages.length);  getValueLoopRange(index + Math.sign(step),pages.length) !== getValueLoopRange(i,pages.length); i = i + Math.sign(step)){
         pages[getValueLoopRange(i,pages.length)].style.transform = `translateY(${Math.floor(steps / pages.length)* 100 * pages.length}vh)`;
     }
