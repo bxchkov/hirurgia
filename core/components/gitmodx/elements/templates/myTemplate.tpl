@@ -24,8 +24,9 @@
                 document.querySelector('.header__logo').style.animation = 'start-logo 2.5s ease';
                 document.querySelector('.logo-anim-background').style.animation = 'start-logo-background 3s ease';
                 document.querySelector('.page.is-loaded').classList.remove('is-loaded');
-
+                window.scrollTo(0,0);
             }
+            window.scrollTo(0,0);
         </script>
         <a href="tel:79222522232" class="header__tel">
             +7 (922)252-22-32
@@ -77,8 +78,8 @@
                 <span>
                     Центр коррекции гинекомастии
                 </span>
-                <div class="page__player">
-                    <img src="/assets/icons/plus.svg">
+                <div class="page__player" js-right-action="open" js-right-target=".page-content">
+                    <img src="/assets/icons/video-arrow.svg">
                 </div>
             </div>
         </div>
@@ -96,7 +97,7 @@
                     Центр коррекции гинекомастии
                 </span>
                 <div class="page__player">
-                    <img src="/assets/icons/plus.svg">
+                    <img src="/assets/icons/video-arrow.svg">
                 </div>
             </div>
         </div>
@@ -114,7 +115,7 @@
                     Центр коррекции гинекомастии
                 </span>
                 <div class="page__player">
-                    <img src="/assets/icons/plus.svg">
+                    <img src="/assets/icons/video-arrow.svg">
                 </div>
             </div>
         </div>
@@ -132,7 +133,7 @@
                     Центр коррекции гинекомастии
                 </span>
                 <div class="page__player">
-                    <img src="/assets/icons/plus.svg">
+                    <img src="/assets/icons/video-arrow.svg">
                 </div>
             </div>
         </div>
@@ -150,7 +151,7 @@
                     Центр коррекции гинекомастии
                 </span>
                 <div class="page__player">
-                    <img src="/assets/icons/plus.svg">
+                    <img src="/assets/icons/video-arrow.svg">
                 </div>
             </div>
         </div>
@@ -168,7 +169,7 @@
 {*                    Центр коррекции гинекомастии*}
 {*                </span>*}
 {*                <div class="page__player">*}
-{*                    <img src="/assets/icons/plus.svg">*}
+{*                    <img src="/assets/icons/video-arrow.svg">*}
 {*                </div>*}
 {*            </div>*}
 {*        </div>*}
@@ -491,9 +492,9 @@
         </div>
     </div>
     <div class="page-content">
-        <svg class="page-content__close" js-right-action="close" xmlns="http://www.w3.org/2000/svg" width="15"
+        <svg class="page-content__close" js-right-action="close" fill="#fff" xmlns="http://www.w3.org/2000/svg" width="15"
              height="15" viewBox="0 0 15 15">
-            <path fill="#fff" id="Rounded_Rectangle_1" data-name="Rounded Rectangle 1"
+            <path  id="Rounded_Rectangle_1" data-name="Rounded Rectangle 1"
                   d="M0.341,0.341a1.19,1.19,0,0,1,1.682,0L14.641,12.958a1.19,1.19,0,1,1-1.682,1.682L0.341,2.023A1.19,1.19,0,0,1,.341.341Zm0,12.618L12.958,0.341a1.19,1.19,0,1,1,1.682,1.682L2.023,14.641A1.19,1.19,0,0,1,.341,12.958Z"/>
         </svg>
         <div class="page-content__inner">
@@ -511,10 +512,8 @@
             <p>Для строительства 6 нефтеналивных танкеров для Туркменистана — «Сумбар»,«Хазар», «Джейхун», «Этрек», «Аладжа», «Кенар», предприятие «Уральская Сталь» (входит в состав Металлоинвест) поставила на верфь более 32 000 тонн высокопрочного металлопроката.</p>
             <h2>«Адмиралтейские верфи»</h2>
             <p>Одним из старейших судостроительных предприятий России является первое промышленное предприятие Санкт-Петербурга «Адмиралтейские верфи». Для строительства 6 дизель-электрических подводных лодок проекта 636 «Варшавянка» с дальнейшей поставкой во Вьетнам «Уральская Сталь» отгрузила предприятию более 2000 тонн металлопроката.</p>
-
             <h2>«Выборгский судостроительный завод»</h2>
             <p>На «Выборгский судостроительный завод» было поставлено более 10 000 тонн судовой стали для строительства двух многоцелевых дизель-электрических ледоколов финского проекта Aker 130A для Арктического терминала Новопортовского нефтегазового месторождения на полуострове Ямал. Оба судна мощностью 22 МВт способны преодолевать льды до 2 метров и непрерывно работать при температурах до -50 С˚.</p>
-
             <h2>Судостроительный завод «ЛОТОС»</h2>
             <p>Судостроительный завод «ЛОТОС» — уникальное и единственное в своем роде предприятие в отрасли, построенное в конце 80-х годов. Продукция Металлоинвеста используется в строительстве судов внутреннего плавания и комплектов блок-модулей верхних строений стационарных платформ, предназначенных для разведки и добычи нефти и газа на континентальных шельфах морей и океанов.</p>
         </div>

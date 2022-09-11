@@ -13,11 +13,11 @@ document.addEventListener('click',e=>{
 
     if(target === null && action === 'open')
         return
-    document.querySelectorAll('.body-right > *').forEach(item=>{
-        item.classList.remove('active');
-    })
     switch (action){
         case 'open':
+            document.querySelectorAll('.body-right > *').forEach(item=>{
+                item.classList.remove('active');
+            })
             target.classList.add('active');
             document.body.classList.add('right-open');
             break;

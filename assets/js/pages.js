@@ -66,7 +66,7 @@ function shortestWay(from,to,range){
     }
     return  Math.abs(positiveDirection) < Math.abs(negativeDirection)? positiveDirection:negativeDirection;
 }
-document.addEventListener('wheel', e=>{
+document.querySelector('.body-left').addEventListener('wheel', e=>{
     let activePage = document.querySelector('.page.active');
     let activePageIndex = getElementIndex(activePage);
     if (e.deltaY > 0){
