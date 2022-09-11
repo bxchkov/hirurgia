@@ -3,7 +3,6 @@
 @import "mixins";
 @import "nullstyle";
 @import "animations";
-
 .body{
   background: #ccc4c0;
   overflow: hidden;
@@ -363,7 +362,7 @@ $duration-page-scroll: .6s;
   bottom: 35px;
   position: fixed;
   width: 100%;
-  height: 22px;
+  height: 27px;
   z-index: 10;
   &__info{
     grid-area: info;
@@ -387,15 +386,20 @@ $duration-page-scroll: .6s;
     justify-content: start;
     flex-direction: row;
     grid-area: contacts;
-    gap: 12px;
+    gap: 16px;
     align-items: center;
   }
   &__interaction{
     display: flex;
     flex-direction: row;
+    align-items: center;
     grid-area: interaction;
     gap: 29px;
   }
+}
+.interaction__svg{
+  height: 27px;
+  fill: white;
 }
 .contacts{
   &__svg{
@@ -428,7 +432,7 @@ $duration-page-scroll: .6s;
     max-width: 0;
     overflow: hidden;
     display: flex;
-    gap: 12px;
+    gap: 16px;
     transition: all .3s ease;
   }
   &:hover &__inner{

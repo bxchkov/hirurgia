@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "Dopis";
+  font-weight: 900;
+  font-style: normal;
+  src: url("/assets/fonts/Dopis/Dopis-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dopis";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/assets/fonts/Dopis/Dopis-bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dopis";
+  font-weight: 200;
+  font-style: normal;
+  src: url("/assets/fonts/Dopis/Dopis-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dopis";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/assets/fonts/Dopis/Dopis-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dopis";
+  font-weight: 900;
+  font-style: italic;
+  src: url("/assets/fonts/Dopis/Dopis-BlackCondensed.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dopis";
+  font-weight: 700;
+  font-style: italic;
+  src: url("/assets/fonts/Dopis/Dopis-BoldCondensed.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dopis";
+  font-weight: 200;
+  font-style: italic;
+  src: url("/assets/fonts/Dopis/Dopis-LightCondensed.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Dopis";
+  font-weight: 400;
+  font-style: italic;
+  src: url("/assets/fonts/Dopis/Dopis-RegularCondensed.ttf") format("truetype");
+}
+/*Meta-Serif-Pro*/
+@font-face {
+  font-family: "Meta-Serif-Pro";
+  font-weight: 900;
+  font-style: normal;
+  src: url("/assets/fonts/MetaSerifPro-Black/MetaSerifPro-Black.ttf") format("truetype");
+}
+
+/*# sourceMappingURL=fonts.css.map */
