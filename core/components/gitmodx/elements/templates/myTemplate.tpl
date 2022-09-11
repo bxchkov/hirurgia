@@ -14,12 +14,12 @@
     <header class="header">
         <div class="logo-anim-background"></div>
         <a class="logo header__logo">
-            <img src="/assets/icons/logos/full-logo.bold.svg" alt="logo">
+            <img src="/assets/icons/logos/full-logo.regular.svg" alt="logo">
         </a>
         <script>
             if(sessionStorage.isLoaded ){}
             else{
-                sessionStorage.isLoaded = JSON.stringify(true);
+                //sessionStorage.isLoaded = JSON.stringify(true);
                 document.querySelector('.header__logo').style.animation = 'start-logo 2.5s ease';
                 document.querySelector('.logo-anim-background').style.animation = 'start-logo-background 3s ease';
             }

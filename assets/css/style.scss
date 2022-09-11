@@ -66,6 +66,38 @@ a,a:visited{
   overflow: hidden;
   font-family: Roboto, Serif;
 }
+.logo{
+  grid-area: logo;
+  display: grid;
+  //grid-template-rows: 60% 40%;
+  //grid-template-columns: 45px 10px auto;
+  //grid-template-areas:  "svg  .... name"
+  //                      "svg  .... fname";
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  &__image{
+    grid-area: svg;
+    justify-self: center;
+    align-self: center;
+  }
+  &__name{
+    grid-area: name;
+    font-family: "Times New Roman";
+    font-weight: bold;
+    font-size: 22px;
+  }
+  &__full-name{
+    grid-area: fname;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Arial;
+    @extend .link-hover;
+  }
+  &:hover &__full-name:after{
+    width: 100%;
+  }
+}
 .header{
   position: fixed;
   top: 0;
@@ -101,39 +133,12 @@ a,a:visited{
   }
   &__logo{
     width: auto;
-    height: 50px;
-  }
-}
-.logo{
-  grid-area: logo;
-  display: grid;
-  //grid-template-rows: 60% 40%;
-  //grid-template-columns: 45px 10px auto;
-  //grid-template-areas:  "svg  .... name"
-  //                      "svg  .... fname";
-  flex-direction: row;
-  align-items: center;
-  height: 50px;
-  &__image{
-    grid-area: svg;
-    justify-self: center;
-    align-self: center;
-  }
-  &__name{
-    grid-area: name;
-    font-family: "Times New Roman";
-    font-weight: bold;
-    font-size: 22px;
-  }
-  &__full-name{
-    grid-area: fname;
-    font-size: 14px;
-    font-weight: 400;
-    font-family: Arial;
-    @extend .link-hover;
-  }
-  &:hover &__full-name:after{
-    width: 100%;
+    height: 44px;
+    img{
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
   }
 }
 .body{
@@ -294,21 +299,39 @@ a,a:visited{
 //анимация движения логотипа на своё место с центра
 @keyframes start-logo {
   0%{
-    position: absolute;
-    left: calc((100vw - 270px) / 2);
-    top: calc((100vh) / 2);
+    overflow: hidden;
+    position: fixed;
+    left: calc((100vw - 200px) / 2);
+    top: calc((100vh - 200px) / 2);
     z-index: 100;
+    max-width: 200px;
+    height: 200px;
   }
   50%{
-    position: absolute;
-    left: calc((100vw - 270px) / 2);
-    top: calc((100vh) / 2);
+    overflow: hidden;
+    position: fixed;
+    left: calc((100vw - 200px) / 2 );
+    top: calc((100vh - 200px) / 2);
+    z-index: 100;
+    max-width: 200px;
+    height: 200px;
   }
-  100%{
+  85%{
+    overflow: hidden;
     position: absolute;
     left:0;
-    top: 5px;
+    top: 8px;
     z-index: 100;
+    max-width: 50px;
+    height: 44px;
+  }
+  100%{
+    overflow: hidden;
+    position: absolute;
+    left:0;
+    top: 8px;
+    z-index: 100;
+    max-width: 300px;
   }
 }
 .aside{

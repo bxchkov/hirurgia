@@ -23,6 +23,34 @@ a, a:visited {
   font-family: Roboto, Serif;
 }
 
+.logo {
+  grid-area: logo;
+  display: grid;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+}
+.logo__image {
+  grid-area: svg;
+  justify-self: center;
+  align-self: center;
+}
+.logo__name {
+  grid-area: name;
+  font-family: "Times New Roman";
+  font-weight: bold;
+  font-size: 22px;
+}
+.logo__full-name {
+  grid-area: fname;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: Arial;
+}
+.logo:hover .logo__full-name:after {
+  width: 100%;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -54,35 +82,12 @@ a, a:visited {
 }
 .header__logo {
   width: auto;
-  height: 50px;
+  height: 44px;
 }
-
-.logo {
-  grid-area: logo;
-  display: grid;
-  flex-direction: row;
-  align-items: center;
-  height: 50px;
-}
-.logo__image {
-  grid-area: svg;
-  justify-self: center;
-  align-self: center;
-}
-.logo__name {
-  grid-area: name;
-  font-family: "Times New Roman";
-  font-weight: bold;
-  font-size: 22px;
-}
-.logo__full-name {
-  grid-area: fname;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: Arial;
-}
-.logo:hover .logo__full-name:after {
-  width: 100%;
+.header__logo img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 .body {
@@ -199,10 +204,10 @@ a, a:visited {
   width: 100%;
 }
 
-.link-hover, .header__tel, .header__open-menu span, .logo__full-name, .menu-title__text, .menu-item__title {
+.link-hover, .logo__full-name, .header__tel, .header__open-menu span, .menu-title__text, .menu-item__title {
   position: relative;
 }
-.link-hover:after, .header__tel:after, .header__open-menu span:after, .logo__full-name:after, .menu-title__text:after, .menu-item__title:after {
+.link-hover:after, .logo__full-name:after, .header__tel:after, .header__open-menu span:after, .menu-title__text:after, .menu-item__title:after {
   content: "";
   display: block;
   transition: width 0.3s ease;
@@ -213,7 +218,7 @@ a, a:visited {
   top: 100%;
   left: 0;
 }
-.link-hover:hover:after, .header__tel:hover:after, .header__open-menu span:hover:after, .logo__full-name:hover:after, .menu-title__text:hover:after, .menu-item__title:hover:after {
+.link-hover:hover:after, .logo__full-name:hover:after, .header__tel:hover:after, .header__open-menu span:hover:after, .menu-title__text:hover:after, .menu-item__title:hover:after {
   width: 100%;
 }
 
@@ -242,21 +247,39 @@ a, a:visited {
 }
 @keyframes start-logo {
   0% {
-    position: absolute;
-    left: calc((100vw - 270px) / 2);
-    top: 50vh;
+    overflow: hidden;
+    position: fixed;
+    left: calc((100vw - 200px) / 2);
+    top: calc((100vh - 200px) / 2);
     z-index: 100;
+    max-width: 200px;
+    height: 200px;
   }
   50% {
-    position: absolute;
-    left: calc((100vw - 270px) / 2);
-    top: 50vh;
+    overflow: hidden;
+    position: fixed;
+    left: calc((100vw - 200px) / 2);
+    top: calc((100vh - 200px) / 2);
+    z-index: 100;
+    max-width: 200px;
+    height: 200px;
   }
-  100% {
+  85% {
+    overflow: hidden;
     position: absolute;
     left: 0;
-    top: 5px;
+    top: 8px;
     z-index: 100;
+    max-width: 50px;
+    height: 44px;
+  }
+  100% {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    z-index: 100;
+    max-width: 300px;
   }
 }
 .aside {
