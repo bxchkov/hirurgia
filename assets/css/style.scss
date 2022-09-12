@@ -7,6 +7,7 @@
 .body{
   overflow: hidden;
   font-family: Roboto, Serif;
+  background-color: #cbc4c0 ;
 }
 .logo{
   grid-area: logo;
@@ -68,6 +69,9 @@
     span{
       letter-spacing: 1.2px;
       @extend .link-hover;
+    }
+    &:hover span:after{
+      width: 100%;
     }
   }
   &__logo {
@@ -462,6 +466,7 @@ $duration-page-scroll: .6s;
   cursor: pointer;
   $cubic-bezier:cubic-bezier(0.5, 0, 0.04, 1);
   $duration-increase:3s;
+  $active-duration-increase:.5s;
   &__wrapper{
     position: absolute;
     transition: background-color .3s ease,width $duration-increase $cubic-bezier,height $duration-increase $cubic-bezier,left $duration-increase $cubic-bezier;
@@ -478,6 +483,9 @@ $duration-page-scroll: .6s;
     width: $player-circle-diameter-on-open;
     height: $player-circle-diameter-on-open;
     left: calc((-#{$player-circle-diameter-on-open} + #{$player-circle-diameter-default}) / 2);
+  }
+  &.active &__wrapper{
+    transition: background-color .3s ease,width $active-duration-increase ease,height $active-duration-increase ease,left $active-duration-increase ease;
   }
   &:hover &__wrapper &__inner,&.active &__wrapper &__inner{
     opacity: 1;

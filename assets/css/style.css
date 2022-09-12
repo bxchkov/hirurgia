@@ -166,6 +166,7 @@ a, a:visited {
 .body {
   overflow: hidden;
   font-family: Roboto, Serif;
+  background-color: #cbc4c0;
 }
 
 .logo {
@@ -229,6 +230,9 @@ a, a:visited {
 }
 .header__open-menu span {
   letter-spacing: 1.2px;
+}
+.header__open-menu:hover span:after {
+  width: 100%;
 }
 .header__logo {
   align-self: end;
@@ -640,6 +644,9 @@ a, a:visited {
   width: 115vw;
   height: 115vw;
   left: calc((-115vw + 110px) / 2);
+}
+.page-player.active .page-player__wrapper {
+  transition: background-color 0.3s ease, width 0.5s ease, height 0.5s ease, left 0.5s ease;
 }
 .page-player:hover .page-player__wrapper .page-player__inner, .page-player.active .page-player__wrapper .page-player__inner {
   opacity: 1;
