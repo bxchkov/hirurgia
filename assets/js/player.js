@@ -1,17 +1,22 @@
 
 document.querySelectorAll('.page-player').forEach(item=>{
-    let onWait = false;
-    item.addEventListener('mouseover',e=>{
-        onWait = false;
-    })
-    item.addEventListener('mouseenter',e=>{
-        onWait = true
-        setTimeout(()=>{
-            if(onWait){
-                e.target.classList.add('active');
-            }
-        },3000)
-    })
+    // let onWait = false;
+    // item.addEventListener('mouseenter',e=>{
+    //     if(e.path[0].classList.contains('page-player')){
+    //         console.log(e);
+    //         onWait = true;
+    //
+    //         setTimeout(()=>{
+    //             if(onWait){
+    //                 e.target.classList.add('active');
+    //             }
+    //         },3000)
+    //     }
+    //
+    // })
+    // item.addEventListener('mouseover',e=>{
+    //     onWait = false;
+    // })
     item.addEventListener('click',e=>{
         e.target.classList.add('active');
     })
