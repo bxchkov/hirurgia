@@ -1,0 +1,20 @@
+.scroll{
+  align-self: center;
+  position: absolute;
+  height: 93%;
+  width: 1px;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,.2);
+  top: 3.5%;
+  right: 20px;
+  &__item{
+    position: absolute;
+    background-color: black;
+    border-radius: 10px;
+    width: 5px;
+    height: 30%;
+    top: 0;
+    right: -2px;
+    transition: top .3s ease;
+  }
+}

@@ -7,5 +7,8 @@
     </svg>
     <div class="page-content__inner" js-custom-scroll>
         {$content}
+        <div class="scroll">
+            <div class="scroll__item"></div>
+        </div>
     </div>
 </div>
