@@ -1,0 +1,143 @@
+//page-preview
+$preview-circle-diameter:785px;
+//player
+$player-circle-diameter-on-open:115vw;
+$player-circle-diameter-default:110px;
+.page{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #cbc4c0 url("/assets/images/shadow.png") no-repeat center;
+  background-size: 1145px 786px;
+  &__shadow{
+    position: absolute;
+    width: 1145px;
+    height: 786px;
+  }
+  &__loader{
+    position: absolute;
+    width: $preview-circle-diameter;
+    height: $preview-circle-diameter;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 0, 313.644;
+  }
+  &.is-loaded &__loader{
+    animation: svg-circle 1.6s cubic-bezier(.67,.26,.58,.79) 0s 1;
+    stroke-dasharray: 313.644, 313.644;
+
+  }
+  &__preview{
+    user-select: none;
+    font-family: Arial;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 785px;
+    height: 785px;
+    border-radius: 100%;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+  }
+  &__info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 35px;
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    background-color: #e8e5e4;
+    cursor: pointer;
+    transition: background-color .3s ease;
+    &:hover{
+      background-color: white;
+    }
+  }
+}
+.page-player{
+  border: 1px solid #ed1c25;
+  -webkit-box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
+  -moz-box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
+  box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: calc(-#{$player-circle-diameter-default} / 2);
+  background-color: rgba(255, 0, 0, 0.8);
+  backdrop-filter: blur(2px);
+  width: $player-circle-diameter-default;
+  height: $player-circle-diameter-default;
+  border-radius: 100%;
+  cursor: pointer;
+  $cubic-bezier:cubic-bezier(0.5, 0, 0.04, 1);
+  $duration-increase:3s;
+  $active-duration-increase:.5s;
+  &__wrapper{
+    position: absolute;
+    transition: background-color .3s ease,width $duration-increase $cubic-bezier,height $duration-increase $cubic-bezier,left $duration-increase $cubic-bezier;
+    pointer-events: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: $player-circle-diameter-default;
+    height: $player-circle-diameter-default;
+    border-radius: 100%;
+    left: 0;
+  }
+  &:hover &__wrapper,&.active &__wrapper{
+    width: $player-circle-diameter-on-open;
+    height: $player-circle-diameter-on-open;
+    left: calc((-#{$player-circle-diameter-on-open} + #{$player-circle-diameter-default}) / 2);
+  }
+  &.active &__wrapper{
+    transition: background-color .3s ease,width $active-duration-increase ease,height $active-duration-increase ease,left $active-duration-increase ease;
+  }
+  &:hover &__wrapper &__inner,&.active &__wrapper &__inner{
+    opacity: 1;
+    transition: opacity .3s ease;
+  }
+  &__arrow{
+    padding-left: 5px;
+    width: 33px;
+    height: 33px;
+    position: absolute;
+    left: calc((100% - 33px) / 2);
+    z-index: 10;
+  }
+  &__inner{
+    opacity: 0;
+    background-color: #424242;
+    transition: opacity 3s ease;
+    position: absolute;
+    left: calc(-#{$player-circle-diameter-on-open} / 2 + 50%);
+    top: calc(-50vh + 50%);
+    width: calc($player-circle-diameter-on-open / 2 + (50vw - ($preview-circle-diameter / 2) + ($player-circle-diameter-default / 2)));
+    height: 100vh;
+    z-index: 9;
+  }
+}
+.preview{
+  &__main{
+    display: flex;
+    line-height: 50px;
+    letter-spacing: 7px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    span{
+      margin-top: 20px;
+      letter-spacing: normal;
+      font-size: 22px;
+      line-height: 27px;
+      font-weight: 400;
+    }
+  }
+}
