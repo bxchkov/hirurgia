@@ -11,11 +11,18 @@
             {$pagetitle}<br>
             <span>{$description}</span>
         </div>
-        <div class="page-player" >
+        <div class="page-player">
             <div class="page-player__wrapper">
                 <img class="page-player__arrow" src="/assets/icons/video-arrow.svg">
                 <div class="page-player__inner">
+                    <div class="player" player>
+                        <video class="player__video" autoplay loop>
+                            <source src="{$video}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                        </video>
+                        <div class="player__video-track">
 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

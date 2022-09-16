@@ -10,8 +10,5 @@
         <div class="scroll">
             <div class="scroll-button"></div>
         </div>
-        <span>
-
-        </span>
     </div>
 </div>

@@ -17,7 +17,10 @@ document.querySelectorAll('.page-player').forEach(item=>{
     })
     item.addEventListener('click',e=>{
         e.target.classList.remove('hover');
-        e.target.classList.add('active');
+        //fix css bug :)
+        setTimeout(()=>{
+            e.target.classList.add('active');
+        },1)
     })
 })
 document.addEventListener('click',e=>{

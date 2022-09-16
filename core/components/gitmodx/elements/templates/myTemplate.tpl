@@ -14,7 +14,7 @@
     'parents' => 2,
     'limit' => 0,
     'depth' => 0,
-    'includeTVs' => 'icon',
+    'includeTVs' => 'icon,video',
     'tvPrefix' => '',
     'sortby'=>['menuindex'=>'ASC']
 ]}

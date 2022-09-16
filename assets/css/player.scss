@@ -15,11 +15,15 @@
   border-radius: 100%;
   cursor: pointer;
   $cubic-bezier:cubic-bezier(.55,.055,.675,.19);
-  $duration-increase:3s;
+  $cubic-bezier-active:cubic-bezier(.215,.61,.355,1);
+  $duration-increase:6s;
   $duration-decrease:.75s;
-  $duration-increase-active:.5s;
+  $duration-increase-active:3s;
+  //wrapper
   &__wrapper{
-    transition: width $duration-decrease $cubic-bezier,height $duration-decrease $cubic-bezier,left $duration-decrease $cubic-bezier;
+    transition-property: width, height, left;
+    transition-duration:$duration-decrease;
+    transition-timing-function:$cubic-bezier;
     position: absolute;
     pointer-events: none;
     overflow: hidden;
@@ -30,29 +34,19 @@
     border-radius: 100%;
     left: 0;
   }
-  // wrapper
   &.hover &__wrapper, &.active &__wrapper{
     width: $player-circle-diameter-on-open;
     height: $player-circle-diameter-on-open;
-    left: calc((-#{$player-circle-diameter-on-open} + #{$player-circle-diameter-default}) / 2);
+    left: calc(-#{$player-circle-diameter-on-open} / 2);
   }
-  &.hover &__wrapper{
-    transition-duration: $duration-increase, $duration-increase, $duration-increase;
+  &.hover:not(.active) &__wrapper{
+    transition-duration: $duration-increase;
   }
   &.active &__wrapper{
-    transition-duration: $duration-increase-active, $duration-increase-active, $duration-increase-active;
+    transition-duration: $duration-increase-active;
+    transition-timing-function:$cubic-bezier-active;
   }
   // inner
-  &.hover &__inner, &.active &__inner{
-    opacity: 1;
-  }
-  &.hover &__inner{
-    transition-duration: $duration-increase;
-  }
-  &.active &__inner{
-    pointer-events: all;
-    transition-duration: $duration-increase;
-  }
   &__inner{
     opacity: 0;
     background-color: #424242;
@@ -64,6 +58,17 @@
     height: 100vh;
     z-index: 9;
   }
+  &.hover &__inner, &.active &__inner{
+    opacity: 1;
+  }
+  &.hover &__inner{
+    transition-duration: 0s;
+  }
+  &.active &__inner{
+    pointer-events: all;
+    transition-duration: 0s;
+  }
+  // arrow
   $arrow-side:33px;
   &__arrow{
     padding-left: 5px;
@@ -73,4 +78,8 @@
     left: calc((100% - $arrow-side) / 2);
     z-index: 10;
   }
+}
+.player{
+  width: 100%;
+  height: 100%;
 }
