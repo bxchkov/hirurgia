@@ -3,9 +3,10 @@ content.forEach(item=>{
     let scrollButton = item.querySelector('.scroll-button');
     let scroll = item.querySelector('.scroll');
     let defaultButtonTransition = scrollButton.style.transition;
-    item.addEventListener('wheel', (e)=>{
+    item.addEventListener('scroll', (e)=>{
+        console.log(e);
         let maxScrollHeight = item.scrollHeight - item.clientHeight;
-        let range = (item.scrollTop + e.deltaY) / maxScrollHeight;
+        let range = item.scrollTop / maxScrollHeight;
         moveButton(scrollButton,range);
     });
     function mouseMove(e){
@@ -19,6 +20,7 @@ content.forEach(item=>{
         e.preventDefault();
     }
     scroll.addEventListener('mousedown',(e)=>{
+        scrollButton.style.transition = 'top .75s ease';
         let range = (e.y - scroll.offsetTop - scrollButton.clientHeight / 2) / (scroll.clientHeight - scrollButton.clientHeight);
         let to = (item.scrollHeight - item.clientHeight) * range;
         item.scrollTo({

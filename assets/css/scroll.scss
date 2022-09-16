@@ -16,7 +16,7 @@
     width: 100%;
     height: 30%;
     top: 0;
-    transition: top .75s ease;
+    transition: top .1s linear;
   }
   &:after{
     content: "";

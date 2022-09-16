@@ -37,6 +37,7 @@
 }
 .header{
   position: fixed;
+
   top: 0;
   left: 0;
   color: white;
@@ -48,6 +49,7 @@
   grid-template-columns: 49px auto  1fr auto  46px 23px  91px auto 35px;
   grid-template-areas:  ".... logo  ... lang  .... share .... menu ....";
   z-index: 10;
+  //@include media(background-color,(none,black,white));
   &__language{
     margin-top: 9px;
     grid-area: lang;
