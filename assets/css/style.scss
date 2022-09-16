@@ -37,7 +37,7 @@
   }
 }
 .header{
-  padding-left: 49px;
+  @include media(padding-left,(49px, 29px, 19px));
   position: fixed;
   top: 0;
   left: 0;
@@ -47,12 +47,12 @@
   display: grid;
   align-items: center;
   grid-template-rows: 1fr;
-  grid-template-columns: auto  1fr auto  46px 23px  91px auto 35px;
-  grid-template-areas:  "logo  ... lang  .... share .... menu ....";
+  @include media(grid-template-columns,($grid-template-columns, $grid-template-columns, $grid-template-columns-mobile));
+  @include media(grid-template-areas,($grid-template-areas, $grid-template-areas, $grid-template-areas-mobile));
   z-index: 10;
   //@include media(background-color,(none,black,white));
   &__language{
-    margin-top: 9px;
+    @include media(margin-top,(9px, 9px, 0));
     grid-area: lang;
     display: flex;
     flex-direction: row;
@@ -61,7 +61,7 @@
     cursor: pointer;
   }
   &__open-menu{
-    margin-top: 9px;
+    @include media(margin-top,(9px, 9px, 0));
     grid-area: menu;
     display: flex;
     align-items: center;
@@ -71,6 +71,7 @@
     cursor: pointer;
     user-select: none;
     span{
+      @include media(display,(block, block, none));
       @include media(letter-spacing,(1.2px, 2px));
       @extend .link-hover;
     }
@@ -79,13 +80,14 @@
     }
   }
   &__logo {
-    align-self: end;
+    @include media(align-self,(end, end, center));
     width: auto;
     height: 44px;
     img {
       height: 100%;
-      width: auto;
-      object-fit: contain;
+      @include media(width,(auto, auto, 232px));
+      @include media(object-fit,(contain, contain, cover));
+      @include media(object-position,(unset, unset, left));
     }
   }
 }
@@ -134,6 +136,7 @@
   }
 }
 .header__share{
+  @include media(display,(block, block, none));
   height: 23px;
   margin-top: 9px;
   grid-area: share;
@@ -330,6 +333,7 @@ $right-width:720px;
 }
 
 .aside{
+  @include media(display,(flex, flex, none));
   display: flex;
   align-items: center;
   position: fixed;
@@ -430,7 +434,7 @@ $duration-page-scroll: .6s;
     font-weight: bold;
   }
   &__info{
-    display: flex;
+    @include media(display,(flex, flex, none));
     align-items: center;
     justify-content: center;
     position: absolute;

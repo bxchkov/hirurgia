@@ -1,7 +1,14 @@
 //page-preview
 $preview-circle-diameter: 785px;
 $preview-circle-diameter-tablet: 566px;
-$preview-circle-diameter-mobile: 300px;
-  //player
-  $player-circle-diameter-on-open: 115vw;
-  $player-circle-diameter-default: 110px;
+$preview-circle-diameter-mobile: 0;
+
+    //player
+    $player-circle-diameter-on-open: 115vw;
+    $player-circle-diameter-default: 110px;
+
+//header-grid
+$grid-template-columns:   auto  1fr auto  46px 23px  91px auto 35px;
+$grid-template-areas:  "\"logo  ... lang  .... share .... menu ....\"";
+$grid-template-columns-mobile:   auto  1fr auto  1fr  auto 19px;
+$grid-template-areas-mobile:  "\"logo  ... lang  .... menu ....\"";

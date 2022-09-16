@@ -188,6 +188,16 @@ a, a:visited {
   border-radius: 100%;
   cursor: pointer;
 }
+@media screen and (max-width: 1180px) {
+  .page-player {
+    display: flex;
+  }
+}
+@media screen and (max-width: 416px) {
+  .page-player {
+    display: none;
+  }
+}
 .page-player__wrapper {
   transition-property: width, height, left;
   transition-duration: 0.75s;
@@ -295,6 +305,36 @@ a, a:visited {
   grid-template-areas: "logo  ... lang  .... share .... menu ....";
   z-index: 10;
 }
+@media screen and (max-width: 1180px) {
+  .header {
+    padding-left: 29px;
+  }
+}
+@media screen and (max-width: 416px) {
+  .header {
+    padding-left: 19px;
+  }
+}
+@media screen and (max-width: 1180px) {
+  .header {
+    grid-template-columns: auto 1fr auto 46px 23px 91px auto 35px;
+  }
+}
+@media screen and (max-width: 416px) {
+  .header {
+    grid-template-columns: auto 1fr auto 1fr auto 19px;
+  }
+}
+@media screen and (max-width: 1180px) {
+  .header {
+    grid-template-areas: "logo  ... lang  .... share .... menu ....";
+  }
+}
+@media screen and (max-width: 416px) {
+  .header {
+    grid-template-areas: "logo  ... lang  .... menu ....";
+  }
+}
 .header__language {
   margin-top: 9px;
   grid-area: lang;
@@ -303,6 +343,16 @@ a, a:visited {
   gap: 16px;
   font-family: Arial;
   cursor: pointer;
+}
+@media screen and (max-width: 1180px) {
+  .header__language {
+    margin-top: 9px;
+  }
+}
+@media screen and (max-width: 416px) {
+  .header__language {
+    margin-top: 0;
+  }
 }
 .header__open-menu {
   margin-top: 9px;
@@ -315,8 +365,29 @@ a, a:visited {
   cursor: pointer;
   user-select: none;
 }
+@media screen and (max-width: 1180px) {
+  .header__open-menu {
+    margin-top: 9px;
+  }
+}
+@media screen and (max-width: 416px) {
+  .header__open-menu {
+    margin-top: 0;
+  }
+}
 .header__open-menu span {
+  display: block;
   letter-spacing: 1.2px;
+}
+@media screen and (max-width: 1180px) {
+  .header__open-menu span {
+    display: block;
+  }
+}
+@media screen and (max-width: 416px) {
+  .header__open-menu span {
+    display: none;
+  }
 }
 @media screen and (max-width: 1180px) {
   .header__open-menu span {
@@ -331,10 +402,51 @@ a, a:visited {
   width: auto;
   height: 44px;
 }
+@media screen and (max-width: 1180px) {
+  .header__logo {
+    align-self: end;
+  }
+}
+@media screen and (max-width: 416px) {
+  .header__logo {
+    align-self: center;
+  }
+}
 .header__logo img {
   height: 100%;
   width: auto;
   object-fit: contain;
+  object-position: unset;
+}
+@media screen and (max-width: 1180px) {
+  .header__logo img {
+    width: auto;
+  }
+}
+@media screen and (max-width: 416px) {
+  .header__logo img {
+    width: 232px;
+  }
+}
+@media screen and (max-width: 1180px) {
+  .header__logo img {
+    object-fit: contain;
+  }
+}
+@media screen and (max-width: 416px) {
+  .header__logo img {
+    object-fit: cover;
+  }
+}
+@media screen and (max-width: 1180px) {
+  .header__logo img {
+    object-position: unset;
+  }
+}
+@media screen and (max-width: 416px) {
+  .header__logo img {
+    object-position: left;
+  }
 }
 
 .menu__link-icon {
@@ -384,10 +496,21 @@ a, a:visited {
 }
 
 .header__share {
+  display: block;
   height: 23px;
   margin-top: 9px;
   grid-area: share;
   position: relative;
+}
+@media screen and (max-width: 1180px) {
+  .header__share {
+    display: block;
+  }
+}
+@media screen and (max-width: 416px) {
+  .header__share {
+    display: none;
+  }
 }
 .header__share:hover .share {
   max-height: 202px;
@@ -580,6 +703,7 @@ a, a:visited {
 
 .aside {
   display: flex;
+  display: flex;
   align-items: center;
   position: fixed;
   left: 40px;
@@ -587,6 +711,16 @@ a, a:visited {
   height: 100vh;
   width: 40px;
   z-index: 4;
+}
+@media screen and (max-width: 1180px) {
+  .aside {
+    display: flex;
+  }
+}
+@media screen and (max-width: 416px) {
+  .aside {
+    display: none;
+  }
 }
 @media screen and (max-width: 1180px) {
   .aside {
@@ -680,7 +814,7 @@ a, a:visited {
 }
 @media screen and (max-width: 416px) {
   .page__loader {
-    width: 300px;
+    width: 0;
   }
 }
 @media screen and (max-width: 1180px) {
@@ -690,7 +824,7 @@ a, a:visited {
 }
 @media screen and (max-width: 416px) {
   .page__loader {
-    height: 300px;
+    height: 0;
   }
 }
 .page.is-loaded .page__loader {
@@ -733,6 +867,16 @@ a, a:visited {
   background-color: #e8e5e4;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+@media screen and (max-width: 1180px) {
+  .page__info {
+    display: flex;
+  }
+}
+@media screen and (max-width: 416px) {
+  .page__info {
+    display: none;
+  }
 }
 @media screen and (max-width: 1180px) {
   .page__info {
