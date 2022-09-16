@@ -1,0 +1,76 @@
+.page-player{
+  border: 1px solid #ed1c25;
+  -webkit-box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
+  -moz-box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
+  box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: calc(-#{$player-circle-diameter-default} / 2);
+  background-color: rgba(255, 0, 0, 0.8);
+  backdrop-filter: blur(2px);
+  width: $player-circle-diameter-default;
+  height: $player-circle-diameter-default;
+  border-radius: 100%;
+  cursor: pointer;
+  $cubic-bezier:cubic-bezier(.55,.055,.675,.19);
+  $duration-increase:3s;
+  $duration-decrease:.75s;
+  $duration-increase-active:.5s;
+  &__wrapper{
+    transition: width $duration-decrease $cubic-bezier,height $duration-decrease $cubic-bezier,left $duration-decrease $cubic-bezier;
+    position: absolute;
+    pointer-events: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: $player-circle-diameter-default;
+    height: $player-circle-diameter-default;
+    border-radius: 100%;
+    left: 0;
+  }
+  // wrapper
+  &.hover &__wrapper, &.active &__wrapper{
+    width: $player-circle-diameter-on-open;
+    height: $player-circle-diameter-on-open;
+    left: calc((-#{$player-circle-diameter-on-open} + #{$player-circle-diameter-default}) / 2);
+  }
+  &.hover &__wrapper{
+    transition-duration: $duration-increase, $duration-increase, $duration-increase;
+  }
+  &.active &__wrapper{
+    transition-duration: $duration-increase-active, $duration-increase-active, $duration-increase-active;
+  }
+  // inner
+  &.hover &__inner, &.active &__inner{
+    opacity: 1;
+  }
+  &.hover &__inner{
+    transition-duration: $duration-increase;
+  }
+  &.active &__inner{
+    pointer-events: all;
+    transition-duration: $duration-increase;
+  }
+  &__inner{
+    opacity: 0;
+    background-color: #424242;
+    transition: opacity $duration-decrease linear;
+    position: absolute;
+    left: calc(-#{$player-circle-diameter-on-open} / 2 + 50%);
+    top: calc(-50vh + 50%);
+    width: calc($player-circle-diameter-on-open / 2 + (50vw - ($preview-circle-diameter / 2) + ($player-circle-diameter-default / 2)));
+    height: 100vh;
+    z-index: 9;
+  }
+  $arrow-side:33px;
+  &__arrow{
+    padding-left: 5px;
+    width: $arrow-side;
+    height: $arrow-side;
+    position: absolute;
+    left: calc((100% - $arrow-side) / 2);
+    z-index: 10;
+  }
+}
