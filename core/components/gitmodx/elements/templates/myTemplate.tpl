@@ -41,5 +41,6 @@
 <script src="/assets/js/menu.js"></script>
 <script src="/assets/js/pages.js"></script>
 <script src="/assets/js/player.js"></script>
+<script src="/assets/js/scroll.js"></script>
 </body>
 </html>

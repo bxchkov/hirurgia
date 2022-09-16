@@ -2,19 +2,37 @@
   align-self: center;
   position: absolute;
   height: 93%;
-  width: 1px;
-  border-radius: 10px;
-  background-color: rgba(0,0,0,.2);
   top: 3.5%;
+  width: 5px;
   right: 20px;
-  &__item{
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+
+  &-button{
     position: absolute;
     background-color: black;
     border-radius: 10px;
-    width: 5px;
+    width: 100%;
     height: 30%;
     top: 0;
-    right: -2px;
-    transition: top .3s ease;
+    transition: top .75s ease;
+  }
+  &:after{
+    content: "";
+    width: 1px;
+    background-color: rgba(0,0,0,.2);
+    height: 100%;
+    transition: width .3s ease,background-color .3s ease;
+  }
+  &:hover:after{
+    width: 100%;
+    background-color: rgba(125, 125, 125, 0.2);
+  }
+}
+*[js-custom-scroll]{
+  &::-webkit-scrollbar{
+    width: 0;
+    pointer-events: none;
   }
 }
