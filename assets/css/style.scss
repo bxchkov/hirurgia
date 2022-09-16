@@ -37,8 +37,8 @@
   }
 }
 .header{
+  padding-left: 49px;
   position: fixed;
-
   top: 0;
   left: 0;
   color: white;
@@ -47,8 +47,8 @@
   display: grid;
   align-items: center;
   grid-template-rows: 1fr;
-  grid-template-columns: 49px auto  1fr auto  46px 23px  91px auto 35px;
-  grid-template-areas:  ".... logo  ... lang  .... share .... menu ....";
+  grid-template-columns: auto  1fr auto  46px 23px  91px auto 35px;
+  grid-template-areas:  "logo  ... lang  .... share .... menu ....";
   z-index: 10;
   //@include media(background-color,(none,black,white));
   &__language{
@@ -71,7 +71,7 @@
     cursor: pointer;
     user-select: none;
     span{
-      letter-spacing: 1.2px;
+      @include media(letter-spacing,(1.2px, 2px));
       @extend .link-hover;
     }
     &:hover span:after{
@@ -148,7 +148,8 @@
   align-items: center;
   justify-content: start;
   cursor: pointer;
-  top: calc(100% + 32px);
+  padding-top: 32px;
+  top: 100%;
   position: absolute;
   width: 23px;
   max-height: 0;
@@ -332,7 +333,7 @@ $right-width:720px;
   display: flex;
   align-items: center;
   position: fixed;
-  left: 40px;
+  @include media(left,(40px, 21px));
   top: 0;
   height: 100vh;
   width: 40px;
@@ -402,16 +403,11 @@ $duration-page-scroll: .6s;
   align-items: center;
   justify-content: center;
   background: #cbc4c0 url("/assets/images/shadow.png") no-repeat center;
-  background-size: 1145px 786px;
-  &__shadow{
-    position: absolute;
-    width: 1145px;
-    height: 786px;
-  }
+  @include media(background-size,(1145px 786px, 825px 566px));
   &__loader{
     position: absolute;
-    width: $preview-circle-diameter;
-    height: $preview-circle-diameter;
+    @include media(width,($preview-circle-diameter, $preview-circle-diameter-tablet, $preview-circle-diameter-mobile));
+    @include media(height,($preview-circle-diameter, $preview-circle-diameter-tablet, $preview-circle-diameter-mobile));
     stroke-dashoffset: 0;
     stroke-dasharray: 0, 313.644;
   }
@@ -427,11 +423,10 @@ $duration-page-scroll: .6s;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 785px;
-    height: 785px;
+    @include media(width,(785px, 566px));
+    @include media(height,(785px, 566px));
     border-radius: 100%;
     color: white;
-    font-size: 50px;
     font-weight: bold;
   }
   &__info{
@@ -439,7 +434,7 @@ $duration-page-scroll: .6s;
     align-items: center;
     justify-content: center;
     position: absolute;
-    right: 35px;
+    @include media(right,(35px, 30px));
     width: 36px;
     height: 36px;
     border-radius: 100%;
@@ -456,14 +451,15 @@ $duration-page-scroll: .6s;
   &__main{
     display: flex;
     line-height: 50px;
-    letter-spacing: 7px;
+    @include media(letter-spacing,(7px, 4.5px));
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @include media(font-size,(50px, 36px));
     span{
-      margin-top: 20px;
-      letter-spacing: normal;
-      font-size: 22px;
+      @include media(margin-top,(20px, 7px));
+      letter-spacing: 1.7px;
+      @include media(font-size,(22px, 19px));
       line-height: 27px;
       font-weight: 400;
     }
@@ -513,12 +509,13 @@ $duration-page-scroll: .6s;
 }
 
 .footer{
+  @include media(padding,(0 32px 0 55px, 0 30px 0 40px));
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 55px 290px 69px 500px    1fr auto        32px;
-  grid-template-areas:  ".... info  .... contacts ... interaction ....";
+  grid-template-columns: 290px 69px 500px    1fr auto        ;
+  grid-template-areas:  "info  .... contacts ... interaction";
   left: 0;
-  bottom: 34px;
+  @include media(bottom,(34px, 20px));
   position: fixed;
   width: 100%;
   height: 25px;
@@ -559,6 +556,9 @@ $duration-page-scroll: .6s;
   fill: #f7f6f6;
   cursor: pointer;
   transition: fill .3s ease;
+  &:nth-child(1){
+    @include media(display,(block, none));
+  }
   &:hover{
     fill: #e2dfdd;
   }
