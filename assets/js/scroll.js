@@ -9,6 +9,7 @@ content.forEach(item=>{
         moveButton(scrollButton,range);
     });
     function mouseMove(e){
+        scrollButton.style.transition = 'none';
         let range = (e.y - scroll.offsetTop - scrollButton.clientHeight / 2) / (scroll.clientHeight - scrollButton.clientHeight);
         let to = (item.scrollHeight - item.clientHeight) * range;
         item.scrollTo({
