@@ -1,11 +1,14 @@
+//page-content
+$page-content-width:720px;
+$page-content-width-tablet:100%;
+$page-content-width-mobile:100%;
 //page-preview
 $preview-circle-diameter: 785px;
 $preview-circle-diameter-tablet: 566px;
 $preview-circle-diameter-mobile: 0;
-
-    //player
-    $player-circle-diameter-on-open: 115vw;
-    $player-circle-diameter-default: 110px;
+//player
+$player-circle-diameter-on-open: 115vw;
+$player-circle-diameter-default: 110px;
 
 //header-grid
 $header-template-columns:   auto  1fr auto  46px 23px  91px auto 35px;

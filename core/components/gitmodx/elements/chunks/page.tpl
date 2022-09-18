@@ -13,16 +13,17 @@
         </div>
         <div class="page-player">
             <div class="page-player__wrapper">
-                <img class="page-player__arrow" src="/assets/icons/video-arrow.svg">
+                <div class="page-player__play-stop">
+                    <img class="page-player__play active" src="/assets/icons/video-play.svg">
+                    <img class="page-player__stop" src="/assets/icons/video-stop.svg">
+                </div>
                 <div class="page-player__inner">
-                    <div class="player" player>
-                        <video class="player__video" autoplay loop>
-                            <source src="{$video}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-                        </video>
-                        <div class="player__video-track">
-
-                        </div>
+                    <video class="page-player__video" muted>
+                        <source src="{$video}#t=0.1" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                    </video>
+                    <div class="page-player__track">
                     </div>
+                    <canvas class="page-player__circle" width="786" height="786"></canvas>
                 </div>
             </div>
         </div>

@@ -66,7 +66,8 @@ function shortestWay(from,to,range){
     }
     return  Math.abs(positiveDirection) < Math.abs(negativeDirection)? positiveDirection:negativeDirection;
 }
-document.querySelector('.body-left').addEventListener('wheel', e=>{
+let bodyLeft = document.querySelector('.body-left');
+bodyLeft.addEventListener('wheel', e=>{
     let activePage = document.querySelector('.page.active');
     let activePageIndex = getElementIndex(activePage);
     if (e.deltaY > 0){
@@ -75,6 +76,23 @@ document.querySelector('.body-left').addEventListener('wheel', e=>{
     else{
         setActivePage(activePageIndex - 1);
     }
+    e.preventDefault();
+})
+bodyLeft.addEventListener('mousedown', e=>{
+    let beforeY = e.y;
+    function mouseUp(e){
+        let activePage = document.querySelector('.page.active');
+        let activePageIndex = getElementIndex(activePage);
+        if (beforeY < e.y){
+            setActivePage(activePageIndex + 1);
+        }
+        else{
+            setActivePage(activePageIndex - 1);
+        }
+        document.removeEventListener('mouseup',mouseUp);
+    }
+    document.addEventListener('mouseup',mouseUp)
+
 })
 document.addEventListener('keydown', e=>{
     let activePage = document.querySelector('.page.active');
