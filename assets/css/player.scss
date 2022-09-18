@@ -3,7 +3,7 @@
   -webkit-box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
   -moz-box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
   box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
-  display: flex;
+  @include media(display,(flex, flex, none));
   justify-content: center;
   align-items: center;
   position: absolute;
