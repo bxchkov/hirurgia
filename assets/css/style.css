@@ -267,7 +267,18 @@ a, a:visited {
 
 .logo {
   grid-area: logo;
-  height: 50px;
+  height: 44px;
+  height: 36px;
+}
+@media screen and (max-width: 1180px) {
+  .logo {
+    height: 44px;
+  }
+}
+@media screen and (max-width: 416px) {
+  .logo {
+    height: 36px;
+  }
 }
 .logo__image {
   grid-area: svg;
@@ -401,6 +412,7 @@ a, a:visited {
   align-self: end;
   width: auto;
   height: 44px;
+  height: 36px;
 }
 @media screen and (max-width: 1180px) {
   .header__logo {
@@ -410,6 +422,16 @@ a, a:visited {
 @media screen and (max-width: 416px) {
   .header__logo {
     align-self: center;
+  }
+}
+@media screen and (max-width: 1180px) {
+  .header__logo {
+    height: 44px;
+  }
+}
+@media screen and (max-width: 416px) {
+  .header__logo {
+    height: 36px;
   }
 }
 .header__logo img {
@@ -973,6 +995,8 @@ a, a:visited {
   grid-template-rows: 1fr;
   grid-template-columns: 290px 69px 500px 1fr auto;
   grid-template-areas: "info  .... contacts ... interaction";
+  grid-template-columns: 290px 69px 500px 1fr auto;
+  grid-template-areas: "info  .... contacts ... interaction";
   left: 0;
   bottom: 34px;
   position: fixed;
@@ -983,6 +1007,31 @@ a, a:visited {
 @media screen and (max-width: 1180px) {
   .footer {
     padding: 0 30px 0 40px;
+  }
+}
+@media screen and (max-width: 416px) {
+  .footer {
+    padding: 0 19px 0 19px;
+  }
+}
+@media screen and (max-width: 1180px) {
+  .footer {
+    grid-template-columns: 290px 69px 500px 1fr auto;
+  }
+}
+@media screen and (max-width: 416px) {
+  .footer {
+    grid-template-columns: auto 1fr auto;
+  }
+}
+@media screen and (max-width: 1180px) {
+  .footer {
+    grid-template-areas: "info  .... contacts ... interaction";
+  }
+}
+@media screen and (max-width: 416px) {
+  .footer {
+    grid-template-areas: "info ... interaction";
   }
 }
 @media screen and (max-width: 1180px) {
@@ -1010,12 +1059,32 @@ a, a:visited {
   gap: 17px;
   align-items: center;
 }
+@media screen and (max-width: 1180px) {
+  .footer__contacts {
+    display: flex;
+  }
+}
+@media screen and (max-width: 416px) {
+  .footer__contacts {
+    display: none;
+  }
+}
 .footer__interaction {
   display: flex;
   flex-direction: row;
   align-items: center;
   grid-area: interaction;
   gap: 29px;
+}
+@media screen and (max-width: 1180px) {
+  .footer__interaction {
+    display: flex;
+  }
+}
+@media screen and (max-width: 416px) {
+  .footer__interaction {
+    display: flex;
+  }
 }
 
 .interaction__svg {
@@ -1024,10 +1093,28 @@ a, a:visited {
   cursor: pointer;
   transition: fill 0.3s ease;
 }
+.interaction__svg:nth-child(2) {
+  height: 25px;
+}
+@media screen and (max-width: 1180px) {
+  .interaction__svg:nth-child(2) {
+    height: 25px;
+  }
+}
+@media screen and (max-width: 416px) {
+  .interaction__svg:nth-child(2) {
+    height: 20px;
+  }
+}
 .interaction__svg:nth-child(1) {
   display: block;
 }
 @media screen and (max-width: 1180px) {
+  .interaction__svg:nth-child(1) {
+    display: none;
+  }
+}
+@media screen and (max-width: 416px) {
   .interaction__svg:nth-child(1) {
     display: none;
   }

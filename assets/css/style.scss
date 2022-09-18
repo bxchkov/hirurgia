@@ -13,7 +13,8 @@
 }
 .logo{
   grid-area: logo;
-  height: 50px;
+  @include media(height,(44px, 44px, 36px));
+  height: 36px;
   &__image{
     grid-area: svg;
     justify-self: center;
@@ -47,8 +48,8 @@
   display: grid;
   align-items: center;
   grid-template-rows: 1fr;
-  @include media(grid-template-columns,($grid-template-columns, $grid-template-columns, $grid-template-columns-mobile));
-  @include media(grid-template-areas,($grid-template-areas, $grid-template-areas, $grid-template-areas-mobile));
+  @include media(grid-template-columns,($header-template-columns, $header-template-columns, $header-template-columns-mobile));
+  @include media(grid-template-areas,($header-template-areas, $header-template-areas, $header-template-areas-mobile));
   z-index: 10;
   //@include media(background-color,(none,black,white));
   &__language{
@@ -82,7 +83,8 @@
   &__logo {
     @include media(align-self,(end, end, center));
     width: auto;
-    height: 44px;
+    @include media(height,(44px, 44px, 36px));
+    height: 36px;
     img {
       height: 100%;
       @include media(width,(auto, auto, 232px));
@@ -513,9 +515,11 @@ $duration-page-scroll: .6s;
 }
 
 .footer{
-  @include media(padding,(0 32px 0 55px, 0 30px 0 40px));
+  @include media(padding,(0 32px 0 55px, 0 30px 0 40px, 0 19px 0 19px));
   display: grid;
   grid-template-rows: 1fr;
+  @include media(grid-template-columns,($footer-template-columns, $footer-template-columns, $footer-template-columns-mobile));
+  @include media(grid-template-areas,($footer-template-areas, $footer-template-areas, $footer-template-areas-mobile));
   grid-template-columns: 290px 69px 500px    1fr auto        ;
   grid-template-areas:  "info  .... contacts ... interaction";
   left: 0;
@@ -540,7 +544,7 @@ $duration-page-scroll: .6s;
     @extend .link-hover;
   }
   &__contacts{
-    display: flex;
+    @include media(display,(flex, flex, none));
     justify-content: start;
     flex-direction: row;
     grid-area: contacts;
@@ -548,7 +552,7 @@ $duration-page-scroll: .6s;
     align-items: center;
   }
   &__interaction{
-    display: flex;
+    @include media(display,(flex, flex, flex));
     flex-direction: row;
     align-items: center;
     grid-area: interaction;
@@ -560,8 +564,11 @@ $duration-page-scroll: .6s;
   fill: #f7f6f6;
   cursor: pointer;
   transition: fill .3s ease;
+  &:nth-child(2){
+    @include media(height,(25px, 25px, 20px));
+  }
   &:nth-child(1){
-    @include media(display,(block, none));
+    @include media(display,(block, none, none));
   }
   &:hover{
     fill: #e2dfdd;

@@ -7,8 +7,6 @@
     </svg>
     <div class="page-content__inner" js-custom-scroll>
         {$content}
-        <div class="scroll">
-            <div class="scroll-button"></div>
-        </div>
+        {* тут срабатывает scroll.js *}
     </div>
 </div>

@@ -8,7 +8,13 @@ $preview-circle-diameter-mobile: 0;
     $player-circle-diameter-default: 110px;
 
 //header-grid
-$grid-template-columns:   auto  1fr auto  46px 23px  91px auto 35px;
-$grid-template-areas:  "\"logo  ... lang  .... share .... menu ....\"";
-$grid-template-columns-mobile:   auto  1fr auto  1fr  auto 19px;
-$grid-template-areas-mobile:  "\"logo  ... lang  .... menu ....\"";
+$header-template-columns:   auto  1fr auto  46px 23px  91px auto 35px;
+$header-template-areas:  "\"logo  ... lang  .... share .... menu ....\"";
+$header-template-columns-mobile:   auto  1fr auto  1fr  auto 19px;
+$header-template-areas-mobile:  "\"logo  ... lang  .... menu ....\"";
+
+    //footer-grid
+    $footer-template-columns:   290px 69px 500px    1fr auto          ;
+    $footer-template-areas:  "\"info  .... contacts ... interaction\"";
+    $footer-template-columns-mobile:   auto 1fr auto          ;
+    $footer-template-areas-mobile:  "\"info ... interaction\"";

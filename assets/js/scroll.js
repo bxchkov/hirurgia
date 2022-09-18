@@ -1,5 +1,10 @@
 let content = document.querySelectorAll('[js-custom-scroll]');
 content.forEach(item=>{
+    item.insertAdjacentHTML('beforeend',
+        `<div class="scroll"> 
+                <div class="scroll-button"></div> 
+              </div>`
+    );
     let scrollButton = item.querySelector('.scroll-button');
     let scroll = item.querySelector('.scroll');
     let defaultButtonTransition = scrollButton.style.transition;
