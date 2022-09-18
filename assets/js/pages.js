@@ -78,22 +78,7 @@ bodyLeft.addEventListener('wheel', e=>{
     }
     e.preventDefault();
 })
-bodyLeft.addEventListener('mousedown', e=>{
-    let beforeY = e.y;
-    function mouseUp(e){
-        let activePage = document.querySelector('.page.active');
-        let activePageIndex = getElementIndex(activePage);
-        if (beforeY < e.y){
-            setActivePage(activePageIndex + 1);
-        }
-        else{
-            setActivePage(activePageIndex - 1);
-        }
-        document.removeEventListener('mouseup',mouseUp);
-    }
-    document.addEventListener('mouseup',mouseUp)
 
-})
 document.addEventListener('keydown', e=>{
     let activePage = document.querySelector('.page.active');
     let activePageIndex = getElementIndex(activePage);

@@ -8,7 +8,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
         if(e.path[0].classList.contains('page-player') && !e.path[0].classList.contains('active')){
             e.target.classList.add('hover');
             timeOut = setTimeout(()=>{
-                play.dispatchEvent(new Event('click'));
+                //play.dispatchEvent(new Event('click'));
                 draw_video_lines(canvas, 1, 360, 360, 369);
                 e.target.classList.add('active');
             },6000)
@@ -25,16 +25,17 @@ document.querySelectorAll('.page-player').forEach(item=>{
             item.classList.remove('hover');
             //fix css bug :)
             function windowFullOpened(e){
+                console.log(e);
                 item.classList.remove('on-transition');
                 play.dispatchEvent(new Event('click'));
                 draw_video_lines(canvas, 1, 360, 360, 369);
                 item.removeEventListener('transitionend',windowFullOpened);
             }
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-            item.addEventListener('transitionend',windowFullOpened);
             setTimeout(()=>{
                 item.classList.add('active');
                 item.classList.add('on-transition');
+                item.addEventListener('transitionend',windowFullOpened);
             },1)
         }
     })

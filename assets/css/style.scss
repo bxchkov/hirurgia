@@ -172,9 +172,11 @@
   }
 }
 .body{
-  perspective: 1700px;
+  @include media(perspective,(1700px, none));
   font-family: Roboto, Serif;
   background-color: #cbc4c0;
+  overflow: hidden;
+  @include media(overflow,(hidden, auto));
   &.right-open &-left{
     @include media(transform,(rotateY(40deg) scaleY(.8), none));
     pointer-events: none;
@@ -187,6 +189,7 @@
     height: 100vh;
     pointer-events: none;
     overflow: hidden;
+    z-index: 10;
     > * {
       position: absolute;
       left: 100%;
@@ -198,10 +201,10 @@
     }
   }
   &-left{
-    transform: translate3d(0,0,0);
-    transform-origin: 0 50% 0;
     transition: transform .4s ease;
-    will-change: transform;
+    @include media(will-change,(transform, auto));
+    @include media(transform,(translate3d(0,0,0), none));
+    @include media(transform-origin,(0 50% 0, none));
     min-height: 100vh;
   }
 }
@@ -400,6 +403,7 @@ $duration-page-scroll: .6s;
   position: relative;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
