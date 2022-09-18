@@ -319,6 +319,16 @@ a, a:visited {
   border-radius: 100%;
   cursor: pointer;
 }
+@media screen and (max-width: 1180px) {
+  .page-player {
+    display: flex;
+  }
+}
+@media screen and (max-width: 416px) {
+  .page-player {
+    display: none;
+  }
+}
 .page-player__wrapper {
   transition-property: width, height, left;
   transition-duration: 0.75s;
