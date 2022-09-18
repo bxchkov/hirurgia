@@ -1,7 +1,11 @@
 
 document.addEventListener('click',e=>{
-    if(document.body.classList.contains('right-open') && !e.target.closest('.body-right'))
+    if(document.body.classList.contains('right-open') && !e.target.closest('.body-right')){
+        document.querySelectorAll('.body-right > *').forEach(item=>{
+            item.classList.remove('active');
+        });
         document.body.classList.remove('right-open');
+    }
 })
 document.addEventListener('click',e=>{
     let btn = e.target.closest('[js-right-action]');
@@ -12,11 +16,11 @@ document.addEventListener('click',e=>{
     let target = document.querySelector('.body-right > ' + targetSelector);
     if(target === null && action === 'open')
         return
+    document.querySelectorAll('.body-right > *').forEach(item=>{
+        item.classList.remove('active');
+    })
     switch (action){
         case 'open':
-            document.querySelectorAll('.body-right > *').forEach(item=>{
-                item.classList.remove('active');
-            })
             target.classList.add('active');
             document.body.classList.add('right-open');
             break;
