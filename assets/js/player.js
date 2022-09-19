@@ -78,14 +78,13 @@ function draw_video_lines(canvas, width,r, density, offset) {
         var _ctx = canvas.getContext('2d'),
         _radius = r,
         _angle = void 0,
-        _tic = 4,
+        _tic = 1,
     _tic_interval = 1;
 
     var lines = function lines(i) {
-        _angle = (i - 3) * (Math.PI * 2) / density; // частота линий
+        _angle = i * ((Math.PI * 2) / density); // частота линий
         _ctx.lineWidth = width;
         _ctx.beginPath();
-
         var x1 = canvas.width / 2 + Math.cos(_angle) * _radius;
         var y1 = canvas.height / 2 + Math.sin(_angle) * _radius;
         var x2 = canvas.width / 2 + Math.cos(_angle) * offset; // штрих

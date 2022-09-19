@@ -139,6 +139,6 @@
   }
   &__circle{
     position: absolute;
-    pointer-events: none;
+    transform: rotateY(-90deg);
   }
 }

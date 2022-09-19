@@ -3,6 +3,8 @@ let steps = 0;
 let prevIndex;
 setActivePage(0);
 function setActivePage(index){
+    let itsPC = !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    console.log(itsPC);
     if(onAnimation)
         return
     let pages = document.querySelectorAll('.page');
@@ -20,18 +22,27 @@ function setActivePage(index){
         item.classList.remove('next');
         item.classList.remove('prev');
     });
-    let step = shortestWay(prevIndex, index,pages.length);
-    steps += step;
-    for (let i = getValueLoopRange(prevIndex+Math.sign(step),pages.length);  getValueLoopRange(index + Math.sign(step),pages.length) !== getValueLoopRange(i,pages.length); i = i + Math.sign(step)){
-        pages[getValueLoopRange(i,pages.length)].style.transform = `translateY(${Math.floor(steps / pages.length)* 100 * pages.length}vh)`;
-    }
     let activePage = getElementByIndex(index,pages);
     activePage.classList.add('active');
     activePage.classList.add('is-loaded');
-    //scroll main
-    let main = document.querySelector('.main');
-    main.style.transform = `translateY(${-steps*100}vh)`;;
-
+    if(itsPC){
+        let step = shortestWay(prevIndex, index,pages.length);
+        steps += step;
+        for (let i = getValueLoopRange(prevIndex+Math.sign(step),pages.length);  getValueLoopRange(index + Math.sign(step),pages.length) !== getValueLoopRange(i,pages.length); i = i + Math.sign(step)){
+            pages[getValueLoopRange(i,pages.length)].style.transform = `translateY(${Math.floor(steps / pages.length)* 100 * pages.length}vh)`;
+        }
+        //scroll main
+        let main = document.querySelector('.main');
+        main.style.transform = `translateY(${-steps*100}vh)`;;
+        onAnimation = true;
+        setTimeout(()=>{
+            onAnimation = false;
+        },500);
+    }
+    setActiveAside(index);
+    prevIndex = index;
+}
+function setActiveAside(index){
     //aside
     let asideItems = document.querySelectorAll('.aside-item');
     asideItems.forEach(item=>{
@@ -42,11 +53,6 @@ function setActivePage(index){
     getElementByIndex(index,asideItems).classList.add('active');
     getElementByIndex(index-1,asideItems).classList.add('prev');
     getElementByIndex(index+1,asideItems).classList.add('next');
-    prevIndex = index;
-    onAnimation = true;
-    setTimeout(()=>{
-        onAnimation = false;
-    },500);
 }
 /**
  * @return HTMLElement
@@ -86,27 +92,29 @@ bodyLeft.addEventListener('wheel', e=>{
 })
 let timeout;
 document.addEventListener('scroll',e=>{
+    let index = Math.round(window.scrollY / window.innerHeight);
+    setActiveAside(index);
     function scrollEnd(e){
-        let to = Math.round(window.scrollY / window.innerHeight) * window.innerHeight;
+        let index = Math.round(window.scrollY / window.innerHeight);
+        setActivePage(index);
         window.scrollTo({
-            top: to,
+            top: index * window.innerHeight,
             behavior:"smooth"
         });
     }
     clearTimeout(timeout);
     timeout = setTimeout(scrollEnd,100)
 })
-// document.addEventListener('touchmove',e=>{
-//     console.log(e);
-// })
 document.addEventListener('keydown', e=>{
     let activePage = document.querySelector('.page.active');
     let activePageIndex = getElementIndex(activePage);
     if (e.key === "ArrowUp"){
         setActivePage(activePageIndex - 1);
+        e.preventDefault();
     }
     else if(e.key === "ArrowDown"){
         setActivePage(activePageIndex + 1);
+        e.preventDefault();
     }
 })
 
