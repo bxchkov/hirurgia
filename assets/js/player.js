@@ -25,13 +25,15 @@ document.querySelectorAll('.page-player').forEach(item=>{
             item.classList.remove('hover');
             //fix css bug :)
             function windowFullOpened(e){
-                console.log(e);
+                if(!item.classList.contains('active'))
+                    return;
                 item.classList.remove('on-transition');
                 play.dispatchEvent(new Event('click'));
-                draw_video_lines(canvas, 1, 360, 360, 369);
+                if(canvas)
+                    draw_video_lines(canvas, 1, 360, 360, 369);
                 item.removeEventListener('transitionend',windowFullOpened);
             }
-            canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+            canvas?.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
             setTimeout(()=>{
                 item.classList.add('active');
                 item.classList.add('on-transition');
@@ -43,25 +45,33 @@ document.querySelectorAll('.page-player').forEach(item=>{
     play.addEventListener('click',e=>{
         play.classList.remove('active');
         stop.classList.add('active');
-        video.play();
-        video.muted = false;
+        if(video){
+            video.play();
+            //video.muted = false;
+        }
     })
     stop.addEventListener('click',e=>{
         stop.classList.remove('active');
         play.classList.add('active');
-        video.pause();
+        video?.pause();
     })
 })
 document.addEventListener('click',e=>{
-    if(!e.target.closest('.page-player')){
-        document.querySelectorAll('.page-player').forEach(item=>{
-            let canvas = item.querySelector('.page-player__circle');
-            canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-            let event = new Event('click');
+    if(!e.target.closest('.page-player') && !e.target.closest('.page-content')){
+        if(e.target.closest('.page__info')){
+            let item = e.target.closest('.page').querySelector('.page-player');
             let stop = item.querySelector('.page-player__stop');
-            stop.dispatchEvent(event);
-            item.classList.remove('active');
-        })
+            stop?.dispatchEvent(new Event('click'));
+        }
+        else{
+            document.querySelectorAll('.page-player').forEach(item=>{
+                let canvas = item.querySelector('.page-player__circle');
+                canvas?.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+                let stop = item.querySelector('.page-player__stop');
+                stop?.dispatchEvent(new Event('click'));
+                item.classList.remove('active');
+            })
+        }
     }
 })
 function draw_video_lines(canvas, width,r, density, offset) {

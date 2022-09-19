@@ -34,8 +34,8 @@
   }
   85%{
     overflow: hidden;
-    position: absolute;
-    left: 0;
+    position: fixed;
+    left: 49px;
     top: 32px;
     z-index: 100;
     max-width: 50px;
@@ -43,8 +43,8 @@
   }
   100%{
     overflow: hidden;
-    position: absolute;
-    left: 0;
+    position: fixed;
+    left: 49px;
     top: 32px;
     z-index: 100;
     max-width: 300px;

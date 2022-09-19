@@ -9,6 +9,11 @@ function setActivePage(index){
     index = getValueLoopRange(index,pages.length);
     if(prevIndex === undefined)
         prevIndex = index;
+    let beforeActive = document.querySelector('.page.active');
+    if(!beforeActive)
+        beforeActive = pages[0];
+    beforeActive.querySelector('.page-player').classList.remove('active');
+    beforeActive.querySelector('.page-player__stop').dispatchEvent(new Event('click'))
     //pages
     pages.forEach(item=>{
         item.classList.remove('active');
@@ -25,7 +30,8 @@ function setActivePage(index){
     activePage.classList.add('is-loaded');
     //scroll main
     let main = document.querySelector('.main');
-    main.style.top = -steps*100+'vh';
+    main.style.transform = `translateY(${-steps*100}vh)`;;
+
     //aside
     let asideItems = document.querySelectorAll('.aside-item');
     asideItems.forEach(item=>{
@@ -78,7 +84,21 @@ bodyLeft.addEventListener('wheel', e=>{
     }
     e.preventDefault();
 })
-
+let timeout;
+document.addEventListener('scroll',e=>{
+    function scrollEnd(e){
+        let to = Math.round(window.scrollY / window.innerHeight) * window.innerHeight;
+        window.scrollTo({
+            top: to,
+            behavior:"smooth"
+        });
+    }
+    clearTimeout(timeout);
+    timeout = setTimeout(scrollEnd,100)
+})
+// document.addEventListener('touchmove',e=>{
+//     console.log(e);
+// })
 document.addEventListener('keydown', e=>{
     let activePage = document.querySelector('.page.active');
     let activePageIndex = getElementIndex(activePage);

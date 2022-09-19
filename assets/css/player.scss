@@ -1,5 +1,4 @@
 .page-player{
-  border: 1px solid #ed1c25;
   -webkit-box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
   -moz-box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
   box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
@@ -35,9 +34,18 @@
     left: 0;
   }
   &.hover &__wrapper, &.active &__wrapper{
-    width: $player-circle-diameter-on-open;
-    height: $player-circle-diameter-on-open;
-    left: calc((-#{$player-circle-diameter-on-open} + 100%) / 2);
+    @include media(width,(
+            $player-circle-diameter-on-open,
+            $player-circle-diameter-on-open-tablet
+    ));
+    @include media(height,(
+            $player-circle-diameter-on-open,
+            $player-circle-diameter-on-open-tablet
+    ));
+    @include media(left,(
+            calc((-#{$player-circle-diameter-on-open} + 100%) / 2),
+            calc((-#{$player-circle-diameter-on-open-tablet} + 100%) / 2)
+    ));
   }
   &.hover:not(.active) &__wrapper{
     transition-duration: $duration-increase;
@@ -47,13 +55,18 @@
     transition-timing-function:$cubic-bezier-active;
   }
   $page-player-wrapper-width: calc($player-circle-diameter-on-open / 2 + (50vw - ($preview-circle-diameter / 2)));
+  $page-player-wrapper-width-tablet: calc($player-circle-diameter-on-open-tablet / 2 + (50vw - ($preview-circle-diameter-tablet / 2)));
+  $page-player-tablet-left:"50% - 50vw - #{$preview-circle-diameter-tablet} / 2";
   // inner
   &__inner{
     opacity: 0;
     background-color: #424242;
     transition: opacity $duration-decrease linear;
     position: absolute;
-    left: calc(-#{$player-circle-diameter-on-open} / 2 + 50%);
+    @include media(left,(
+            calc(-#{$player-circle-diameter-on-open} / 2 + 50%),
+            calc(#{$page-player-tablet-left})
+    ));
     top: calc(-50vh + 50%);
     max-width: 100vw;
     max-height: 100vh;
@@ -62,7 +75,7 @@
     justify-content: center;
     @include media(width,(
             $page-player-wrapper-width,
-            calc($player-circle-diameter-on-open / 2 + (50vw - ($preview-circle-diameter-tablet / 2)))
+            $page-player-wrapper-width-tablet
     ));
     height: 100vh;
     z-index: 9;
@@ -91,7 +104,10 @@
     pointer-events: none;
   }
   &.active:not(.on-transition) &__play-stop{
-    left: calc(($page-player-wrapper-width - $play-stop-side) / 2);
+    @include media(left,(
+            calc(($page-player-wrapper-width - $play-stop-side) / 2),
+            calc(#{$page-player-tablet-left} + 50vw - #{$play-stop-side} / 2)
+    ));
   }
   &__play,&__stop{
     transition: opacity .5s ease;

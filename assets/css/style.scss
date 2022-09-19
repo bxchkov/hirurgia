@@ -394,10 +394,7 @@ $duration-page-scroll: .6s;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 000vh;
-  left: 0;
-  transition: top $duration-page-scroll ease;
+  transition: transform $duration-page-scroll ease;
 }
 .page{
   position: relative;
