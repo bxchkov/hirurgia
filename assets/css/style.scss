@@ -46,7 +46,7 @@
   grid-template-rows: 1fr;
   @include media(grid-template-columns,($header-template-columns, $header-template-columns, $header-template-columns-mobile));
   @include media(grid-template-areas,($header-template-areas, $header-template-areas, $header-template-areas-mobile));
-  z-index: 10;
+  z-index: 5;
   //@include media(background-color,(none,black,white));
   &__language{
     @include media(margin-top,(9px, 9px, 0));
@@ -329,7 +329,7 @@
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 99;
+  z-index: 1000;
 }
 
 .aside{
@@ -341,7 +341,7 @@
   top: 0;
   height: 100vh;
   width: 40px;
-  z-index: 4;
+  z-index: 1;
   &__inner{
     display: grid;
     grid-auto-rows: 40px;
@@ -395,6 +395,7 @@ $duration-page-scroll: .6s;
   display: flex;
   flex-direction: column;
   transition: transform $duration-page-scroll ease;
+  z-index: 1;
 }
 .page{
   position: relative;
@@ -406,6 +407,7 @@ $duration-page-scroll: .6s;
   justify-content: center;
   background:  url("/assets/images/shadow.png") no-repeat center;
   @include media(background-size,(1145px 786px, 825px 566px));
+  z-index: 4;
   &__loader{
     position: absolute;
     @include media(width,($preview-circle-diameter, $preview-circle-diameter-tablet, $preview-circle-diameter-mobile));

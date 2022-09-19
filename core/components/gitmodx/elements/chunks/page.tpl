@@ -18,10 +18,12 @@
                     <img class="page-player__stop" src="/assets/icons/video-stop.svg">
                 </div>
                 <div class="page-player__inner">
+                    <div class="page-player__close">Закрыть</div>
                     <video class="page-player__video" muted>
                         <source src="{$video}#t=0.1" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                     </video>
                     <div class="page-player__track">
+                        <span class="page-player__time">0:00</span>
                     </div>
                     <canvas class="page-player__circle" width="786" height="786"></canvas>
                 </div>

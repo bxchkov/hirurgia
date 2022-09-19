@@ -4,12 +4,15 @@ document.querySelectorAll('.page-player').forEach(item=>{
     let play = item.querySelector('.page-player__play');
     let stop = item.querySelector('.page-player__stop');
     let canvas = item.querySelector('.page-player__circle');
+    let trackMark = item.querySelector('.page-player__track');
+    let trackTime = item.querySelector('.page-player__time');
+    let close = item.querySelector('.page-player__close');
     item.addEventListener('mouseover',e=>{
         if(e.path[0].classList.contains('page-player') && !e.path[0].classList.contains('active')){
             e.target.classList.add('hover');
             timeOut = setTimeout(()=>{
                 //play.dispatchEvent(new Event('click'));
-                draw_video_lines(canvas, 1, 360, 360, 369);
+                draw_video_lines(canvas, 1, 360, 9);
                 e.target.classList.add('active');
             },6000)
         }
@@ -22,6 +25,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
     })
     item.addEventListener('click',e=>{
         if(!item.classList.contains('active')){
+            clearTimeout(timeOut);
             item.classList.remove('hover');
             //fix css bug :)
             function windowFullOpened(e){
@@ -30,7 +34,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
                 item.classList.remove('on-transition');
                 play.dispatchEvent(new Event('click'));
                 if(canvas)
-                    draw_video_lines(canvas, 1, 360, 360, 369);
+                    draw_video_lines(canvas, 1, 360, 9);
                 item.removeEventListener('transitionend',windowFullOpened);
             }
             canvas?.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
@@ -55,6 +59,37 @@ document.querySelectorAll('.page-player').forEach(item=>{
         play.classList.add('active');
         video?.pause();
     })
+    video.addEventListener('click',e=>{
+        console.log(play.classList.contains('active'),stop.classList.contains('active'))
+        if(play.classList.contains('active'))
+            play.dispatchEvent(new Event('click'));
+        else if(stop.classList.contains('active'))
+            stop.dispatchEvent(new Event('click'));
+
+    })
+    var videoWatcher;
+    video.addEventListener('play',e=>{
+        trackMark.style.animationName = "track-around";
+        trackMark.style.animationDuration = video.duration+"s";
+        trackMark.style.animationTimingFunction = "linear";
+        trackMark.style.animationPlayState = "running";
+        setInterval(()=>{
+            trackTime.innerHTML = Math.floor(video.currentTime / 60) +':'+ (video.currentTime % 60 < 10 ? '0':'') + Math.floor(video.currentTime % 60);
+        },1000);
+    })
+    video.addEventListener('pause',e=>{
+        trackMark.style.animationPlayState = "paused";
+    })
+    video.addEventListener('ended',e=>{
+        item.classList.remove('active');
+        trackMark.style.animationName = '';
+        video.currentTime = 0;
+    })
+    close.addEventListener('click',e=>{
+        item.classList.remove('active');
+        stop.dispatchEvent(new Event('click'));
+        e.stopPropagation()
+    })
 })
 document.addEventListener('click',e=>{
     if(!e.target.closest('.page-player') && !e.target.closest('.page-content')){
@@ -74,15 +109,16 @@ document.addEventListener('click',e=>{
         }
     }
 })
-function draw_video_lines(canvas, width,r, density, offset) {
-        var _ctx = canvas.getContext('2d'),
-        _radius = r,
-        _angle = void 0,
-        _tic = 4,
-    _tic_interval = 1;
-
+function draw_video_lines(canvas, width,density,line) {
+    var _ctx = canvas.getContext('2d'),
+    _radius = canvas.width / 2 - line,
+    _angle = void 0,
+    _tic = 4,
+    _tic_interval = 4,
+    offset = canvas.width / 2;
+    console.log('test');
     var lines = function lines(i) {
-        _angle = i * ((Math.PI * 2) / density); // частота линий
+        _angle = (i-3) * ((Math.PI * 2) / density); // частота линий
         _ctx.lineWidth = width;
         _ctx.beginPath();
         var x1 = canvas.width / 2 + Math.cos(_angle) * _radius;
