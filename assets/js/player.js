@@ -78,7 +78,7 @@ function draw_video_lines(canvas, width,r, density, offset) {
         var _ctx = canvas.getContext('2d'),
         _radius = r,
         _angle = void 0,
-        _tic = 1,
+        _tic = 4,
     _tic_interval = 1;
 
     var lines = function lines(i) {
