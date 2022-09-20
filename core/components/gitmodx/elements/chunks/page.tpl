@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div class="page__info" data-right-action="open" data-right-target=".page-content[js-page-id='{$id}']">
+    <div class="page__info" data-right-action="open" data-right-target=".page-content[data-page-id='{$id}']">
         <svg xmlns="http://www.w3.org/2000/svg"
              width="6" height="20" viewBox="0 0 6 20">
             <path d="M4.382,8.194v10.5h-2.8V8.194h2.8m1.2-1.2h-5.2V18.9a0.989,0.989,0,0,0,.989.989H4.592A0.989,0.989,0,0,0,5.582,18.9V6.994h0ZM3,1.31A1.781,1.781,0,1,1,1.2,3.091,1.793,1.793,0,0,1,3,1.31m0-1.2A2.981,2.981,0,1,0,6,3.091,2.99,2.99,0,0,0,3,.11H3Z"/>

@@ -1,4 +1,4 @@
-<div class="page-content" js-page-id="{$id}">
+<div class="page-content" data-page-id="{$id}">
     <svg class="page-content__close" data-right-action="close" fill="#fff" xmlns="http://www.w3.org/2000/svg"
          width="15"
          height="15" viewBox="0 0 15 15">
