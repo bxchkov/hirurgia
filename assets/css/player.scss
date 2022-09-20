@@ -18,6 +18,9 @@
   $duration-increase:6s;
   $duration-decrease:.75s;
   $duration-increase-active:1s;
+  &.hideUI{
+    cursor: none;
+  }
   //wrapper
   &__wrapper{
     transition-property: width, height, left;
@@ -106,14 +109,18 @@
     position: absolute;
     left: calc((100% - $play-stop-side) / 2);
     z-index: 10;
-    transition: left .75s ease;
+    transition: left .75s ease, opacity .3s ease;
     display: flex;
     align-content: center;
     pointer-events: none;
+    opacity: 1;
   }
   &.active:not(.on-transition) &__play-stop{
     left: calc(50% - 50vw - #{$preview-circle-diameter} / 2 + 50vw - #{$play-stop-side} / 2);
     @include media(left,(calc(50% - 50vw - #{$preview-circle-diameter} / 2 + 50vw - #{$play-stop-side} / 2), calc(50% - 50vw - #{$preview-circle-diameter-tablet} / 2 + 50vw - #{$play-stop-side} / 2)));
+  }
+  &.hideUI.active &__play-stop{
+    opacity: 0;
   }
   &__play,&__stop{
     transition: opacity .5s ease;
@@ -151,14 +158,14 @@
     transition: opacity .3s ease, width .3s ease, height .3s ease;
     width: $player-UI-diameter;
     height: $player-UI-diameter;
+    opacity: 1;
   }
-  &__UI:hover{
+  &__UI:hover,&__UI.active{
     width: $player-UI-diameter-active;
     height: $player-UI-diameter-active;
   }
-  &__play-stop:hover + &__inner &__UI{
-    width: $player-UI-diameter-active;
-    height: $player-UI-diameter-active;
+  &.hideUI &__UI{
+    opacity: 0;
   }
   &__track{
     width:100%;
@@ -167,6 +174,9 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    opacity: 0;
+  }
+  &__UI:hover &__track,&__UI.active &__track{
     opacity: 1;
   }
   &__time{
@@ -185,9 +195,6 @@
       background: red;
       border-radius: 100%;
     }
-  }
-  &__track:hover &__time{
-
   }
   &__circle{
     z-index: 1;

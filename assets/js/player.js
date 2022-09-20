@@ -8,13 +8,32 @@ document.querySelectorAll('.page-player').forEach(item=>{
     let trackTime = item.querySelector('.page-player__time');
     let close = item.querySelector('.page-player__close');
     let UIwrapper = item.querySelector('.page-player__UI');
+    // api для скрытия hide UI
+    let timeouthideUI;
+    function addTimeoutUI(){
+        item.classList.remove('hideUI');
+        timeouthideUI = setTimeout(()=>{
+            item.classList.add('hideUI');
+        },1500)
+    }
+    function removeTimeoutUI(){
+        item.classList.remove('hideUI');
+        if(timeouthideUI)
+            clearTimeout(timeouthideUI)
+    }
+    function refreshTimeoutUI(){
+        removeTimeoutUI();
+        item.classList.remove('hideUI');
+        addTimeoutUI();
+    }
+    // медленное раскрытие при наведении мышкой
     item.addEventListener('mouseover',e=>{
         if(e.path[0].classList.contains('page-player') && !e.path[0].classList.contains('active')){
-            e.target.classList.add('hover');
+            item.classList.add('hover');
             timeOut = setTimeout(()=>{
                 //play.dispatchEvent(new Event('click'));
                 draw_video_lines(canvas, 1, 360, 9);
-                e.target.classList.add('active');
+                item.classList.add('active');
             },6000)
         }
     })
@@ -24,6 +43,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
             clearTimeout(timeOut);
         }
     })
+    //быстрое раскрытие при клике
     item.addEventListener('click',e=>{
         if(!item.classList.contains('active')){
             clearTimeout(timeOut);
@@ -46,7 +66,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
             },1)
         }
     })
-
+    // при нажатии на иконоку плей стоп
     play.addEventListener('click',e=>{
         play.classList.remove('active');
         stop.classList.add('active');
@@ -60,44 +80,46 @@ document.querySelectorAll('.page-player').forEach(item=>{
         play.classList.add('active');
         video?.pause();
     })
-    video.addEventListener('click',e=>{
-        console.log(play.classList.contains('active'),stop.classList.contains('active'))
-        if(play.classList.contains('active'))
-            play.dispatchEvent(new Event('click'));
-        else if(stop.classList.contains('active'))
-            stop.dispatchEvent(new Event('click'));
-
-    })
-    var videoWatcher;
+    // при запуске видео запускаем движение точки
+    let videoInterval;
     video.addEventListener('play',e=>{
         trackMark.style.animationName = "track-around";
         trackMark.style.animationDuration = video.duration+"s";
         trackMark.style.animationTimingFunction = "linear";
         trackMark.style.animationPlayState = "running";
-        setInterval(()=>{
+        videoInterval = setInterval(()=>{
             trackTime.innerHTML = Math.floor(video.currentTime / 60) +':'+ (video.currentTime % 60 < 10 ? '0':'') + Math.floor(video.currentTime % 60);
         },1000);
     })
+    // при паузе останавливаем движение точки
     video.addEventListener('pause',e=>{
+        clearInterval(videoInterval);
         trackMark.style.animationPlayState = "paused";
     })
+    // при конце останавливаем движение точки
     video.addEventListener('ended',e=>{
+        clearInterval(videoInterval);
         item.classList.remove('active');
         stop.dispatchEvent(new Event('click'));
         trackMark.style.animationName = '';
         trackMark.style.transform = "";
         video.currentTime = 0;
     })
+    // закрытие видоса
     close.addEventListener('click',e=>{
         item.classList.remove('active');
         stop.dispatchEvent(new Event('click'));
-        e.stopPropagation()
+        removeTimeoutUI()
+        item.classList.remove('hideUI');
+        e.stopPropagation();
     })
+    // обработчики управления временем видео
     trackTime.addEventListener('mousedown',e=>{
         video.pause();
         trackMark.style.animationPlayState = "paused";
         let degrees;
         function mouseMove(e){
+            UIwrapper.classList.add('active');
             let y = (window.innerHeight / 2 - e.y);
             let x =(e.x - window.innerWidth / 2);
             let radian = Math.atan2(x,y);
@@ -105,25 +127,62 @@ document.querySelectorAll('.page-player').forEach(item=>{
             degrees = degrees >0 ?degrees:degrees+360;
             let videoTime =  video.duration * degrees / 360;
             trackTime.innerHTML = Math.floor(videoTime / 60) +':'+ (videoTime % 60 < 10 ? '0':'') + Math.floor(videoTime % 60);
-            trackMark.style.transform = `rotateZ(${degrees}deg)`
+            video.currentTime = video.duration * degrees / 360;
+            trackMark.style.transform = `rotateZ(${degrees}deg)`;
+            removeTimeoutUI();
         }
         document.addEventListener('mousemove',mouseMove)
         function mouseUp(e){
+            if(!e.target.closest('.page-player__UI'))
+                setTimeout(()=>{UIwrapper.classList.remove('active')},750)
+            addTimeoutUI();
             video.currentTime = video.duration * degrees / 360;
             video.play();
             trackMark.style.animationDuration = "";
             trackMark.style.animationName= "";
+            // фиксим баг хрома
             setTimeout(()=>{
                 trackMark.style.animationName= "track-around";
                 trackMark.style.animationDuration = Math.round((video.duration - video.currentTime) * 100) / 100 +"s";
                 trackMark.style.animationPlayState = "running";
-
             },1)
             document.removeEventListener('mousemove',mouseMove)
             document.removeEventListener('mouseup',mouseUp);
         }
         document.addEventListener('mouseup',mouseUp);
     })
+    // действия при нажатии на видео
+    video.addEventListener('click',e=>{
+        if(!item.classList.contains('hideUI')) {
+            if(play.classList.contains('active'))
+                play.dispatchEvent(new Event('click'));
+            else if(stop.classList.contains('active'))
+                stop.dispatchEvent(new Event('click'));
+        }
+        refreshTimeoutUI();
+    })
+    video.addEventListener('mousemove',e=>{
+        item.classList.remove('hideUI');
+        refreshTimeoutUI()
+    })
+    play.addEventListener('mouseover',()=>{
+        removeTimeoutUI()
+        UIwrapper.classList.add('active');
+    })
+    play.addEventListener('mouseout',addTimeoutUI)
+    UIwrapper.addEventListener('mouseover',()=>{
+        removeTimeoutUI()
+        UIwrapper.classList.add('active');
+    })
+    UIwrapper.addEventListener('mouseout',()=>{
+        addTimeoutUI()
+        UIwrapper.classList.remove('active');
+    })
+    stop.addEventListener('mouseover',()=>{
+        removeTimeoutUI()
+        UIwrapper.classList.add('active');
+    })
+    stop.addEventListener('mouseout',addTimeoutUI)
 })
 document.addEventListener('click',e=>{
     if(!e.target.closest('.page-player') && !e.target.closest('.page-content')){
