@@ -1,12 +1,13 @@
 .page-player{
-  -webkit-box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
-  -moz-box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
-  box-shadow: 10px 10px 24px 0 rgb(255 0 85 / 50%);
-  @include media(display,(flex, flex, none));
+  @include media(-webkit-box-shadow,(10px 10px 24px 0 rgb(255 0 85 / 50%), 10px 10px 24px 0 rgb(255 0 85 / 50%), unset));
+  @include media(-moz-box-shadow,(10px 10px 24px 0 rgb(255 0 85 / 50%), 10px 10px 24px 0 rgb(255 0 85 / 50%), unset));
+  @include media(box-shadow,(10px 10px 24px 0 rgb(255 0 85 / 50%), 10px 10px 24px 0 rgb(255 0 85 / 50%), unset));
+  display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: calc(-#{$player-circle-diameter-default} / 2);
+  @include media(bottom,(unset, unset, 18%));
+  @include media(right,(calc(-#{$player-circle-diameter-default} / 2), calc(-#{$player-circle-diameter-default} / 2), 20%));
   background-color: rgba(255, 0, 0, 0.8);
   backdrop-filter: blur(2px);
   width: $player-circle-diameter-default;
@@ -48,7 +49,7 @@
   }
   &.active &__wrapper{
     transition-duration: $duration-increase-active;
-    transition-timing-function:$cubic-bezier-active;
+    transition-timing-function: $cubic-bezier-active;
   }
   //$page-player-wrapper-width: calc($player-circle-diameter-on-open / 2 + (50vw - ($preview-circle-diameter / 2)));
   // inner

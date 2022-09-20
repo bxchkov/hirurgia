@@ -21,3 +21,7 @@ $header-template-areas-mobile:  "\"logo  ... lang  .... menu ....\"";
     $footer-template-areas:  "\"info  .... contacts ... interaction\"";
     $footer-template-columns-mobile:   auto 1fr auto          ;
     $footer-template-areas-mobile:  "\"info ... interaction\"";
+
+//menu-grid
+$menu-template-rows: repeat(4,1fr);
+$menu-template-areas: none;
