@@ -1,7 +1,7 @@
 <header class="header">
     <div class="logo-anim-background"></div>
     <a class="logo header__logo">
-        <img src="/assets/icons/logos/full-logo.regular.svg" alt="logo">
+        <img alt="logo" src="/assets/icons/logos/full-logo.regular.svg" alt="logo">
     </a>
     <script>
         if (sessionStorage.isLoaded){}

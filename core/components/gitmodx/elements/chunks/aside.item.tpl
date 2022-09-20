@@ -1,3 +1,3 @@
 <div class="aside-item">
-    <img class="aside-item__icon" src="{$icon}" alt="{$pagetitle}">
+    <img alt="icon" class="aside-item__icon" src="{$icon}" alt="{$pagetitle}">
 </div>

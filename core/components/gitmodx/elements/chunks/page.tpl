@@ -14,8 +14,8 @@
         <div class="page-player">
             <div class="page-player__wrapper">
                 <div class="page-player__play-stop">
-                    <img class="page-player__play active" src="/assets/icons/video-play.svg">
-                    <img class="page-player__stop" src="/assets/icons/video-stop.svg">
+                    <img alt="play" class="page-player__play active" src="/assets/icons/video-play.svg">
+                    <img alt="stop" class="page-player__stop" src="/assets/icons/video-stop.svg">
                 </div>
                 <div class="page-player__inner">
                     <div class="page-player__close">Закрыть</div>
