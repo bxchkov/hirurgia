@@ -11,8 +11,8 @@ document.addEventListener('click',e=>{
     let btn = e.target.closest('[js-right-action]');
     if(btn === null)
         return;
-    let action = btn.getAttribute('js-right-action');
-    let targetSelector = btn.getAttribute('js-right-target');
+    let action = btn.getAttribute('data-right-action');
+    let targetSelector = btn.getAttribute('data-right-target');
     let target = document.querySelector('.body-right > ' + targetSelector);
     if(target === null && action === 'open')
         return

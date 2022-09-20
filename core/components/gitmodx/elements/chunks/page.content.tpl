@@ -1,5 +1,5 @@
 <div class="page-content" js-page-id="{$id}">
-    <svg class="page-content__close" js-right-action="close" fill="#fff" xmlns="http://www.w3.org/2000/svg"
+    <svg class="page-content__close" data-right-action="close" fill="#fff" xmlns="http://www.w3.org/2000/svg"
          width="15"
          height="15" viewBox="0 0 15 15">
         <path id="Rounded_Rectangle_1" data-name="Rounded Rectangle 1"
