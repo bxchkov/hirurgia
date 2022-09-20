@@ -31,7 +31,7 @@
     </div>
     <div class="menu__items">
         <a href="" class="menu-item">
-            <img alt="background-image1" src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
+            <img src="/assets/images/kotik.jpg" alt="Центр" class="menu-item__image">
             <svg class="menu-item__icon" width="32" height="40" viewBox="0 0 32 40" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.1562 19.4934V22.4076C11.1562 22.7935 10.9342 23.145 10.5856 23.3107L3.35331 26.7488C1.61048 27.5773 0.5 29.3348 0.5 31.2646V34.6908M19.875 19.4934V22.3844C19.875 22.7822 20.1108 23.1422 20.4755 23.3011L28.4974 26.7968C30.3209 27.5915 31.5 29.3914 31.5 31.3805V38.25C31.5 38.8023 31.0523 39.25 30.5 39.25H1.5C0.947716 39.25 0.5 38.8023 0.5 38.25V37.2237"
@@ -63,7 +63,7 @@
             <div class="menu-item__title">Центр</div>
         </a>
         <a href="" class="menu-item">
-            <img alt="background-image2" src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
+            <img src="/assets/images/kotik.jpg" alt="Коррекции" class="menu-item__image">
             <svg class="menu-item__icon" width="32" height="40" viewBox="0 0 32 40" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.1562 19.4934V22.4076C11.1562 22.7935 10.9342 23.145 10.5856 23.3107L3.35331 26.7488C1.61048 27.5773 0.5 29.3348 0.5 31.2646V34.6908M19.875 19.4934V22.3844C19.875 22.7822 20.1108 23.1422 20.4755 23.3011L28.4974 26.7968C30.3209 27.5915 31.5 29.3914 31.5 31.3805V38.25C31.5 38.8023 31.0523 39.25 30.5 39.25H1.5C0.947716 39.25 0.5 38.8023 0.5 38.25V37.2237"
@@ -95,7 +95,7 @@
             <div class="menu-item__title">Коррекции</div>
         </a>
         <a href="" class="menu-item">
-            <img alt="background-image3" src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
+            <img src="/assets/images/kotik.jpg" alt="Гинекомастии" class="menu-item__image">
             <svg class="menu-item__icon" width="32" height="40" viewBox="0 0 32 40" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.1562 19.4934V22.4076C11.1562 22.7935 10.9342 23.145 10.5856 23.3107L3.35331 26.7488C1.61048 27.5773 0.5 29.3348 0.5 31.2646V34.6908M19.875 19.4934V22.3844C19.875 22.7822 20.1108 23.1422 20.4755 23.3011L28.4974 26.7968C30.3209 27.5915 31.5 29.3914 31.5 31.3805V38.25C31.5 38.8023 31.0523 39.25 30.5 39.25H1.5C0.947716 39.25 0.5 38.8023 0.5 38.25V37.2237"
@@ -127,7 +127,7 @@
             <div class="menu-item__title">Гинекомастии</div>
         </a>
         <a href="" class="menu-item">
-            <img alt="background-image4" src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
+            <img alt="background-image4" src="/assets/images/kotik.jpg"class="menu-item__image">
             <svg class="menu-item__icon" width="32" height="40" viewBox="0 0 32 40" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.1562 19.4934V22.4076C11.1562 22.7935 10.9342 23.145 10.5856 23.3107L3.35331 26.7488C1.61048 27.5773 0.5 29.3348 0.5 31.2646V34.6908M19.875 19.4934V22.3844C19.875 22.7822 20.1108 23.1422 20.4755 23.3011L28.4974 26.7968C30.3209 27.5915 31.5 29.3914 31.5 31.3805V38.25C31.5 38.8023 31.0523 39.25 30.5 39.25H1.5C0.947716 39.25 0.5 38.8023 0.5 38.25V37.2237"
@@ -159,7 +159,7 @@
             <div class="menu-item__title"></div>
         </a>
         <a href="" class="menu-item">
-            <img alt="background-image5" src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
+            <img alt="background-image5" src="/assets/images/kotik.jpg" class="menu-item__image">
             <svg class="menu-item__icon" width="32" height="40" viewBox="0 0 32 40" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.1562 19.4934V22.4076C11.1562 22.7935 10.9342 23.145 10.5856 23.3107L3.35331 26.7488C1.61048 27.5773 0.5 29.3348 0.5 31.2646V34.6908M19.875 19.4934V22.3844C19.875 22.7822 20.1108 23.1422 20.4755 23.3011L28.4974 26.7968C30.3209 27.5915 31.5 29.3914 31.5 31.3805V38.25C31.5 38.8023 31.0523 39.25 30.5 39.25H1.5C0.947716 39.25 0.5 38.8023 0.5 38.25V37.2237"
@@ -191,7 +191,7 @@
             <div class="menu-item__title"></div>
         </a>
         <a href="" class="menu-item">
-            <img alt="background-image6" src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
+            <img alt="background-image6" src="/assets/images/kotik.jpg" class="menu-item__image">
             <svg class="menu-item__icon" width="32" height="40" viewBox="0 0 32 40" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.1562 19.4934V22.4076C11.1562 22.7935 10.9342 23.145 10.5856 23.3107L3.35331 26.7488C1.61048 27.5773 0.5 29.3348 0.5 31.2646V34.6908M19.875 19.4934V22.3844C19.875 22.7822 20.1108 23.1422 20.4755 23.3011L28.4974 26.7968C30.3209 27.5915 31.5 29.3914 31.5 31.3805V38.25C31.5 38.8023 31.0523 39.25 30.5 39.25H1.5C0.947716 39.25 0.5 38.8023 0.5 38.25V37.2237"
@@ -223,7 +223,7 @@
             <div class="menu-item__title"></div>
         </a>
         <a href="" class="menu-item">
-            <img alt="background-image7" src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
+            <img alt="background-image7" src="/assets/images/kotik.jpg" class="menu-item__image">
             <svg class="menu-item__icon" width="32" height="40" viewBox="0 0 32 40" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.1562 19.4934V22.4076C11.1562 22.7935 10.9342 23.145 10.5856 23.3107L3.35331 26.7488C1.61048 27.5773 0.5 29.3348 0.5 31.2646V34.6908M19.875 19.4934V22.3844C19.875 22.7822 20.1108 23.1422 20.4755 23.3011L28.4974 26.7968C30.3209 27.5915 31.5 29.3914 31.5 31.3805V38.25C31.5 38.8023 31.0523 39.25 30.5 39.25H1.5C0.947716 39.25 0.5 38.8023 0.5 38.25V37.2237"
