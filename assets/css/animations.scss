@@ -63,10 +63,7 @@
   }
 }
 @keyframes track-around {
-  0%{
-    transform: rotateZ(-90deg);
-  }
   100%{
-    transform: rotateZ(270deg);
+    transform: rotateZ(360deg);
   }
 }

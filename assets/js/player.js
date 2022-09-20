@@ -7,6 +7,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
     let trackMark = item.querySelector('.page-player__track');
     let trackTime = item.querySelector('.page-player__time');
     let close = item.querySelector('.page-player__close');
+    let UIwrapper = item.querySelector('.page-player__UI');
     item.addEventListener('mouseover',e=>{
         if(e.path[0].classList.contains('page-player') && !e.path[0].classList.contains('active')){
             e.target.classList.add('hover');
@@ -82,13 +83,46 @@ document.querySelectorAll('.page-player').forEach(item=>{
     })
     video.addEventListener('ended',e=>{
         item.classList.remove('active');
+        stop.dispatchEvent(new Event('click'));
         trackMark.style.animationName = '';
+        trackMark.style.transform = "";
         video.currentTime = 0;
     })
     close.addEventListener('click',e=>{
         item.classList.remove('active');
         stop.dispatchEvent(new Event('click'));
         e.stopPropagation()
+    })
+    trackTime.addEventListener('mousedown',e=>{
+        video.pause();
+        trackMark.style.animationPlayState = "paused";
+        let degrees;
+        function mouseMove(e){
+            let y = (window.innerHeight / 2 - e.y);
+            let x =(e.x - window.innerWidth / 2);
+            let radian = Math.atan2(x,y);
+            degrees = (radian / Math.PI * 180);
+            degrees = degrees >0 ?degrees:degrees+360;
+            let videoTime =  video.duration * degrees / 360;
+            trackTime.innerHTML = Math.floor(videoTime / 60) +':'+ (videoTime % 60 < 10 ? '0':'') + Math.floor(videoTime % 60);
+            trackMark.style.transform = `rotateZ(${degrees}deg)`
+        }
+        document.addEventListener('mousemove',mouseMove)
+        function mouseUp(e){
+            video.currentTime = video.duration * degrees / 360;
+            video.play();
+            trackMark.style.animationDuration = "";
+            trackMark.style.animationName= "";
+            setTimeout(()=>{
+                trackMark.style.animationName= "track-around";
+                trackMark.style.animationDuration = Math.round((video.duration - video.currentTime) * 100) / 100 +"s";
+                trackMark.style.animationPlayState = "running";
+
+            },1)
+            document.removeEventListener('mousemove',mouseMove)
+            document.removeEventListener('mouseup',mouseUp);
+        }
+        document.addEventListener('mouseup',mouseUp);
     })
 })
 document.addEventListener('click',e=>{

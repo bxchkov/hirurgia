@@ -22,10 +22,12 @@
                     <video class="page-player__video" muted>
                         <source src="{$video}#t=0.1" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                     </video>
-                    <div class="page-player__track">
-                        <span class="page-player__time">0:00</span>
+                    <div class="page-player__UI">
+                        <div class="page-player__track">
+                            <span class="page-player__time">0:00</span>
+                        </div>
+                        <canvas class="page-player__circle" width="786" height="786"></canvas>
                     </div>
-                    <canvas class="page-player__circle" width="786" height="786"></canvas>
                 </div>
             </div>
         </div>

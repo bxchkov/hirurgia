@@ -141,22 +141,42 @@
     object-fit: cover;
     z-index: -1;
   }
-  $player-track-circle-diameter:max(50vw,50vh);
-  &__track{
+  $player-UI-diameter-active:min(60vw,60vh);
+  $player-UI-diameter:200px;
+  &__UI{
     position: absolute;
-    width:$player-track-circle-diameter;
-    height: $player-track-circle-diameter;
-    z-index: 2;
     display: flex;
     align-items: center;
-    justify-content: end;
-    transform: rotateZ(-90deg);
+    justify-content: center;
+    transition: opacity .3s ease, width .3s ease, height .3s ease;
+    width: $player-UI-diameter;
+    height: $player-UI-diameter;
+  }
+  &__UI:hover{
+    width: $player-UI-diameter-active;
+    height: $player-UI-diameter-active;
+  }
+  &__play-stop:hover + &__inner &__UI{
+    width: $player-UI-diameter-active;
+    height: $player-UI-diameter-active;
+  }
+  &__track{
+    width:100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    opacity: 1;
   }
   &__time{
     display: flex;
     position: relative;
-    left: 48px;
     gap: 10px;
+    transform-origin: left center;
+    left: 30px;
+    top: 3px;
+    transform: rotateZ(-90deg);
     &:before{
       content: "";
       display: block;
@@ -166,11 +186,14 @@
       border-radius: 100%;
     }
   }
+  &__track:hover &__time{
+
+  }
   &__circle{
     z-index: 1;
     position: absolute;
     transform: rotateZ(-90deg);
-    width:$player-track-circle-diameter;
-    height: $player-track-circle-diameter;
+    width:100%;
+    height: 100%;
   }
 }
