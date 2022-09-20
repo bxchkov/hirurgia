@@ -504,11 +504,11 @@ $duration-page-scroll: .6s;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    @include media(font-size,(50px, 36px));
+    @include media(font-size,(50px, 28px));
     span{
       @include media(margin-top,(20px, 7px));
       letter-spacing: 1.7px;
-      @include media(font-size,(22px, 19px));
+      @include media(font-size,(22px, 12px));
       line-height: 27px;
       font-weight: 400;
     }

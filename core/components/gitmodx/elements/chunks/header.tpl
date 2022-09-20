@@ -1,7 +1,7 @@
 <header class="header">
     <div class="logo-anim-background"></div>
     <a class="logo header__logo">
-        <img src="/assets/icons/logos/full-logo.regular.svg" alt="logo">
+        <img alt="logo" src="/assets/icons/logos/full-logo.regular.svg">
     </a>
     <script>
         if (sessionStorage.isLoaded){}
@@ -58,7 +58,7 @@
             </a>
         </div>
     </div>
-    <div class="header__open-menu" js-right-action="open" js-right-target=".menu">
+    <div class="header__open-menu" data-right-action="open" data-right-target=".menu">
         <span>Меню</span>
         <div class="menu__link-icon">
             <div class="link-icon__line"></div>

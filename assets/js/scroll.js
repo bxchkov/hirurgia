@@ -1,4 +1,4 @@
-let content = document.querySelectorAll('[js-custom-scroll]');
+let content = document.querySelectorAll('[data-custom-scroll]');
 content.forEach(item=>{
     item.insertAdjacentHTML('beforeend',
         `<div class="scroll"> 
