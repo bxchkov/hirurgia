@@ -1321,7 +1321,7 @@ a, a:visited {
 }
 @media screen and (max-width: 1180px) {
   .preview__main {
-    font-size: 36px;
+    font-size: 28px;
   }
 }
 .preview__main span {
@@ -1338,7 +1338,7 @@ a, a:visited {
 }
 @media screen and (max-width: 1180px) {
   .preview__main span {
-    font-size: 19px;
+    font-size: 12px;
   }
 }
 

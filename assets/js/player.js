@@ -194,7 +194,6 @@ document.querySelectorAll('.page-player').forEach(item=>{
     })
     // действия при нажатии на видео
     video.addEventListener('click',e=>{
-        console.log(item.classList.contains('hideUI'));
         if(!item.classList.contains('hideUI')) {
             if(play.classList.contains('active'))
                 play.dispatchEvent(new Event('click'));
@@ -212,10 +211,12 @@ document.querySelectorAll('.page-player').forEach(item=>{
         UIwrapper.classList.add('active');
     })
     play.addEventListener('mouseout',startTimeoutUI)
+    play.addEventListener('click',startTimeoutUI)
     UIwrapper.addEventListener('mouseover',()=>{
         removeTimeoutUI()
         UIwrapper.classList.add('active');
     })
+    UIwrapper.addEventListener('click',startTimeoutUI)
     UIwrapper.addEventListener('mouseout',()=>{
         startTimeoutUI()
         UIwrapper.classList.remove('active');
@@ -224,6 +225,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
         removeTimeoutUI()
         UIwrapper.classList.add('active');
     })
+    stop.addEventListener('click',startTimeoutUI)
     stop.addEventListener('mouseout',startTimeoutUI)
 })
 document.addEventListener('click',e=>{
