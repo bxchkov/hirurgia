@@ -10,7 +10,6 @@
 .logo{
   grid-area: logo;
   @include media(height,(44px, 44px, 36px));
-  height: 36px;
   &__image{
     grid-area: svg;
     justify-self: center;
@@ -35,6 +34,7 @@
 }
 .header{
   @include media(padding-left,(49px, 29px, 19px));
+  user-select: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -80,7 +80,6 @@
     @include media(align-self,(end, end, center));
     width: auto;
     @include media(height,(44px, 44px, 36px));
-    height: 36px;
     img {
       height: 100%;
       @include media(width,(auto, auto, 232px));
@@ -520,7 +519,7 @@ $duration-page-scroll: .6s;
 
 .footer{
   @include media(padding,(0 32px 0 55px, 0 30px 0 40px, 0 19px 0 19px));
-  display: grid;
+  @include media(display,(grid, grid, none));
   grid-template-rows: 1fr;
   @include media(grid-template-columns,($footer-template-columns, $footer-template-columns, $footer-template-columns-mobile));
   @include media(grid-template-areas,($footer-template-areas, $footer-template-areas, $footer-template-areas-mobile));
