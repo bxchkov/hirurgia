@@ -30,7 +30,7 @@
     background-color: rgba(125, 125, 125, 0.2);
   }
 }
-*[js-custom-scroll]{
+*[data-custom-scroll]{
   &::-webkit-scrollbar{
     width: 0;
     pointer-events: none;
