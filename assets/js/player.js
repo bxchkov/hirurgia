@@ -213,28 +213,28 @@ document.querySelectorAll('.page-player').forEach(item=>{
     video.addEventListener('mousemove',e=>{
         item.classList.remove('hideUI');
         refreshTimeoutUI()
-    })
+    });
     play.addEventListener('mouseover',()=>{
         removeTimeoutUI()
         UIwrapper.classList.add('active');
-    })
-    play.addEventListener('mouseout',startTimeoutUI)
-    play.addEventListener('click',startTimeoutUI)
+    });
+    play.addEventListener('mouseout',refreshTimeoutUI);
+    play.addEventListener('click',refreshTimeoutUI);
     UIwrapper.addEventListener('mouseover',()=>{
-        removeTimeoutUI()
+        removeTimeoutUI();
         UIwrapper.classList.add('active');
-    })
-    UIwrapper.addEventListener('click',startTimeoutUI)
+    });
+    UIwrapper.addEventListener('click',refreshTimeoutUI)
     UIwrapper.addEventListener('mouseout',()=>{
-        startTimeoutUI()
+        refreshTimeoutUI();
         UIwrapper.classList.remove('active');
-    })
+    });
     stop.addEventListener('mouseover',()=>{
         removeTimeoutUI()
         UIwrapper.classList.add('active');
-    })
-    stop.addEventListener('click',startTimeoutUI)
-    stop.addEventListener('mouseout',startTimeoutUI)
+    });
+    stop.addEventListener('click',refreshTimeoutUI);
+    stop.addEventListener('mouseout',refreshTimeoutUI);
 })
 document.addEventListener('click',e=>{
     if(!e.target.closest('.page-player') && !e.target.closest('.page-content')){
