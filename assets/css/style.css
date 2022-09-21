@@ -230,7 +230,7 @@ a, a:visited {
 }
 @media screen and (max-width: 416px) {
   .page-player {
-    bottom: 25%;
+    bottom: calc(25% - 55px);
   }
 }
 @media screen and (max-width: 1180px) {
@@ -487,7 +487,7 @@ a, a:visited {
 }
 @media screen and (max-width: 416px) {
   .page-player {
-    bottom: 25%;
+    bottom: calc(25% - 55px);
   }
 }
 @media screen and (max-width: 1180px) {
@@ -1501,17 +1501,7 @@ a, a:visited {
 }
 @media screen and (max-width: 416px) {
   .page__info {
-    bottom: 29%;
-  }
-}
-@media screen and (max-width: 1180px) {
-  .page__info {
-    width: 36px;
-  }
-}
-@media screen and (max-width: 1180px) {
-  .page__info {
-    height: 36px;
+    bottom: calc(25% - 18px);
   }
 }
 .page__info:hover {
