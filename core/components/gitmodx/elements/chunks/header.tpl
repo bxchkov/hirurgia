@@ -11,10 +11,11 @@
         }
         window.scrollTo(0, 0);
     </script>
-    <div class="header__language">
-        <div class="language-switcher active">Ru</div>
-        <div class="language-switcher">En</div>
-    </div>
+{*    <div class="header__language">*}
+{*        <div class="language-switcher active">Ru</div>*}
+{*        <div class="language-switcher">En</div>*}
+{*    </div>*}
+    <a class="header__telephone" type="tel">+7 922 222-22-22</a>
     <div class="header__share">
         <svg class="share-main-svg" xmlns="http://www.w3.org/2000/svg"
              width="23" height="23" viewBox="0 0 23 23">

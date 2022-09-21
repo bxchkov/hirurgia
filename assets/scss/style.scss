@@ -34,6 +34,7 @@
 }
 .header{
   @include media(padding-left,(49px, 29px, 19px));
+  @include media(padding-right,(35px, 35px, 19px));
   user-select: none;
   position: fixed;
   top: 0;
@@ -51,9 +52,15 @@
   &__language{
     @include media(margin-top,(9px, 9px, 0));
     grid-area: lang;
-    display: flex;
+    display: none;
     flex-direction: row;
     gap: 16px;
+    font-family: Arial;
+    cursor: pointer;
+  }
+  &__telephone{
+    @include media(margin-top,(9px, 9px, 0));
+    grid-area: tel;
     font-family: Arial;
     cursor: pointer;
   }
@@ -385,7 +392,7 @@
 }
 
 .aside{
-  @include media(display,(flex, flex, none));
+  @include media(display,(flex, flex, flex));
   display: flex;
   align-items: center;
   position: fixed;
@@ -395,6 +402,7 @@
   width: 40px;
   z-index: 1;
   &__inner{
+    position: relative;
     display: grid;
     grid-auto-rows: 40px;
     grid-auto-columns: 40px;
@@ -403,6 +411,7 @@
     justify-items: center;
     gap: 10px;
     width: 100%;
+    z-index: 1;
   }
 }
 .aside-item{
@@ -508,17 +517,19 @@ $duration-page-scroll: .6s;
 
 .preview{
   &__main{
+    width: 70%;
     display: flex;
-    line-height: 50px;
+    @include media(line-height,(50px, 40px, 35px));
     @include media(letter-spacing,(7px, 4.5px));
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    @include media(font-size,(50px, 28px));
+    text-align: center;
+    @include media(font-size,(50px, 35px, 30px));
     span{
       @include media(margin-top,(20px, 7px));
       letter-spacing: 1.7px;
-      @include media(font-size,(22px, 12px));
+      @include media(font-size,(22px, 16px, 16px));
       line-height: 27px;
       font-weight: 400;
     }
@@ -574,7 +585,7 @@ $duration-page-scroll: .6s;
 
 .footer{
   @include media(padding,(0 32px 0 55px, 0 30px 0 40px, 0 19px 0 19px));
-  @include media(display,(grid, grid, none));
+  @include media(display,(grid, grid, grid));
   grid-template-rows: 1fr;
   @include media(grid-template-columns,($footer-template-columns, $footer-template-columns, $footer-template-columns-mobile));
   @include media(grid-template-areas,($footer-template-areas, $footer-template-areas, $footer-template-areas-mobile));
