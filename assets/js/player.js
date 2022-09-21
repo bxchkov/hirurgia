@@ -33,7 +33,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
             item.classList.add('hover');
             timeOut = setTimeout(()=>{
                 //play.dispatchEvent(new Event('click'));
-                draw_video_lines(canvas, 1, 360, 9);
+                draw_video_lines(canvas, 2, 360, 15);
                 item.classList.add('active');
                 startTimeoutUI()
             },6000)
@@ -58,7 +58,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
                 item.classList.remove('on-transition');
                 play.dispatchEvent(new Event('click'));
                 if(canvas)
-                    draw_video_lines(canvas, 1, 360, 9);
+                    draw_video_lines(canvas, 1, 360, 15);
                 item.removeEventListener('transitionend',windowFullOpened);
             }
             canvas?.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
@@ -90,6 +90,10 @@ document.querySelectorAll('.page-player').forEach(item=>{
         trackMark.style.animationDuration = video.duration+"s";
         trackMark.style.animationTimingFunction = "linear";
         trackMark.style.animationPlayState = "running";
+        trackTime.style.animationName = "time-around";
+        trackTime.style.animationDuration = video.duration+"s";
+        trackTime.style.animationTimingFunction = "linear";
+        trackTime.style.animationPlayState = "running";
         videoInterval = setInterval(()=>{
             trackTime.innerHTML = Math.floor(video.currentTime / 60) +':'+ (video.currentTime % 60 < 10 ? '0':'') + Math.floor(video.currentTime % 60);
         },1000);
@@ -120,6 +124,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
     trackTime.addEventListener('mousedown',e=>{
         video.pause();
         trackMark.style.animationPlayState = "paused";
+        trackTime.style.animationPlayState = "paused";
         let degrees;
         function mouseMove(e){
             UIwrapper.classList.add('active');
@@ -132,6 +137,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
             trackTime.innerHTML = Math.floor(videoTime / 60) +':'+ (videoTime % 60 < 10 ? '0':'') + Math.floor(videoTime % 60);
             video.currentTime = video.duration * degrees / 360;
             trackMark.style.transform = `rotateZ(${degrees}deg)`;
+            trackTime.style.transform = `rotateZ(${-degrees}deg)`;
             removeTimeoutUI();
         }
         document.addEventListener('mousemove',mouseMove)
@@ -143,11 +149,16 @@ document.querySelectorAll('.page-player').forEach(item=>{
             video.play();
             trackMark.style.animationDuration = "";
             trackMark.style.animationName= "";
+            trackTime.style.animationDuration = "";
+            trackTime.style.animationName = "";
             // фиксим баг хрома
             setTimeout(()=>{
                 trackMark.style.animationName= "track-around";
                 trackMark.style.animationDuration = Math.round((video.duration - video.currentTime) * 100) / 100 +"s";
                 trackMark.style.animationPlayState = "running";
+                trackTime.style.animationName= "time-around";
+                trackTime.style.animationDuration = Math.round((video.duration - video.currentTime) * 100) / 100 +"s";
+                trackTime.style.animationPlayState = "running";
             },1)
             document.removeEventListener('mousemove',mouseMove)
             document.removeEventListener('mouseup',mouseUp);
@@ -174,6 +185,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
             trackTime.innerHTML = Math.floor(videoTime / 60) +':'+ (videoTime % 60 < 10 ? '0':'') + Math.floor(videoTime % 60);
             video.currentTime = parseFloat(video.duration * degrees / 360);
             trackMark.style.transform = `rotateZ(${degrees}deg)`;
+            trackTime.style.transform = `rotateZ(${-degrees}deg)`;
             removeTimeoutUI();
             e.stopPropagation();
             e.preventDefault();
@@ -187,11 +199,16 @@ document.querySelectorAll('.page-player').forEach(item=>{
             video.play();
             trackMark.style.animationDuration = "";
             trackMark.style.animationName= "";
+            trackTime.style.animationDuration = "";
+            trackTime.style.animationName = "";
             // фиксим баг хрома
             setTimeout(()=>{
                 trackMark.style.animationName= "track-around";
                 trackMark.style.animationDuration = Math.round((video.duration - video.currentTime) * 100) / 100 +"s";
                 trackMark.style.animationPlayState = "running";
+                trackTime.style.animationName= "time-around";
+                trackTime.style.animationDuration = Math.round((video.duration - video.currentTime) * 100) / 100 +"s";
+                trackTime.style.animationPlayState = "running";
             },1)
             document.removeEventListener('touchmove',mouseMove)
             document.removeEventListener('touchend',mouseUp);
