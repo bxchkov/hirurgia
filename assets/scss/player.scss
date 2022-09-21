@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  @include media(bottom,(unset, unset, calc(25% - ($player-circle-diameter-default / 2))));
+  @include media(bottom,(unset, unset, calc(27% - ($player-circle-diameter-default / 2))));
   @include media(right,(calc(-#{$player-circle-diameter-default} / 2), calc(-#{$player-circle-diameter-default} / 2), calc(50% - ($player-circle-diameter-default / 2))));
   background-color: rgba(255, 0, 0, 0.8);
   backdrop-filter: blur(2px);
