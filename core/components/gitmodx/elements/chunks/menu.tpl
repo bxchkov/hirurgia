@@ -139,8 +139,5 @@
                 </svg>
             </a>
         </div>
-{*        <a class="logo menu__logo">*}
-{*            <img src="/assets/icons/logos/full-logo.regular.svg" alt="logo">*}
-{*        </a>*}
     </div>
 </div>
