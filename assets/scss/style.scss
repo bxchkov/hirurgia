@@ -228,7 +228,6 @@
       transition: left .3s ease;
     }
   }
-
   &-left{
     transition: transform .4s ease;
     @include media(will-change,(transform, auto));
