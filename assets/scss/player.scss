@@ -211,10 +211,9 @@
     display: flex;
     position: relative;
     gap: 10px;
-    transform-origin: left center;
-    left: 30px;
-    top: 3px;
-    transform: rotateZ(-90deg);
+    transform-origin: 10px center;
+    left: 15px;
+    top: -6px;
     &:before{
       content: "";
       display: block;
