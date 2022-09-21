@@ -50,6 +50,36 @@
     max-width: 300px;
   }
 }
+//анимация движения логотипа на своё место с центра
+@keyframes start-logo-mobile {
+  0%{
+    overflow: hidden;
+    position: fixed;
+    left: calc((100vw - 200px) / 2);
+    top: calc((100vh - 200px) / 2);
+    z-index: 1001;
+    width: 200px;
+    height: 200px;
+  }
+  50%{
+    overflow: hidden;
+    position: fixed;
+    left: calc((100vw - 200px) / 2 );
+    top: calc((100vh - 200px) / 2);
+    z-index: 1001;
+    width: 200px;
+    height: 200px;
+  }
+  100%{
+    overflow: hidden;
+    position: fixed;
+    z-index: 1001;
+    left: 20px;
+    top: 19px;
+    width: 36px;
+    height: 36px;
+  }
+}
 //анимация создания svg круга page__preview
 @keyframes svg-circle {
   0%{

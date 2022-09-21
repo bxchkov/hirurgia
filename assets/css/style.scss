@@ -80,6 +80,11 @@
     @include media(align-self,(end, end, center));
     width: 100%;
     @include media(height,(44px, 44px, 36px));
+    @include media(width,(auto, auto, 36px));
+    @include media(overflow,(none, none, hidden));
+    &.animation{
+      @include media(animation,(start-logo 2.5s ease,start-logo 2.5s ease,start-logo-mobile 2.5s ease));
+    }
     img {
       height: 100%;
       @include media(width,(100%, 100%, 232px));

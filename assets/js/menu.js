@@ -8,7 +8,7 @@ document.addEventListener('click',e=>{
     }
 })
 document.addEventListener('click',e=>{
-    let btn = e.target.closest('[js-right-action]');
+    let btn = e.target.closest('[data-right-action]');
     if(btn === null)
         return;
     let action = btn.getAttribute('data-right-action');

@@ -8,7 +8,7 @@
         else
         {
             //sessionStorage.isLoaded = JSON.stringify(true);
-            document.querySelector('.header__logo').style.animation = 'start-logo 2.5s ease';
+            document.querySelector('.header__logo').classList.add('animation');
             document.querySelector('.logo-anim-background').style.animation = 'start-logo-background 3s ease';
             //document.querySelector('.page.is-loaded').classList.remove('is-loaded');
         }

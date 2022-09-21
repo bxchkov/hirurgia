@@ -169,8 +169,9 @@ document.querySelectorAll('.page-player').forEach(item=>{
             trackTime.innerHTML = Math.floor(videoTime / 60) +':'+ (videoTime % 60 < 10 ? '0':'') + Math.floor(videoTime % 60);
             video.currentTime = parseFloat(video.duration * degrees / 360);
             trackMark.style.transform = `rotateZ(${degrees}deg)`;
-            e.preventDefault();
             removeTimeoutUI();
+            e.preventDefault();
+            e.stopPropagation();
         }
         document.addEventListener('touchmove',mouseMove)
         function mouseUp(e){
@@ -189,6 +190,8 @@ document.querySelectorAll('.page-player').forEach(item=>{
             },1)
             document.removeEventListener('touchmove',mouseMove)
             document.removeEventListener('touchend',mouseUp);
+            e.preventDefault();
+            e.stopPropagation();
         }
         document.addEventListener('touchend',mouseUp);
     })
