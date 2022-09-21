@@ -127,7 +127,7 @@
     opacity: 1;
   }
   &.active &__play-stop{
-    @media (max-width: nth($screens,3) + "px") and (orientation:portrait){
+    @media (max-width: nth($screens, 3) + "px") and (orientation:portrait){
       transform: rotateZ(90deg);
     }
   }
