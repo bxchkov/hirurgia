@@ -4,13 +4,10 @@
         <img alt="logo" src="/assets/icons/logos/full-logo.regular.svg">
     </a>
     <script>
-        if (sessionStorage.isLoaded){}
-        else
-        {
-            //sessionStorage.isLoaded = JSON.stringify(true);
+        if (!sessionStorage.isLoaded) {
+            sessionStorage.isLoaded = JSON.stringify(true);
             document.querySelector('.header__logo').classList.add('animation');
             document.querySelector('.logo-anim-background').style.animation = 'start-logo-background 3s ease';
-            //document.querySelector('.page.is-loaded').classList.remove('is-loaded');
         }
         window.scrollTo(0, 0);
     </script>
