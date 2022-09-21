@@ -222,11 +222,13 @@
       height: 100%;
       width: 100%;
       pointer-events: all;
+      test
       transition: left .3s ease;
     }
   }
 
   &-left{
+    еуые
     transition: transform .4s ease;
     @include media(will-change,(transform, auto));
     @include media(transform,(translate3d(0,0,0), none));
@@ -234,6 +236,7 @@
     min-height: 100vh;
     @include media(height,(100vh, auto));
     @include media(overflow,(hidden));
+    еуые
   }
 }
 .menu{
