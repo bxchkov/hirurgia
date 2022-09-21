@@ -454,7 +454,6 @@ $duration-page-scroll: .6s;
   display: flex;
   flex-direction: column;
   transition: transform $duration-page-scroll ease;
-  overflow: hidden;
   position: absolute;
   left: 0;
   top: 0;
