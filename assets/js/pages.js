@@ -32,7 +32,7 @@ function setActivePage(index){
         }
         //scroll main
         let main = document.querySelector('.main');
-        main.style.transform = `translateY(${-steps*100}vh)`;;
+        main.style.transform = `translateY(${-steps*100}vh)`;
         onAnimation = true;
         setTimeout(()=>{
             onAnimation = false;
