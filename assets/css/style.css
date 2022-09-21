@@ -230,7 +230,7 @@ a, a:visited {
 }
 @media screen and (max-width: 416px) {
   .page-player {
-    bottom: 18%;
+    bottom: 25%;
   }
 }
 @media screen and (max-width: 1180px) {
@@ -240,7 +240,7 @@ a, a:visited {
 }
 @media screen and (max-width: 416px) {
   .page-player {
-    right: 20%;
+    right: calc(50% - 55px);
   }
 }
 .page-player.hideUI {
@@ -487,7 +487,7 @@ a, a:visited {
 }
 @media screen and (max-width: 416px) {
   .page-player {
-    bottom: 18%;
+    bottom: 25%;
   }
 }
 @media screen and (max-width: 1180px) {
@@ -497,7 +497,7 @@ a, a:visited {
 }
 @media screen and (max-width: 416px) {
   .page-player {
-    right: 20%;
+    right: calc(50% - 55px);
   }
 }
 .page-player.hideUI {
@@ -1442,6 +1442,16 @@ a, a:visited {
 }
 @media screen and (max-width: 1180px) {
   .page__preview {
+    position: relative;
+  }
+}
+@media screen and (max-width: 416px) {
+  .page__preview {
+    position: unset;
+  }
+}
+@media screen and (max-width: 1180px) {
+  .page__preview {
     width: 566px;
   }
 }
@@ -1481,7 +1491,7 @@ a, a:visited {
 }
 @media screen and (max-width: 416px) {
   .page__info {
-    right: 55%;
+    right: 24%;
   }
 }
 @media screen and (max-width: 1180px) {
@@ -1491,7 +1501,7 @@ a, a:visited {
 }
 @media screen and (max-width: 416px) {
   .page__info {
-    bottom: 30%;
+    bottom: 29%;
   }
 }
 @media screen and (max-width: 1180px) {
@@ -1499,19 +1509,9 @@ a, a:visited {
     width: 36px;
   }
 }
-@media screen and (max-width: 416px) {
-  .page__info {
-    width: 110px;
-  }
-}
 @media screen and (max-width: 1180px) {
   .page__info {
     height: 36px;
-  }
-}
-@media screen and (max-width: 416px) {
-  .page__info {
-    height: 110px;
   }
 }
 .page__info:hover {
