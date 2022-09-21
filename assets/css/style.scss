@@ -78,11 +78,11 @@
   }
   &__logo {
     @include media(align-self,(end, end, center));
-    width: auto;
+    width: 100%;
     @include media(height,(44px, 44px, 36px));
     img {
       height: 100%;
-      @include media(width,(auto, auto, 232px));
+      @include media(width,(100%, 100%, 232px));
       @include media(object-fit,(contain, contain, cover));
       @include media(object-position,(unset, unset, left));
     }
@@ -417,8 +417,8 @@
   &:hover{
     background-color: rgba(0,0,0,0);
     border: 2px white solid;
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
   }
   &.active{
     width: 40px;
