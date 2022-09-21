@@ -4,7 +4,6 @@ let prevIndex;
 setActivePage(0);
 function setActivePage(index){
     let itsPC = !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    console.log(itsPC);
     if(onAnimation)
         return
     let pages = document.querySelectorAll('.page');

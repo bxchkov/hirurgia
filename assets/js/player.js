@@ -8,6 +8,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
     let trackTime = item.querySelector('.page-player__time');
     let close = item.querySelector('.page-player__close');
     let UIwrapper = item.querySelector('.page-player__UI');
+    let inner = item.querySelector('.page-player__inner');
     // api для скрытия hide UI
     let timeouthideUI;
     function startTimeoutUI(){
@@ -165,15 +166,19 @@ document.querySelectorAll('.page-player').forEach(item=>{
             let radian = Math.atan2(x,y);
             degrees = (radian / Math.PI * 180);
             degrees = degrees >0 ?degrees:degrees+360;
+            if(window.innerWidth < window.innerHeight  && window.innerWidth <= 416) {
+                degrees += 270;
+            }
+            degrees = degrees % 360;
             let videoTime =  video.duration * degrees / 360;
             trackTime.innerHTML = Math.floor(videoTime / 60) +':'+ (videoTime % 60 < 10 ? '0':'') + Math.floor(videoTime % 60);
             video.currentTime = parseFloat(video.duration * degrees / 360);
             trackMark.style.transform = `rotateZ(${degrees}deg)`;
             removeTimeoutUI();
-            e.preventDefault();
             e.stopPropagation();
+            e.preventDefault();
         }
-        document.addEventListener('touchmove',mouseMove)
+        document.addEventListener('touchmove',mouseMove, { passive: false })
         function mouseUp(e){
             if(!e.target.closest('.page-player__UI'))
                 setTimeout(()=>{UIwrapper.classList.remove('active')},750)
@@ -190,7 +195,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
             },1)
             document.removeEventListener('touchmove',mouseMove)
             document.removeEventListener('touchend',mouseUp);
-            e.preventDefault();
+            document.removeEventListener('scroll',scroll)
             e.stopPropagation();
         }
         document.addEventListener('touchend',mouseUp);
