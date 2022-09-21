@@ -63,6 +63,7 @@
     grid-area: tel;
     font-family: Arial;
     cursor: pointer;
+    white-space: nowrap;
   }
   &__open-menu{
     @include media(margin-top,(8px, 8px, 0));
@@ -391,11 +392,10 @@
 
 
 .aside{
-  @include media(display,(flex, flex, flex));
   display: flex;
   align-items: center;
   position: fixed;
-  @include media(left,(40px, 21px));
+  @include media(left,(40px, 21px, 15px));
   top: 0;
   height: 100vh;
   width: 40px;
@@ -407,7 +407,7 @@
     grid-auto-flow: row;
     align-items: center;
     justify-items: center;
-    gap: 10px;
+    @include media(gap,(10px, 10px, unset));
     width: 100%;
     z-index: 1;
   }
@@ -416,8 +416,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 10px;
-  height: 10px;
+  @include media(width,(10px, 10px, 6px));
+  @include media(height,(10px, 10px, 6px));
   background: white;
   border-radius: 100%;
   border: 2px white solid;
@@ -430,20 +430,25 @@
     transition: width .3s ease, height .3s ease;
   }
   &:hover{
-    @include media(background-color,(rgba(0,0,0,0), white, white));
-    @include media(border,(2px white solid));
-    @include media(width,(16px, 10px, 10px));
-    @include media(height,(16px, 10px, 10px));
+    //@include media(background-color,(rgba(0,0,0,0), white, white));
+    //@include media(border,(2px white solid));
+    //@include media(width,(16px, 10px, 10px));
+    //@include media(height,(16px, 10px, 10px));
+    background-color: rgba(0,0,0,0);
+    border: 2px white solid;
+    width: 16px;
+    height: 16px;
   }
   &.active{
-    width: 40px;
-    height: 40px;
+    @include media(width,(40px, 40px, 16px));
+    @include media(height,(40px, 40px, 16px));
     border-radius: 100%;
     border: 2px white solid;
     cursor: pointer;
     background: none;
   }
   &.active &__icon{
+    @include media(display,(block, block, none));
     height: 25px;
     width: 25px;
   }
@@ -588,8 +593,6 @@ $duration-page-scroll: .6s;
   @include media(grid-template-rows,(1fr, 1fr, 1fr 1fr));
   @include media(grid-template-columns,($footer-template-columns, $footer-template-columns, $footer-template-columns-mobile));
   @include media(grid-template-areas,($footer-template-areas, $footer-template-areas, $footer-template-areas-mobile));
-  grid-template-columns: 290px 69px 500px    1fr auto        ;
-  grid-template-areas:  "info  .... contacts ... interaction";
   left: 0;
   @include media(bottom,(34px, 20px));
   position: absolute;
