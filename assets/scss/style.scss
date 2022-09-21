@@ -34,8 +34,8 @@
 }
 .header{
   @include media(padding-left,(49px, 29px, 19px));
+  @include media(position,(absolute, absolute, absolute));
   user-select: none;
-  position: fixed;
   top: 0;
   left: 0;
   color: white;
@@ -44,9 +44,9 @@
   display: grid;
   align-items: center;
   grid-template-rows: 1fr;
+  z-index: 2;
   @include media(grid-template-columns,($header-template-columns, $header-template-columns, $header-template-columns-mobile));
   @include media(grid-template-areas,($header-template-areas, $header-template-areas, $header-template-areas-mobile));
-  z-index: 5;
   //@include media(background-color,(none,black,white));
   &__language{
     @include media(margin-top,(9px, 9px, 0));
@@ -78,20 +78,31 @@
   }
   &__logo {
     @include media(align-self,(end, end, center));
-    width: 100%;
     @include media(height,(44px, 44px, 36px));
     @include media(width,(auto, auto, 36px));
-    @include media(overflow,(none, none, hidden));
-    &.animation{
-      @include media(animation,(start-logo 2.5s ease,start-logo 2.5s ease,start-logo-mobile 2.5s ease));
-    }
+    @include media(overflow,(unset, unset, hidden));
     img {
       height: 100%;
-      @include media(width,(100%, 100%, 232px));
-      @include media(object-fit,(contain, contain, cover));
-      @include media(object-position,(unset, unset, left));
     }
   }
+  &.animation &__logo{
+    @include media(animation,(start-logo 2.5s ease,start-logo 2.5s ease,start-logo-mobile 2.5s ease));
+  }
+  // анимация бэкграунда при старте страницы
+  &.animation .logo-anim-background{
+    animation: start-logo-background 3s ease;
+
+  }
+}
+.logo-anim-background{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: #c4b4b4;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  pointer-events: none;
 }
 .menu__link-icon{
   display: flex;
@@ -177,11 +188,10 @@
   }
 }
 .body{
-  @include media(perspective,(1700px, none));
+  @include media(perspective,(1700px));
   font-family: Roboto, Serif;
   background-color: #cbc4c0;
   overflow: hidden;
-  @include media(overflow,(hidden, auto));
   &.right-open{
     overflow: hidden;
   }
@@ -193,7 +203,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     pointer-events: none;
     overflow: hidden;
@@ -216,7 +226,7 @@
     @include media(transform-origin,(0 50% 0, none));
     min-height: 100vh;
     @include media(height,(100vh, auto));
-    @include media(overflow,(hidden, none));
+    @include media(overflow,(hidden));
   }
 }
 .menu{
@@ -228,7 +238,7 @@
   @include media(width,(720px, 420px, 100vw));
   @include media(background-color,(#424141, rgba(5, 5, 5, 0.65), rgba(5, 5, 5, 0.65)));
   &.active{
-    @include media(left,(calc(100% - 720px), calc(100% - 420px), calc(100% - 100vw)));
+    @include media(left,(calc(100% - 720px), calc(100% - 420px), 0));
   }
   &__header{
     display: flex;
@@ -371,18 +381,7 @@
     }
   }
 }
-// анимация бэкграунда при старте страницы
-.logo-anim-background{
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: #c4b4b4;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 1000;
-}
+
 
 .aside{
   @include media(display,(flex, flex, none));
@@ -393,7 +392,6 @@
   top: 0;
   height: 100vh;
   width: 40px;
-  z-index: 1;
   &__inner{
     display: grid;
     grid-auto-rows: 40px;
@@ -447,7 +445,10 @@ $duration-page-scroll: .6s;
   display: flex;
   flex-direction: column;
   transition: transform $duration-page-scroll ease;
-  z-index: 1;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .page{
   position: relative;
@@ -459,7 +460,6 @@ $duration-page-scroll: .6s;
   justify-content: center;
   background:  url("/assets/images/shadow.png") no-repeat center;
   @include media(background-size,(1145px 786px, 825px 566px));
-  z-index: 4;
   &__loader{
     position: absolute;
     @include media(width,($preview-circle-diameter, $preview-circle-diameter-tablet, $preview-circle-diameter-mobile));
@@ -582,10 +582,9 @@ $duration-page-scroll: .6s;
   grid-template-areas:  "info  .... contacts ... interaction";
   left: 0;
   @include media(bottom,(34px, 20px));
-  position: fixed;
+  @include media(position,(absolute, fixed, fixed));
   width: 100%;
   height: 25px;
-  z-index: 5;
   &__info{
     grid-area: info;
     display: flex;
@@ -622,6 +621,9 @@ $duration-page-scroll: .6s;
   fill: #f7f6f6;
   cursor: pointer;
   transition: fill .3s ease;
+  svg{
+    height: 100%;
+  }
   &:nth-child(2){
     @include media(height,(25px, 25px, 20px));
   }
@@ -630,6 +632,9 @@ $duration-page-scroll: .6s;
   }
   &:hover{
     fill: #e2dfdd;
+    &:after{
+      background: #e2dfdd;
+    }
   }
 }
 .icon-link{
@@ -684,5 +689,13 @@ $duration-page-scroll: .6s;
   }
   &:hover &__inner{
     max-width: 100px;
+  }
+}
+.footer__info,.footer__contacts,.aside{
+  z-index: 1;
+}
+.body.video-opened{
+  .header,.footer__info,.footer__contacts,.aside{
+    z-index: -1;
   }
 }

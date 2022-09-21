@@ -33,9 +33,10 @@ document.querySelectorAll('.page-player').forEach(item=>{
             item.classList.add('hover');
             timeOut = setTimeout(()=>{
                 //play.dispatchEvent(new Event('click'));
-                draw_video_lines(canvas, 2, 360, 15);
+                drawCircle(canvas);
                 item.classList.add('active');
-                startTimeoutUI()
+                document.querySelector('.body').classList.add('video-opened');
+                refreshTimeoutUI()
             },6000)
         }
     })
@@ -50,6 +51,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
         if(!item.classList.contains('active')){
             clearTimeout(timeOut);
             item.classList.remove('hover');
+            document.querySelector('.body').classList.add('video-opened');
             //fix css bug :)
             function windowFullOpened(e){
                 if(!item.classList.contains('active'))
@@ -58,7 +60,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
                 item.classList.remove('on-transition');
                 play.dispatchEvent(new Event('click'));
                 if(canvas)
-                    draw_video_lines(canvas, 1, 360, 15);
+                    drawCircle(canvas);
                 item.removeEventListener('transitionend',windowFullOpened);
             }
             canvas?.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
@@ -75,7 +77,6 @@ document.querySelectorAll('.page-player').forEach(item=>{
         stop.classList.add('active');
         if(video){
             video.play();
-            //video.muted = false;
         }
     })
     stop.addEventListener('click',e=>{
@@ -102,6 +103,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
     video.addEventListener('pause',e=>{
         clearInterval(videoInterval);
         trackMark.style.animationPlayState = "paused";
+        trackTime.style.animationPlayState = "paused";
     })
     // при конце останавливаем движение точки
     video.addEventListener('ended',e=>{
@@ -119,6 +121,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
         removeTimeoutUI()
         item.classList.remove('hideUI');
         e.stopPropagation();
+        document.querySelector('.body').classList.remove('video-opened');
     })
     // обработчики управления временем видео PC
     trackTime.addEventListener('mousedown',e=>{
@@ -126,6 +129,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
         trackMark.style.animationPlayState = "paused";
         trackTime.style.animationPlayState = "paused";
         let degrees;
+        removeTimeoutUI();
         function mouseMove(e){
             UIwrapper.classList.add('active');
             let y = (window.innerHeight / 2 - e.y);
@@ -138,7 +142,6 @@ document.querySelectorAll('.page-player').forEach(item=>{
             video.currentTime = video.duration * degrees / 360;
             trackMark.style.transform = `rotateZ(${degrees}deg)`;
             trackTime.style.transform = `rotateZ(${-degrees}deg)`;
-            removeTimeoutUI();
         }
         document.addEventListener('mousemove',mouseMove)
         function mouseUp(e){
@@ -254,7 +257,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
     stop.addEventListener('mouseout',refreshTimeoutUI);
 })
 document.addEventListener('click',e=>{
-    if(!e.target.closest('.page-player') && !e.target.closest('.page-content')){
+    if(!e.target.closest('.page-player') && !e.target.closest('.page-content') && !e.target.closest('[data-action="toggle-audio"]')){
         if(e.target.closest('.page__info')){
             let item = e.target.closest('.page').querySelector('.page-player');
             let stop = item.querySelector('.page-player__stop');
@@ -262,15 +265,14 @@ document.addEventListener('click',e=>{
         }
         else{
             document.querySelectorAll('.page-player').forEach(item=>{
-                let canvas = item.querySelector('.page-player__circle');
-                canvas?.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-                let stop = item.querySelector('.page-player__stop');
-                stop?.dispatchEvent(new Event('click'));
-                item.classList.remove('active');
+                item.querySelector('.page-player__close').dispatchEvent(new Event('click'));
             })
         }
     }
 })
+function drawCircle(canvas){
+    draw_video_lines(canvas, 2, 360, 15);
+}
 function draw_video_lines(canvas, width,density,line) {
     var _ctx = canvas.getContext('2d'),
     _radius = canvas.width / 2 - line,
@@ -311,3 +313,39 @@ function draw_video_lines(canvas, width,density,line) {
         }
     }, _tic_interval);
 };
+document.addEventListener('click',e=>{
+    if(e.target.closest('[data-action="toggle-audio"]')){
+        e.target.closest('[data-action="toggle-audio"]').classList.toggle('active');
+        document.querySelectorAll(".page-player__video").forEach(video=>{
+            video.muted = e.target.closest('[data-action="toggle-audio"]').classList.contains('active');
+        })
+        e.preventDefault();
+        e.stopPropagation()
+    }
+    else if(e.target.closest('[data-action="toggle-fullscreen"]')){
+        toggleFullScreen(document.querySelector('.body'));
+    }
+})
+function toggleFullScreen(elem) {
+    if ((document.fullScreenElement !== undefined && document.fullScreenElement === null) || (document.msFullscreenElement !== undefined && document.msFullscreenElement === null) || (document.mozFullScreen !== undefined && !document.mozFullScreen) || (document.webkitIsFullScreen !== undefined && !document.webkitIsFullScreen)) {
+        if (elem.requestFullScreen) {
+            elem.requestFullScreen();
+        } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullScreen) {
+            elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+        } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+        }
+    } else {
+        if (document.cancelFullScreen) {
+            document.cancelFullScreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitCancelFullScreen) {
+            document.webkitCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+}

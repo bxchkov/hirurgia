@@ -20,7 +20,7 @@
     left: calc((100vw - 200px) / 2);
     top: calc((100vh - 200px) / 2);
     z-index: 1001;
-    max-width: 200px;
+    width: 200px;
     height: 200px;
   }
   50%{
@@ -29,7 +29,7 @@
     left: calc((100vw - 200px) / 2 );
     top: calc((100vh - 200px) / 2);
     z-index: 1001;
-    max-width: 200px;
+    width: 200px;
     height: 200px;
   }
   85%{
@@ -38,7 +38,7 @@
     left: 49px;
     top: 32px;
     z-index: 1001;
-    max-width: 50px;
+    width: 50px;
     height: 44px;
   }
   100%{
@@ -47,7 +47,7 @@
     left: 49px;
     top: 32px;
     z-index: 1001;
-    max-width: 300px;
+    width: 300px;
   }
 }
 //анимация движения логотипа на своё место с центра

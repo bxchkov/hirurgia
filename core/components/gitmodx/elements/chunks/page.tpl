@@ -19,7 +19,7 @@
                 </div>
                 <div class="page-player__inner">
                     <div class="page-player__close">Закрыть</div>
-                    <video class="page-player__video" muted>
+                    <video class="page-player__video">
                         <source src="{$video}#t=0.1" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                     </video>
                     <div class="page-player__UI">

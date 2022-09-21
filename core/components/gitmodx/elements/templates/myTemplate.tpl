@@ -8,35 +8,37 @@
     <base href="{$_modx->config.site_url}">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body class="body">
-{set $config = [
-    'parents' => 2,
-    'limit' => 0,
-    'depth' => 0,
-    'includeTVs' => 'icon,video',
-    'tvPrefix' => '',
-    'sortby'=>['menuindex'=>'ASC']
-]}
-<div class="body-left">
-    {include 'header'}
-    <aside class="aside">
-        <div class="aside__inner">
-            {set $config['tpl'] = 'aside.item'}
+<body>
+    <div class="body">
+        {set $config = [
+        'parents' => 2,
+        'limit' => 0,
+        'depth' => 0,
+        'includeTVs' => 'icon,video',
+        'tvPrefix' => '',
+        'sortby'=>['menuindex'=>'ASC']
+        ]}
+        <div class="body-left">
+            {include 'header'}
+            <aside class="aside">
+                <div class="aside__inner">
+                    {set $config['tpl'] = 'aside.item'}
+                    {'!pdoResources' | snippet : $config}
+                </div>
+            </aside>
+            <main class="main">
+                {set $config['tpl'] = 'page'}
+                {'!pdoResources' | snippet : $config}
+            </main>
+            {include 'footer'}
+        </div>
+        <div class="body-right">
+            {include 'menu'}
+            {set $config['tpl'] = 'page.content'}
+            {set $config['includeContent'] = true}
             {'!pdoResources' | snippet : $config}
         </div>
-    </aside>
-    <main class="main">
-        {set $config['tpl'] = 'page'}
-        {'!pdoResources' | snippet : $config}
-    </main>
-    {include 'footer'}
-</div>
-<div class="body-right">
-    {include 'menu'}
-    {set $config['tpl'] = 'page.content'}
-    {set $config['includeContent'] = true}
-    {'!pdoResources' | snippet : $config}
-</div>
+    </div>
 <script src="/assets/js/menu.js"></script>
 <script src="/assets/js/pages.js"></script>
 <script src="/assets/js/player.js"></script>

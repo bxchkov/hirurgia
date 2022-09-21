@@ -5,9 +5,8 @@
     </a>
     <script>
         if (!sessionStorage.isLoaded) {
-            sessionStorage.isLoaded = JSON.stringify(true);
-            document.querySelector('.header__logo').classList.add('animation');
-            document.querySelector('.logo-anim-background').style.animation = 'start-logo-background 3s ease';
+            //sessionStorage.isLoaded = JSON.stringify(true);
+            document.querySelector('.header').classList.add('animation');
         }
         window.scrollTo(0, 0);
     </script>

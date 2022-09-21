@@ -1,10 +1,10 @@
 
 document.addEventListener('click',e=>{
-    if(document.body.classList.contains('right-open') && !e.target.closest('.body-right')){
+    if(document.querySelector('.body').classList.contains('right-open') && !e.target.closest('.body-right')){
         document.querySelectorAll('.body-right > *').forEach(item=>{
             item.classList.remove('active');
         });
-        document.body.classList.remove('right-open');
+        document.querySelector('.body').classList.remove('right-open');
     }
 })
 document.addEventListener('click',e=>{
@@ -22,13 +22,13 @@ document.addEventListener('click',e=>{
     switch (action){
         case 'open':
             target.classList.add('active');
-            document.body.classList.add('right-open');
+            document.querySelector('.body').classList.add('right-open');
             break;
         case 'close':
-            document.body.classList.remove('right-open');
+            document.querySelector('.body').classList.remove('right-open');
             break;
         case 'toggle':
-            document.body.classList.toggle('right-open');
+            document.querySelector('.body').classList.toggle('right-open');
             break;
     }
 })

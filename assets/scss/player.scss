@@ -231,3 +231,21 @@
     height: 100%;
   }
 }
+[data-action="toggle-audio"]{
+  position: relative;
+  &:after{
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 0;
+    background: white;
+    top: 0;
+    left: 3px;
+    transform: rotateZ(45deg);
+    transform-origin: center left;
+    transition: width .3s ease, background-color .3s ease;
+  }
+  &.active:after{
+    width: 120%;
+  }
+}

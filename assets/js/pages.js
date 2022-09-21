@@ -3,7 +3,7 @@ let steps = 0;
 let prevIndex;
 setActivePage(0);
 function setActivePage(index){
-    let itsPC = !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    //let itsPC = !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     if(onAnimation)
         return
     let pages = document.querySelectorAll('.page');
@@ -24,7 +24,7 @@ function setActivePage(index){
     let activePage = getElementByIndex(index,pages);
     activePage.classList.add('active');
     activePage.classList.add('is-loaded');
-    if(itsPC){
+    //if(itsPC){
         let step = shortestWay(prevIndex, index,pages.length);
         steps += step;
         for (let i = getValueLoopRange(prevIndex+Math.sign(step),pages.length);  getValueLoopRange(index + Math.sign(step),pages.length) !== getValueLoopRange(i,pages.length); i = i + Math.sign(step)){
@@ -37,7 +37,7 @@ function setActivePage(index){
         setTimeout(()=>{
             onAnimation = false;
         },500);
-    }
+   // }
     setActiveAside(index);
     prevIndex = index;
 }
@@ -89,20 +89,51 @@ bodyLeft.addEventListener('wheel', e=>{
     }
     e.preventDefault();
 })
-let timeout;
-document.addEventListener('scroll',e=>{
-    let index = Math.round(window.scrollY / window.innerHeight);
-    setActiveAside(index);
-    function scrollEnd(e){
-        let index = Math.round(window.scrollY / window.innerHeight);
-        setActivePage(index);
-        window.scrollTo({
-            top: index * window.innerHeight,
-            behavior:"smooth"
-        });
+// let timeout;
+// document.addEventListener('scroll',e=>{
+//     let index = Math.round(window.scrollY / window.innerHeight);
+//     setActiveAside(index);
+//     function scrollEnd(e){
+//         let index = Math.round(window.scrollY / window.innerHeight);
+//         setActivePage(index);
+//         window.scrollTo({
+//             top: index * window.innerHeight,
+//             behavior:"smooth"
+//         });
+//     }
+//     clearTimeout(timeout);
+//     timeout = setTimeout(scrollEnd,100)
+// })
+let beforeY;
+
+document.addEventListener('touchstart',e=>{
+    beforeY = e.changedTouches[0].clientY;
+    if(e.target.closest('.body-right'))
+        return
+    document.addEventListener("touchmove", touchmove,{ passive: false })
+},{ passive: false })
+function touchmove(e){
+    if(beforeY){
+        let thisY = e.changedTouches[0].clientY;
+        let activePage = document.querySelector('.page.active');
+        let activePageIndex = getElementIndex(activePage);
+        if(beforeY > thisY){
+            setActivePage(activePageIndex + 1);
+        }
+        else{
+            setActivePage(activePageIndex - 1);
+        }
+        document.removeEventListener('touchmove',touchmove)
+        document.addEventListener('touchmove',stopmove,{ passive: false })
     }
-    clearTimeout(timeout);
-    timeout = setTimeout(scrollEnd,100)
+    e.preventDefault();
+}
+function stopmove(e){
+    e.preventDefault();
+}
+document.addEventListener("touchend",e=>{
+    document.removeEventListener('touchmove',stopmove)
+    document.removeEventListener('touchmove',touchmove)
 })
 document.addEventListener('keydown', e=>{
     let activePage = document.querySelector('.page.active');
