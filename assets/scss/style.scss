@@ -182,6 +182,9 @@
   background-color: #cbc4c0;
   overflow: hidden;
   @include media(overflow,(hidden, auto));
+  &.right-open{
+    overflow: hidden;
+  }
   &.right-open &-left{
     @include media(transform,(rotateY(40deg) scaleY(.8), none));
     pointer-events: none;

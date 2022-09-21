@@ -1186,6 +1186,9 @@ a, a:visited {
     overflow: auto;
   }
 }
+.body.right-open {
+  overflow: hidden;
+}
 .body.right-open .body-left {
   transform: rotateY(40deg) scaleY(0.8);
   pointer-events: none;

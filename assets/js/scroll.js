@@ -9,7 +9,6 @@ content.forEach(item=>{
     let scroll = item.querySelector('.scroll');
     let defaultButtonTransition = scrollButton.style.transition;
     item.addEventListener('scroll', (e)=>{
-        console.log(e);
         let maxScrollHeight = item.scrollHeight - item.clientHeight;
         let range = item.scrollTop / maxScrollHeight;
         moveButton(scrollButton,range);
