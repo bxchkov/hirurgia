@@ -672,7 +672,7 @@ $duration-page-scroll: .6s;
     @include media(height,(25px, 25px, 20px));
   }
   &:nth-child(1){
-    @include media(display,(block, none, none));
+    @include media(display,(block, block, block));
   }
   &:hover{
     fill: #e2dfdd;
@@ -742,12 +742,7 @@ $duration-page-scroll: .6s;
   z-index: 1;
 }
 .body.video-opened{
-  @media (max-width: nth($screens,3)+"px") {
-    .page__info{
-      z-index: -1;
-    }
-  }
-  .header,.footer__title,.footer__contacts-mobile,.footer__info,.footer__contacts,.aside{
+  .header,.footer__title,.footer__contacts-mobile,.footer__info,.footer__contacts,.aside,.page__info{
     z-index: -1;
   }
 }
