@@ -1538,11 +1538,14 @@ a, a:visited {
 }
 @media screen and (max-width: 600px) {
   .aside {
-    left: 15px;
+    left: 5px;
   }
 }
 .aside__inner {
   position: relative;
+  position: relative;
+  top: 0;
+  transition: transform 0.5s ease;
   display: -ms-grid;
   display: grid;
   grid-auto-rows: 40px;
@@ -1555,6 +1558,26 @@ a, a:visited {
   gap: 10px;
   width: 100%;
   z-index: 1;
+}
+@media screen and (max-width: 1180px) {
+  .aside__inner {
+    position: relative;
+  }
+}
+@media screen and (max-width: 600px) {
+  .aside__inner {
+    position: absolute;
+  }
+}
+@media screen and (max-width: 1180px) {
+  .aside__inner {
+    top: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .aside__inner {
+    top: calc(50% - 34px - 4px);
+  }
 }
 @media screen and (max-width: 1180px) {
   .aside__inner {

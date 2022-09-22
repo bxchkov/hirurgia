@@ -43,15 +43,26 @@ function setActivePage(index){
 }
 function setActiveAside(index){
     //aside
+    let itsMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     let asideItems = document.querySelectorAll('.aside-item');
+    let asideInner = document.querySelector('.aside__inner');
+    index = getValueLoopRange(index,asideItems.length);
     asideItems.forEach(item=>{
         item.classList.remove('active');
         item.classList.remove('next');
         item.classList.remove('prev');
     });
+
     getElementByIndex(index,asideItems).classList.add('active');
     getElementByIndex(index-1,asideItems).classList.add('prev');
     getElementByIndex(index+1,asideItems).classList.add('next');
+    if(itsMobile){
+        asideInner.style.transform = `translateY(calc(-${index} * 40px))`;
+        console.log(asideInner);
+    }
+    else{
+        asideInner.style.transform = ``;
+    }
 }
 /**
  * @return HTMLElement

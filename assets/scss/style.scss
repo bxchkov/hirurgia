@@ -395,12 +395,15 @@
   display: flex;
   align-items: center;
   position: fixed;
-  @include media(left,(40px, 21px, 15px));
+  @include media(left,(40px, 21px, 5px));
   top: 0;
   height: calc(var(--vh, 1vh) * 100);
   width: 40px;
   &__inner{
     position: relative;
+    @include media(position,(relative, relative, absolute));
+    @include media(top,(0, 0, calc(50% - (40px + 28px) / 2 - 4px)));
+    transition: transform .5s ease;
     display: grid;
     grid-auto-rows: 40px;
     grid-auto-columns: 40px;
