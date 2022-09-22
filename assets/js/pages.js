@@ -56,13 +56,13 @@ function setActiveAside(index){
     getElementByIndex(index,asideItems).classList.add('active');
     getElementByIndex(index-1,asideItems).classList.add('prev');
     getElementByIndex(index+1,asideItems).classList.add('next');
-    if(window.innerWidth <= 600){
-        asideInner.style.transform = `translateY(calc(-${index} * 40px))`;
-        console.log(asideInner);
-    }
-    else{
-        asideInner.style.transform = ``;
-    }
+    // if(window.innerWidth <= 600){
+    //     asideInner.style.transform = `translateY(calc(-${index} * 40px))`;
+    //     console.log(asideInner);
+    // }
+    // else{
+    //     asideInner.style.transform = ``;
+    // }
 }
 /**
  * @return HTMLElement
