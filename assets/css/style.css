@@ -308,9 +308,9 @@ a, a:visited {
 }
 @media (orientation: portrait) {
   .page-player.hover .page-player__wrapper, .page-player.active .page-player__wrapper {
-    height: 200vh;
-    width: 200vh;
-    left: calc((-200vh + 100%) / 2);
+    height: calc(200 * var(--vh,1vh));
+    width: calc(200 * var(--vh,1vh));
+    left: calc((-200 * var(--vh,1vh) + 100%) / 2);
   }
 }
 .page-player.hover:not(.active) .page-player__wrapper {
@@ -631,9 +631,9 @@ a, a:visited {
 }
 @media (orientation: portrait) {
   .page-player.hover .page-player__wrapper, .page-player.active .page-player__wrapper {
-    height: 200vh;
-    width: 200vh;
-    left: calc((-200vh + 100%) / 2);
+    height: calc(200 * var(--vh,1vh));
+    width: calc(200 * var(--vh,1vh));
+    left: calc((-200 * var(--vh,1vh) + 100%) / 2);
   }
 }
 .page-player.hover:not(.active) .page-player__wrapper {

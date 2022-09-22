@@ -42,9 +42,9 @@
     width: #{$player-circle-diameter-on-open}vw;
     left: calc((-#{$player-circle-diameter-on-open}vw + 100%) / 2);
     @media (orientation:portrait) {
-      height: #{$player-circle-diameter-on-open}vh;
-      width: #{$player-circle-diameter-on-open}vh;
-      left: calc((-#{$player-circle-diameter-on-open}vh + 100%) / 2);
+      height: calc(#{$player-circle-diameter-on-open} * var(--vh,1vh));
+      width: calc(#{$player-circle-diameter-on-open} * var(--vh,1vh));
+      left: calc((-#{$player-circle-diameter-on-open} * var(--vh,1vh) + 100%) / 2);
     }
   }
   &.hover:not(.active) &__wrapper{
