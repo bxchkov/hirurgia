@@ -17,8 +17,8 @@ $header-template-areas:  "\"logo  ................. tel   .................. sha
 $header-template-columns-mobile:   auto  1fr auto  35px  auto;
 $header-template-areas-mobile:  "\"logo  ... tel   .... menu\"";
     //footer-grid
-    $footer-template-columns:   290px 69px auto     minmax(30px, 1fr) auto          ;
-    $footer-template-areas:  "\"info  .... contacts ................. interaction\"";
+    $footer-template-columns:   290px minmax(30px, 69px) auto     minmax(30px, 1fr) auto          ;
+    $footer-template-areas:  "\"info  .................. contacts ................. interaction\"";
     $footer-template-columns-mobile:   1fr    1fr    1fr        ;
     $footer-template-areas-mobile:  "\"title  title  title\""
                                     "\"mobile mobile mobile\"";

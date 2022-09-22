@@ -105,7 +105,7 @@
 .logo-anim-background{
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   background: #c4b4b4;
   opacity: 0;
   top: 0;
@@ -212,7 +212,7 @@
     left: 0;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     pointer-events: none;
     overflow: hidden;
     z-index: 10;
@@ -232,8 +232,8 @@
     @include media(will-change,(transform, auto));
     @include media(transform,(translate3d(0,0,0), none));
     @include media(transform-origin,(0 50% 0, none));
-    min-height: 100vh;
-    @include media(height,(100vh, auto));
+    min-height: calc(var(--vh, 1vh) * 100);
+    @include media(height,(calc(var(--vh, 1vh) * 100), auto));
     @include media(overflow,(hidden));
   }
 }
@@ -397,7 +397,7 @@
   position: fixed;
   @include media(left,(40px, 21px, 15px));
   top: 0;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 40px;
   &__inner{
     position: relative;
@@ -466,7 +466,7 @@ $duration-page-scroll: .6s;
 .page{
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
   display: flex;
   align-items: center;

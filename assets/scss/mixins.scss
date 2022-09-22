@@ -44,7 +44,7 @@
   @return calc(#{$m*100}vw + #{$b}px);
 
 }
-$screens: (all, 1180, 416);
+$screens: (all, 1180, 600);
 @mixin media($property, $values){
   @for $i from 1 through length($values) {
     @if nth($values, $i) != ''{
