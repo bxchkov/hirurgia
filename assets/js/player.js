@@ -257,7 +257,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
     stop.addEventListener('mouseout',refreshTimeoutUI);
 })
 document.addEventListener('click',e=>{
-    if(!e.target.closest('.page-player') && !e.target.closest('.page-content') && !e.target.closest('[data-action="toggle-audio"]')){
+    if(!e.target.closest('.page-player') && !e.target.closest('.page-content') && !e.target.closest('[data-action="toggle-audio"]') && !e.target.closest('[data-action="toggle-fullscreen"]')){
         if(e.target.closest('.page__info')){
             let item = e.target.closest('.page').querySelector('.page-player');
             let stop = item.querySelector('.page-player__stop');

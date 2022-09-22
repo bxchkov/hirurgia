@@ -482,6 +482,9 @@ $duration-page-scroll: .6s;
     @include media(height,($preview-circle-diameter, $preview-circle-diameter-tablet, $preview-circle-diameter-mobile));
     stroke-dashoffset: 0;
     stroke-dasharray: 0, 313.644;
+    @media (max-height: 816px) {
+      display: none;
+    }
   }
   &.is-loaded &__loader{
     animation: svg-circle 1.6s cubic-bezier(.67,.26,.58,.79) 0s 1;
