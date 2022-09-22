@@ -180,7 +180,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
             let radian = Math.atan2(x,y);
             degrees = (radian / Math.PI * 180);
             degrees = degrees >0 ?degrees:degrees+360;
-            if(window.innerWidth < window.innerHeight  && window.innerWidth <= 416) {
+            if(window.innerWidth < window.innerHeight  && window.innerWidth <= 600) {
                 degrees += 270;
             }
             degrees = degrees % 360;
