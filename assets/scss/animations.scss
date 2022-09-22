@@ -18,7 +18,7 @@
     overflow: hidden;
     position: fixed;
     left: calc((100vw - 200px) / 2);
-    top: calc((100vh - 200px) / 2);
+    top: calc((var(--vh,1vh) * 100 - 200px) / 2);
     z-index: 1001;
     width: 200px;
     height: 200px;
@@ -27,7 +27,7 @@
     overflow: hidden;
     position: fixed;
     left: calc((100vw - 200px) / 2 );
-    top: calc((100vh - 200px) / 2);
+    top: calc((var(--vh,1vh) * 100 - 200px) / 2);
     z-index: 1001;
     width: 200px;
     height: 200px;
@@ -56,7 +56,7 @@
     overflow: hidden;
     position: fixed;
     left: calc((100vw - 200px) / 2);
-    top: calc((100vh - 200px) / 2);
+    top: calc((var(--vh,1vh) * 100 - 200px) / 2);
     z-index: 1001;
     width: 200px;
     height: 200px;
@@ -65,7 +65,7 @@
     overflow: hidden;
     position: fixed;
     left: calc((100vw - 200px) / 2 );
-    top: calc((100vh - 200px) / 2);
+    top: calc((var(--vh,1vh) * 100 - 200px) / 2);
     z-index: 1001;
     width: 200px;
     height: 200px;

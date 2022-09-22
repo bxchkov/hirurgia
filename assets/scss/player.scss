@@ -62,18 +62,18 @@
     transition: opacity $duration-decrease linear;
     position: absolute;
     @include media(left,(calc(50% - 50vw - #{$preview-circle-diameter} / 2),calc(50% - 50vw - #{$preview-circle-diameter-tablet} / 2)));
-    top: calc(-50vh + 50%);
+    top: calc(var(--vh, 1vh) * -50 + 50%);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100vw;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     z-index: 9;
     @media (max-width: nth($screens,3) + "px") and (orientation:portrait){
-      width: 100vh;
+      width: calc(var(--vh, 1vh) * 100);
       height: 100vw;
       left: calc(50% + 50vw);
-      top: calc(50% - 73vh);
+      top: calc(50% - var(--vh, 1vh) * 75);
       transform: rotateZ(90deg);
       transform-origin: left top;
     }
@@ -135,7 +135,7 @@
     @include media(left,(calc(50% - 50vw - #{$preview-circle-diameter} / 2 + 50vw - #{$play-stop-side} / 2), calc(50% - 50vw - #{$preview-circle-diameter-tablet} / 2 + 50vw - #{$play-stop-side} / 2)));
     @media (max-width: nth($screens,3) + "px") and (orientation:portrait){
       left: calc((100% - $play-stop-side) / 2);
-      top: calc(50% - 25vh - $play-stop-side / 2);
+      top: calc(50% - (var(--vh, 1vh) * 25) - $play-stop-side / 2);
       opacity: 1;
     }
   }
@@ -168,8 +168,8 @@
     object-fit: cover;
     z-index: -1;
   }
-  $player-UI-diameter-active:min(60vw,60vh);
-  $player-UI-diameter:200px;
+  $player-UI-diameter-active: min(60vw, (calc(var(--vh, 1vh) * 60)));
+  $player-UI-diameter: 200px;
   &__UI{
     position: absolute;
     display: flex;
