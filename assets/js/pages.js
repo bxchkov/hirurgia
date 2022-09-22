@@ -28,11 +28,11 @@ function setActivePage(index){
         let step = shortestWay(prevIndex, index,pages.length);
         steps += step;
         for (let i = getValueLoopRange(prevIndex+Math.sign(step),pages.length);  getValueLoopRange(index + Math.sign(step),pages.length) !== getValueLoopRange(i,pages.length); i = i + Math.sign(step)){
-            pages[getValueLoopRange(i,pages.length)].style.transform = `translateY(${Math.floor(steps / pages.length)* 100 * pages.length}vh)`;
+            pages[getValueLoopRange(i,pages.length)].style.transform = `translateY(calc(${Math.floor(steps / pages.length)* 100 * pages.length} * var(--vh,1vh)))`;
         }
         //scroll main
         let main = document.querySelector('.main');
-        main.style.transform = `translateY(${-steps*100}vh)`;
+        main.style.transform = `translateY(calc(${-steps*100} * var(--vh,1vh)))`;
         onAnimation = true;
         setTimeout(()=>{
             onAnimation = false;
@@ -108,7 +108,7 @@ let beforeY;
 
 document.addEventListener('touchstart',e=>{
     beforeY = e.changedTouches[0].clientY;
-    if(e.target.closest('.body-right'))
+    if(e.target.closest('.body-right') || e.target.closest('.page-player'))
         return
     document.addEventListener("touchmove", touchmove,{ passive: false })
 },{ passive: false })
