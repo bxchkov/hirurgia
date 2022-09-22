@@ -43,7 +43,7 @@ function setActivePage(index){
 }
 function setActiveAside(index){
     //aside
-    let itsMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    //let itsMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     let asideItems = document.querySelectorAll('.aside-item');
     let asideInner = document.querySelector('.aside__inner');
     index = getValueLoopRange(index,asideItems.length);
@@ -56,7 +56,7 @@ function setActiveAside(index){
     getElementByIndex(index,asideItems).classList.add('active');
     getElementByIndex(index-1,asideItems).classList.add('prev');
     getElementByIndex(index+1,asideItems).classList.add('next');
-    if(itsMobile){
+    if(window.innerWidth <= 600){
         asideInner.style.transform = `translateY(calc(-${index} * 40px))`;
         console.log(asideInner);
     }
