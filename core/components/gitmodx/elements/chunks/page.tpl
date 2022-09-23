@@ -1,4 +1,6 @@
 <div class="page">
+    <img class="page__background" src="{$poster}" alt="{$poster}">
+    <div class="page__background-fix"></div>
     <svg class="page__loader" viewBox="0 0 100 100">
         <path d="M 50,50 m 0,-49.9 a 49.9,49.9 0 1 1 0,99.8 a 49.9,49.9 0 1 1 0,-99.8" stroke="transparent"
               stroke-width="0.2" fill-opacity="0"></path>
@@ -7,9 +9,9 @@
         ></path>
     </svg>
     <div class="page__preview">
-        <div class="preview__main">
-            {$pagetitle}<br>
-            <span>{$description}</span>
+        <div class="preview">
+            <div class="preview__title">{$pagetitle}</div>
+            <div class="preview__sub-title">{$description}</div>
         </div>
         <div class="page-player">
             <div class="page-player__wrapper">
@@ -19,7 +21,7 @@
                 </div>
                 <div class="page-player__inner">
                     <div class="page-player__close">Закрыть</div>
-                    <video class="page-player__video" poster="{$poster}">
+                    <video class="page-player__video">
                         <source src="{$video}#t=0.1" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                     </video>
                     <div class="page-player__UI">

@@ -6,12 +6,17 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  @include media(bottom,(unset, unset, calc(27% - ($player-circle-diameter-default / 2))));
-  @include media(right,(calc(-#{$player-circle-diameter-default} / 2), calc(-#{$player-circle-diameter-default} / 2), calc(50% - ($player-circle-diameter-default / 2))));
+  @include media(bottom,(unset, unset, calc(35% - (90px / 2))));
+  @include media(right,(calc(-#{$player-circle-diameter-default} / 2), calc(-#{$player-circle-diameter-default} / 2), calc(50% - (90px / 2))));
   background-color: rgba(255, 0, 0, 0.8);
-  backdrop-filter: blur(2px);
-  width: $player-circle-diameter-default;
-  height: $player-circle-diameter-default;
+  backdrop-filter: blur(6px);
+  @include media(width,(($player-circle-diameter-default, $player-circle-diameter-default, 90px)));
+  @include media(height,(($player-circle-diameter-default, $player-circle-diameter-default, 90px)));
+  @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
+    width: 90px;
+    height: 90px;
+    right: calc(-90px / 2);
+  }
   border-radius: 100%;
   cursor: pointer;
   $cubic-bezier:cubic-bezier(.55,.055,.675,.19);
@@ -25,15 +30,17 @@
   //wrapper
   &__wrapper{
     transition-property: width, height, left;
-    transition-duration:$duration-decrease;
-    transition-timing-function:$cubic-bezier;
+    transition-duration: $duration-decrease;
+    transition-timing-function: $cubic-bezier;
     position: absolute;
     pointer-events: none;
     overflow: hidden;
     display: flex;
     align-items: center;
-    width: $player-circle-diameter-default;
-    height: $player-circle-diameter-default;
+    //@include media(width,(($player-circle-diameter-default, $player-circle-diameter-default, 90px)));
+    //@include media(height,(($player-circle-diameter-default, $player-circle-diameter-default, 90px)));
+    width: 100%;
+    height: 100%;
     border-radius: 100%;
     left: 0;
   }
@@ -42,9 +49,9 @@
     width: #{$player-circle-diameter-on-open}vw;
     left: calc((-#{$player-circle-diameter-on-open}vw + 100%) / 2);
     @media (orientation:portrait) {
-      height: calc(#{$player-circle-diameter-on-open} * var(--vh,1vh));
-      width: calc(#{$player-circle-diameter-on-open} * var(--vh,1vh));
-      left: calc((-#{$player-circle-diameter-on-open} * var(--vh,1vh) + 100%) / 2);
+      height: calc(#{$player-circle-diameter-on-open} * var(--vh, 1vh));
+      width: calc(#{$player-circle-diameter-on-open} * var(--vh, 1vh));
+      left: calc((-#{$player-circle-diameter-on-open} * var(--vh, 1vh) + 100%) / 2);
     }
   }
   &.hover:not(.active) &__wrapper{
@@ -61,21 +68,30 @@
     background-color: #424242;
     transition: opacity $duration-decrease linear;
     position: absolute;
-    @include media(left,(calc(50% - 50vw - #{$preview-circle-diameter} / 2),calc(50% - 50vw - #{$preview-circle-diameter-tablet} / 2)));
-    top: calc(var(--vh, 1vh) * -50 + 50%);
+    @include media(left,(calc(50% - 50vw - #{$preview-circle-diameter} / 2),calc(50% - 50vw - max(var(--vh, 1vh) * 100 - 200px, 520px) / 2)));
+    top: calc((var(--vh, 1vh) * -50) + 50%);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100vw;
     height: calc(var(--vh, 1vh) * 100);
     z-index: 9;
+    @media (max-width: nth($screens,2) + "px") and (orientation:portrait){
+      left: calc(50% - 50vw - (100vw - 300px) / 2);
+    }
     @media (max-width: nth($screens,3) + "px") and (orientation:portrait){
       width: calc(var(--vh, 1vh) * 100);
       height: 100vw;
       left: calc(50% + 50vw);
-      top: calc(50% - var(--vh, 1vh) * 73);
+      top: calc(50% - (var(--vh, 1vh) * 65));
       transform: rotateZ(90deg);
       transform-origin: left top;
+    }
+    @media (max-height: nth($screens,2) + "px") and (orientation:landscape){
+      left: calc(50% - 50vw - (var(--vh, 1vh) * 100 - 200px) / 2);
+    }
+    @media (max-height: nth($screens,3) + "px") and (orientation:landscape){
+      left: calc(50% - 50vw - (var(--vh, 1vh) * 100 - 40px) / 2);
     }
   }
   &.hover &__inner, &.active &__inner{
@@ -125,6 +141,9 @@
     align-content: center;
     pointer-events: none;
     opacity: 1;
+    @media (max-height: nth($screens,3)+"px") {
+      left: calc((100% - 35px) / 2);
+    }
   }
   &.active &__play-stop{
     @media (max-width: nth($screens, 3) + "px") and (orientation:portrait){
@@ -135,8 +154,14 @@
     @include media(left,(calc(50% - 50vw - #{$preview-circle-diameter} / 2 + 50vw - #{$play-stop-side} / 2), calc(50% - 50vw - #{$preview-circle-diameter-tablet} / 2 + 50vw - #{$play-stop-side} / 2)));
     @media (max-width: nth($screens,3) + "px") and (orientation:portrait){
       left: calc((100% - $play-stop-side) / 2);
-      top: calc(50% - (var(--vh, 1vh) * 25) );
+      top: calc(50% - (var(--vh, 1vh) * 65) + (var(--vh, 1vh) * 50) - $play-stop-side / 2);
       opacity: 1;
+    }
+    @media (max-height: nth($screens,2) + "px") and (orientation:landscape){
+      left:  calc(50% - 50vw - ((var(--vh,1vh) * 100) - 200px) / 2 + 50vw - #{$play-stop-side} / 2);
+    }
+    @media (max-height: nth($screens,3) + "px") and (orientation:landscape){
+      left:  calc(50% - 50vw - ((var(--vh,1vh) * 100) - 40px) / 2 + 50vw - #{$play-stop-side} / 2);
     }
   }
   &.hideUI.active &__play-stop{

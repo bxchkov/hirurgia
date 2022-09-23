@@ -1,6 +1,6 @@
 <div class="menu">
     <div class="menu__header">
-        <a href="" class="menu-title">
+        <a href="#" class="menu-title">
             <svg class="menu-title__image" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 25 25"
                  style="fill: #fff">
                 <path d="M23.037,19.864h-0.691l0.003-9.976h0.456c0.558,0,1.012-0.454,1.012-1.012V8.298c0-0.208-0.107-0.402-0.285-0.511
@@ -14,7 +14,7 @@
             </svg>
             <span class="menu-title__text">О компании</span>
         </a>
-        <a href="" class="menu-title">
+        <a href="#" class="menu-title">
             <svg class="menu-title__image" width="40" height="40" viewBox="0 0 40 40" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M33.7782 15.0141C33.7782 16.4216 33.2534 18.2803 32.3041 20.4393C31.3664 22.572 30.0661 24.8844 28.6306 27.1644C25.7606 31.723 22.4132 36.0539 20.5286 38.4009C20.256 38.7404 19.7721 38.7404 19.4996 38.4009C17.6149 36.0539 14.2675 31.723 11.3976 27.1644C9.96209 24.8844 8.66173 22.572 7.72403 20.4393C6.77473 18.2803 6.25 16.4216 6.25 15.0141C6.25 7.41239 12.4124 1.25 20.0141 1.25C27.6158 1.25 33.7782 7.41239 33.7782 15.0141Z"
@@ -62,41 +62,8 @@
         </a>
     </div>
     <div class="menu__items">
-            <a href="" class="menu-item">
-                <img src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
-                {include 'svg.hirurg'}
-                <div class="menu-item__title">Центр</div>
-            </a>
-            <a href="" class="menu-item">
-                <img src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
-                {include 'svg.hirurg'}
-                <div class="menu-item__title">Коррекции</div>
-            </a>
-            <a href="" class="menu-item">
-                <img src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
-                {include 'svg.hirurg'}
-                <div class="menu-item__title">Гинекомастии</div>
-            </a>
-            <a href="" class="menu-item">
-                <img src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
-                {include 'svg.hirurg'}
-                <div class="menu-item__title"></div>
-            </a>
-            <a href="" class="menu-item">
-                <img src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
-                {include 'svg.hirurg'}
-                <div class="menu-item__title"></div>
-            </a>
-            <a href="" class="menu-item">
-                <img src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
-                {include 'svg.hirurg'}
-                <div class="menu-item__title"></div>
-            </a>
-            <a href="" class="menu-item">
-                <img src="/assets/images/kotik.jpg" alt="" class="menu-item__image">
-                {include 'svg.hirurg'}
-                <div class="menu-item__title"></div>
-            </a>
+        {set $config['tpl'] = 'menu-item'}
+        {'!pdoResources' | snippet : $config}
     </div>
     <div class="menu__footer">
         <span>Мы в социальных сетях</span>

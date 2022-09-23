@@ -35,8 +35,6 @@
   85%{
     overflow: hidden;
     position: fixed;
-    left: 49px;
-    top: 32px;
     z-index: 1001;
     width: 50px;
     height: 44px;
@@ -44,40 +42,105 @@
   100%{
     overflow: hidden;
     position: fixed;
-    left: 49px;
-    top: 32px;
     z-index: 1001;
     width: 300px;
   }
 }
+$anim-logo-side:125px;
 //анимация движения логотипа на своё место с центра
 @keyframes start-logo-mobile {
   0%{
     overflow: hidden;
     position: fixed;
-    left: calc((100vw - 200px) / 2);
-    top: calc((var(--vh,1vh) * 100 - 200px) / 2);
+    left: calc((100vw - $anim-logo-side) / 2);
+    top: calc((var(--vh,1vh) * 100 - $anim-logo-side) / 2);
     z-index: 1001;
-    width: 200px;
-    height: 200px;
+    width: $anim-logo-side;
+    height: $anim-logo-side;
   }
   50%{
     overflow: hidden;
     position: fixed;
-    left: calc((100vw - 200px) / 2 );
-    top: calc((var(--vh,1vh) * 100 - 200px) / 2);
+    left: calc((100vw - $anim-logo-side) / 2 );
+    top: calc((var(--vh,1vh) * 100 - $anim-logo-side) / 2);
     z-index: 1001;
-    width: 200px;
-    height: 200px;
+    width: $anim-logo-side;
+    height: $anim-logo-side;
   }
   100%{
     overflow: hidden;
     position: fixed;
     z-index: 1001;
-    left: 20px;
-    top: 19px;
-    width: 36px;
-    height: 36px;
+    width: 50px;
+    height: 50px;
+  }
+}
+//анимация движения логотипа на своё место с центра
+@keyframes start-logo-tablet-horizontal {
+  0%{
+    overflow: hidden;
+    position: fixed;
+    left: calc((100vw - $anim-logo-side) / 2);
+    top: calc((var(--vh,1vh) * 100 - $anim-logo-side) / 2);
+    z-index: 1001;
+    width: $anim-logo-side;
+    height: $anim-logo-side;
+  }
+  50%{
+    overflow: hidden;
+    position: fixed;
+    left: calc((100vw - $anim-logo-side) / 2 );
+    top: calc((var(--vh,1vh) * 100 - $anim-logo-side) / 2);
+    z-index: 1001;
+    width: $anim-logo-side;
+    height: $anim-logo-side;
+  }
+  85%{
+    overflow: hidden;
+    position: fixed;
+    z-index: 1001;
+    width: 50px;
+    height: 44px;
+  }
+  100%{
+    overflow: hidden;
+    position: fixed;
+    z-index: 1001;
+    width: 300px;
+  }
+}
+//анимация движения логотипа на своё место с центра
+@keyframes start-logo-mobile-horizontal {
+  0%{
+    overflow: hidden;
+    position: fixed;
+    left: calc((100vw - $anim-logo-side) / 2);
+    top: calc((var(--vh,1vh) * 100 - $anim-logo-side) / 2);
+    z-index: 1001;
+    width: $anim-logo-side;
+    height: $anim-logo-side;
+  }
+  50%{
+    overflow: hidden;
+    position: fixed;
+    left: calc((100vw - $anim-logo-side) / 2 );
+    top: calc((var(--vh,1vh) * 100 - $anim-logo-side) / 2);
+    z-index: 1001;
+    width: $anim-logo-side;
+    height: $anim-logo-side;
+  }
+  85%{
+    overflow: hidden;
+    position: fixed;
+    z-index: 1001;
+    width: 50px;
+    height: 44px;
+  }
+  100%{
+    overflow: hidden;
+    position: fixed;
+    z-index: 1001;
+    width: 300px;
   }
 }
 //анимация создания svg круга page__preview

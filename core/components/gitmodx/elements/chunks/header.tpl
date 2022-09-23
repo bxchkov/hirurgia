@@ -7,6 +7,9 @@
         if (!sessionStorage.isLoaded) {
             //sessionStorage.isLoaded = JSON.stringify(true);
             document.querySelector('.header').classList.add('animation');
+            setTimeout(()=> {
+                document.querySelector('.header').classList.remove('animation');
+            },2500)
         }
         window.scrollTo(0, 0);
     </script>
@@ -14,7 +17,7 @@
 {*        <div class="language-switcher active">Ru</div>*}
 {*        <div class="language-switcher">En</div>*}
 {*    </div>*}
-    <a class="header__telephone" type="tel">+7 495 322-22-33</a>
+    <a class="header__telephone" href="tel:+74953222233">+7 495 322-22-33</a>
     <div class="header__share">
         <svg class="share-main-svg" xmlns="http://www.w3.org/2000/svg"
              width="23" height="23" viewBox="0 0 23 23">

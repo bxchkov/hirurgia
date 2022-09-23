@@ -57,7 +57,7 @@
         <a class="icon-link" href="https://twitter.com/">
             <img class="contacts__img" src="/assets/icons/telegram_white_icon.png">
         </a>
-        <a class="icon-link" href="https://vk.com/"">
+        <a class="icon-link" href="https://vk.com/">
             <img class="contacts__img" src="/assets/icons/viber_white_icon.png">
         </a>
         <a class="icon-link" href="https://vk.com/" style="height: 38px; width: 38px;">
