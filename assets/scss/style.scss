@@ -48,6 +48,10 @@
   z-index: 2;
   @include media(grid-template-columns,($header-template-columns, $header-template-columns, $header-template-columns-mobile));
   @include media(grid-template-areas,($header-template-areas, $header-template-areas, $header-template-areas-mobile));
+  @media (max-height: 500px) {
+    grid-template-columns: $header-template-columns-mobile;
+    //grid-template-areas: $header-template-areas-mobile;
+  }
   //@include media(background-color,(none,black,white));
   //&__language{
   //  @include media(margin-top,(9px, 9px, 0));
@@ -79,6 +83,9 @@
       @include media(display,(block, block, none));
       @include media(letter-spacing,(1.2px, 2px));
       @extend .link-hover;
+      @media (max-height: 500px) {
+        display: none;
+      }
     }
     &:hover span:after{
       width: 100%;
@@ -86,6 +93,9 @@
   }
   &__logo {
     @include media(align-self,(end, end, center));
+    @media (max-height: 500px) {
+      align-self: center;
+    }
     @include media(height,(44px, 44px, 36px));
     @include media(width,(auto, auto, 36px));
     @include media(overflow,(unset, unset, hidden));
@@ -158,6 +168,9 @@
 }
 .header__share{
   @include media(display,(block, block, none));
+  @media (max-height: 500px) {
+    display: none;
+  }
   height: 23px;
   margin-top: 7px;
   grid-area: share;
@@ -327,7 +340,8 @@
   margin-left: auto;
 }
 .menu-item{
-  @include media(display,(unset, unset, flex));
+  //@include media(display,(unset, unset, flex));
+  display: flex;
   position: relative;
   border-bottom: 1px solid #565555;
   z-index: 1;
@@ -354,6 +368,9 @@
     object-fit: cover;
     top: 20px;
     left: 20px;
+    @media (max-height: 500px) {
+      top: 5%;
+    }
     width: 47px;
     height: auto;
   }
@@ -361,6 +378,10 @@
     @extend .link-hover;
     position: absolute!important;
     bottom: 30px;
+    @media (max-height: 500px) {
+      bottom: 5%;
+      font-size: 12px;
+    }
     left: 20px;
     font-size: 14px;
     font-weight: bold;
@@ -411,6 +432,9 @@
     align-items: center;
     justify-items: center;
     @include media(gap,(10px, 10px, unset));
+    @media (max-height: 500px) {
+      gap: unset;
+    }
     width: 100%;
     z-index: 1;
   }
@@ -421,6 +445,10 @@
   justify-content: center;
   @include media(width,(10px, 10px, 6px));
   @include media(height,(10px, 10px, 6px));
+  @media (max-height: 500px) {
+    width: 6px;
+    height: 6px;
+  }
   background: white;
   border-radius: 100%;
   border: 2px white solid;
@@ -445,6 +473,10 @@
   &.active{
     @include media(width,(40px, 40px, 16px));
     @include media(height,(40px, 40px, 16px));
+    @media (max-height: 500px) {
+      width: 16px;
+      height: 16px;
+    }
     border-radius: 100%;
     border: 2px white solid;
     cursor: pointer;
@@ -452,6 +484,9 @@
   }
   &.active &__icon{
     @include media(display,(block, block, none));
+    @media (max-height: 500px) {
+      display: none;
+    }
     height: 25px;
     width: 25px;
   }
@@ -549,7 +584,7 @@ $duration-page-scroll: .6s;
   height: 100%;
   @include media(width,($page-content-width, $page-content-width-tablet, $page-content-width-mobile));
   @include media(background-color,('', rgba(223, 217, 213, .5)));
-  backdrop-filter: blur(15px);
+  @include media(backdrop-filter,(unset, blur(15px), blur(15px)));
   padding: 45px 0 35px;
   &.active{
     @include media(left,(calc(100% - $page-content-width), calc(100% - $page-content-width-tablet), calc(100% - $page-content-width-mobile)));
@@ -595,15 +630,25 @@ $duration-page-scroll: .6s;
 
 .footer{
   @include media(padding,(0 32px 0 55px, 0 30px 0 40px, 0 13% 0 13%));
+  @media (max-height: 500px) {
+    padding-left: 29px;
+  }
   @include media(display,(grid, grid, grid));
   @include media(grid-template-rows,(1fr, 1fr, 1fr 1fr));
   @include media(grid-template-columns,($footer-template-columns, $footer-template-columns, $footer-template-columns-mobile));
   @include media(grid-template-areas,($footer-template-areas, $footer-template-areas, $footer-template-areas-mobile));
+  @media (max-height: 500px) {
+    grid-template-columns: 1fr;
+    grid-template-areas: unset;
+  }
   left: 0;
   @include media(bottom,(34px, 20px));
   position: absolute;
   width: 100%;
   @include media(height,(25px, 25px, 85px));
+  @media (max-height: 500px) {
+    height: 40px;
+  }
   &__title{
     grid-area: title;
     @include media(display,(none, none, flex));
@@ -615,6 +660,9 @@ $duration-page-scroll: .6s;
   &__info{
     grid-area: info;
     @include media(display,(flex, flex, none));
+    @media (max-height: 500px) {
+      display: none;
+    }
     flex-direction: row;
     align-items: center;
     gap: 18px;
@@ -630,6 +678,9 @@ $duration-page-scroll: .6s;
   &__contacts{
     grid-area: contacts;
     @include media(display,(flex, flex, none));
+    @media (max-height: 500px) {
+      display: none;
+    }
     justify-content: start;
     flex-direction: row;
     gap: 17px;
@@ -637,24 +688,58 @@ $duration-page-scroll: .6s;
   }
   &__contacts-mobile{
     grid-area: mobile;
+    @media (max-height: 500px) {
+      grid-area: unset;
+    }
     @include media(display,(none, none, flex));
+    @media (max-height: 500px) {
+      display: flex;
+    }
     flex-direction: row;
     gap: 45px;
+    @media (max-height: 500px) {
+      gap: 25px;
+    }
     justify-self: center;
+    @media (max-height: 500px) {
+      justify-self: start;
+    }
     align-self: center;
+    @media (max-height: 500px) {
+      align-items: end;
+    }
+    :nth-child(4){
+      display: none;
+    }
+    @media (max-height: 500px) {
+      :nth-child(4){
+        display: block;
+      }
+    }
     .icon-link{
       height: 45px;
       width: 45px;
+      @media (max-height: 500px) {
+        height: 35px;
+        width: 35px;
+      }
     }
     .contacts__svg{
       fill: white;
       height: 45px;
       width: 45px;
+      @media (max-height: 500px) {
+        height: 35px;
+        width: 35px;
+      }
     }
   }
   &__interaction{
     grid-area: interaction;
     @include media(display,(flex, flex, none));
+    @media (max-height: 500px) {
+      display: none;
+    }
     flex-direction: row;
     align-items: center;
     gap: 29px;
@@ -699,6 +784,10 @@ $duration-page-scroll: .6s;
     &:hover{
       fill: white;
     }
+  }
+  &__img{
+    width: 35px;
+    height: 35px;
   }
 }
 .contacts-more{
