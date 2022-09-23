@@ -191,7 +191,7 @@
 .body{
   @include media(perspective,(1700px));
   font-family: Roboto, Serif;
-  //background-color: #cbc4c0;
+  background-color: #cbc4c0;
   overflow: hidden;
   &.right-open{
     overflow: hidden;
