@@ -494,6 +494,7 @@ $duration-page-scroll: .6s;
     height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
     position: absolute;
+    object-fit: cover;
   }
   &__background-fix{
     height: calc(var(--vh, 1vh) * 100);
