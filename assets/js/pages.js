@@ -119,7 +119,7 @@ let beforeY;
 
 document.addEventListener('touchstart',e=>{
     beforeY = e.changedTouches[0].clientY;
-    if(e.target.closest('.body-right') || e.target.closest('.page-player'))
+    if(e.target.closest('.body-right') || e.target.closest('.page-player__UI'))
         return
     document.addEventListener("touchmove", touchmove,{ passive: false })
 },{ passive: false })

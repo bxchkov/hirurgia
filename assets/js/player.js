@@ -61,6 +61,10 @@ document.querySelectorAll('.page-player').forEach(item=>{
                 play.dispatchEvent(new Event('click'));
                 if(canvas)
                     drawCircle(canvas);
+                // let itsMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                // if(itsMobile){
+                //     video.requestFullscreen();
+                // }
                 item.removeEventListener('transitionend',windowFullOpened);
             }
             canvas?.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
@@ -113,6 +117,11 @@ document.querySelectorAll('.page-player').forEach(item=>{
         trackMark.style.animationName = '';
         trackMark.style.transform = "";
         video.currentTime = 0;
+    })
+    document.addEventListener("fullscreenchange",e=>{
+        if(!document.fullscreenElement){
+            close.dispatchEvent(new Event('click'));
+        }
     })
     // закрытие видоса
     close.addEventListener('click',e=>{
@@ -273,45 +282,34 @@ document.addEventListener('click',e=>{
 function drawCircle(canvas){
     draw_video_lines(canvas, 2, 360, 15);
 }
-function draw_video_lines(canvas, width,density,line) {
+document.querySelectorAll('.page-player__circle-small').forEach(canvas=>{
+    draw_video_lines(canvas, 2,180,10,0);
+})
+function draw_video_lines(canvas, width,count,line,intervalTic = 4) {
     var _ctx = canvas.getContext('2d'),
-    _radius = canvas.width / 2 - line,
-    _angle = void 0,
-    _tic = 4,
-    _tic_interval = 4,
-    offset = canvas.width / 2;
-    console.log('test');
-    var lines = function lines(i) {
-        _angle = (i-3) * ((Math.PI * 2) / density); // частота линий
+    radiusX = canvas.width / 2,
+    radiusY = canvas.height / 2;
+    _ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let i = 0;
+    const lines_int = setInterval(() => {
+        let angle = (360 / count * i); // частота линий
+        let radian = Math.PI * 2 / 360 * angle;
         _ctx.lineWidth = width;
         _ctx.beginPath();
-        var x1 = canvas.width / 2 + Math.cos(_angle) * _radius;
-        var y1 = canvas.height / 2 + Math.sin(_angle) * _radius;
-        var x2 = canvas.width / 2 + Math.cos(_angle) * offset; // штрих
-        var y2 = canvas.height / 2 + Math.sin(_angle) * offset;
-
+        var x1 = canvas.width / 2 + Math.cos(radian) * (radiusX - line);
+        var y1 = canvas.height / 2 + Math.sin(radian) * (radiusY - line);
+        var x2 = canvas.width / 2 + Math.cos(radian) * radiusX; // штрих
+        var y2 = canvas.height / 2 + Math.sin(radian) * radiusY;
         _ctx.moveTo(x1, y1);
         _ctx.lineTo(x2, y2);
 
         _ctx.strokeStyle = 'rgba(255, 255, 255, .5)';
         _ctx.stroke();
-    };
-
-    // Очищаем контекст и рисуем
-    _ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // for (_tic; _tic <= 364; _tic++) {
-    //     lines(_tic);
-    // }
-
-    // Если надо отрисовать не сразу, а по очереди
-    const lines_int = setInterval(() => {
-        lines(_tic);
-        _tic++;
-        if (_tic >= 364 ) {
+        i++;
+        if (i >= count) {
             clearInterval(lines_int)
         }
-    }, _tic_interval);
+    }, intervalTic);
 };
 document.addEventListener('click',e=>{
     if(e.target.closest('[data-action="toggle-audio"]')){

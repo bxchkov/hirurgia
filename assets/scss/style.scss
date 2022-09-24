@@ -25,7 +25,7 @@
   z-index: 2;
   @include media(grid-template-columns,($header-template-columns, $header-template-columns, $header-template-columns-mobile));
   @include media(grid-template-areas,($header-template-areas, $header-template-areas, $header-template-areas-mobile));
-  @media (max-height: nth($screens,3)+"px") {
+  @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
     grid-template-columns: $header-template-columns-mobile;
   }
   &__open-menu{
@@ -42,7 +42,7 @@
       @include media(display,(block, block, none));
       @include media(letter-spacing,(1.2px, 2px));
       @extend .link-hover;
-      @media (max-height: nth($screens,3)+"px") {
+      @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
         display: none;
       }
     }
@@ -58,7 +58,7 @@
     position: fixed;
     left: 49px;
     top: 32px;
-    @media (max-height: nth($screens,3)+"px") {
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       align-self: center;
     }
     @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
@@ -280,7 +280,7 @@
     grid-template-columns: 1fr 1fr;
     //@include media(grid-template-areas,($menu-template-areas, $menu-template-areas, $menu-template-areas-mobile));
     //@include media(grid-template-rows,($menu-template-rows, $menu-template-rows, $menu-template-rows-mobile));
-    grid-template-rows: repeat(4,1fr);
+    //grid-template-rows: repeat(4,1fr); //кал
   }
   &__footer {
     @include media(display, (none, none, flex));
@@ -386,7 +386,7 @@
     left: 20px;
     font-size: 14px;
     font-weight: bold;
-    @media (max-height: nth($screens,3)+"px") {
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       bottom: 5%;
       font-size: 12px;
     }
@@ -439,7 +439,7 @@
     width: 100%;
     z-index: 1;
     @include media(gap,(10px, 10px, unset));
-    @media (max-height: nth($screens,3)+"px") {
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       gap: unset;
     }
   }
@@ -465,7 +465,7 @@
     height: 0;
     transition: width .3s ease, height .3s ease;
   }
-  @media (min-width: nth($screens,3)+"px") {
+  @media (min-width: nth($screens,3)+"px") and (orientation: portrait){
     &:hover{
       background-color: rgba(0,0,0,0);
       border: 2px white solid;
@@ -480,7 +480,7 @@
     border: 2px white solid;
     cursor: pointer;
     background: none;
-    @media (max-height: nth($screens,3)+"px") {
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       width: 16px;
       height: 16px;
     }
@@ -489,7 +489,7 @@
     @include media(display,(block, block, none));
     height: 25px;
     width: 25px;
-    @media (max-height: nth($screens,3)+"px") {
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       display: none;
     }
   }
@@ -513,20 +513,15 @@ $duration-page-scroll: .6s;
   display: flex;
   align-items: center;
   justify-content: center;
-  //background: url("/assets/images/shadow.png") no-repeat center;
-  //@include media(background-size,(1145px 786px, 825px 566px));
+  background: url("/assets/images/shadow.png") no-repeat center;
+  @include media(background-size,(1145px 786px, 825px 566px));
   &__background{
     height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
     position: absolute;
     object-fit: cover;
-  }
-  &__background-fix{
-    height: calc(var(--vh, 1vh) * 100);
-    width: 100vw;
-    position: absolute;
-    background-color: white;
-    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
   }
   &__loader{
     position: absolute;
@@ -609,7 +604,7 @@ $duration-page-scroll: .6s;
   justify-content: center;
   align-items: center;
   position: relative;
-  @media (max-width: nth($screens,3)+"px") {
+  @media (max-width: nth($screens,3)+"px") and (orientation: portrait) {
     top: -25px;
   }
   &__title {
@@ -618,12 +613,12 @@ $duration-page-scroll: .6s;
     @include media(font-size, (50px, 35px, 28px));
     text-transform: uppercase;
     text-align: center;
-    @media (max-height: nth($screens,3)+"px") {
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       font-size: 26px;
       line-height: 30px;
       letter-spacing: 2px;
     }
-    @media (max-width: nth($screens,3)+"px") {
+    @media (max-width: nth($screens,3)+"px") and (orientation: portrait){
       position: absolute;
       bottom: calc(50% + 10px);
     }
@@ -635,13 +630,13 @@ $duration-page-scroll: .6s;
     line-height: 27px;
     font-weight: 400;
     text-align: center;
-    @media (max-height: nth($screens,3)+"px") {
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       font-size: 12px;
       line-height: 22px;
       letter-spacing: 0.3px;
       margin-top: 2px;
     }
-    @media (max-width: nth($screens,3)+"px") {
+    @media (max-width: nth($screens,3)+"px") and (orientation: portrait) {
       position: absolute;
       top: calc(50% + 10px);
     }
@@ -706,7 +701,7 @@ $duration-page-scroll: .6s;
   @include media(grid-template-areas,($footer-template-areas, $footer-template-areas, $footer-template-areas-mobile));
   @include media(bottom,(34px, 20px));
   @include media(height,(25px, 25px, 85px));
-  @media (max-height: nth($screens,3)+"px") {
+  @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
     grid-template-columns: 1fr;
     grid-template-areas: unset;
     height: 40px;
@@ -720,7 +715,7 @@ $duration-page-scroll: .6s;
     font-size: 17px;
     color: white;
     white-space: nowrap;
-    @media (max-height: nth($screens,3)+"px") {
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       display: none;
     }
   }
@@ -735,7 +730,7 @@ $duration-page-scroll: .6s;
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 1px;
-    @media (max-height: nth($screens,3)+"px") {
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       display: none;
     }
   }
@@ -749,7 +744,7 @@ $duration-page-scroll: .6s;
     flex-direction: row;
     gap: 17px;
     align-items: center;
-    @media (max-height: nth($screens,3)+"px") {
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       display: none;
     }
   }
@@ -761,7 +756,7 @@ $duration-page-scroll: .6s;
     justify-self: center;
     align-self: center;
     :nth-child(4) { display: none; }
-    @media (max-height: nth($screens,3)+"px") {
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       display: flex;
       gap: 25px;
       justify-self: start;
@@ -772,7 +767,7 @@ $duration-page-scroll: .6s;
     .icon-link{
       height: 45px;
       width: 45px;
-      @media (max-height: nth($screens,3)+"px") {
+      @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
         height: 35px;
         width: 35px;
       }
@@ -781,7 +776,7 @@ $duration-page-scroll: .6s;
       fill: white;
       height: 45px;
       width: 45px;
-      @media (max-height: nth($screens,3)+"px") {
+      @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
         height: 35px;
         width: 35px;
       }
@@ -793,7 +788,7 @@ $duration-page-scroll: .6s;
     flex-direction: row;
     align-items: center;
     gap: 29px;
-    @media (max-height: nth($screens,3)+"px") {
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       display: none;
     }
   }
@@ -882,5 +877,19 @@ $duration-page-scroll: .6s;
 .body.video-opened{
   .header,.footer__title,.footer__contacts-mobile,.footer__info,.footer__contacts,.aside,.page__info{
     z-index: -1;
+  }
+  @media (max-height: nth($screens,3)+"px") and (orientation: landscape) and (orientation:landscape), (max-width: nth($screens,3)+"px") and (orientation:portrait){
+    .footer__interaction{
+      display: flex;
+      position: fixed;
+      right: 30px;
+      bottom: 20px;
+      .interaction__svg{
+        height: 20px;
+        svg{
+          height: 100%;
+        }
+      }
+    }
   }
 }
