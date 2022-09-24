@@ -28,15 +28,6 @@
   @media (max-height: nth($screens,3)+"px") {
     grid-template-columns: $header-template-columns-mobile;
   }
-  &__telephone{
-    @include media(margin-top,(8px, 8px, 0));
-    grid-area: tel;
-    font-family: Arial;
-    cursor: pointer;
-    white-space: nowrap;
-    letter-spacing: 1.2px;
-    @extend .link-hover;
-  }
   &__open-menu{
     @include media(margin-top,(8px, 8px, 0));
     grid-area: menu;
@@ -172,7 +163,6 @@
   width: 23px;
   max-height: 0;
   overflow: hidden;
-  //background-color: rgba(43, 43, 44, 0.05);
   transition: max-height .3s ease;
   gap: 17px;
 
@@ -186,6 +176,41 @@
     fill-rule: evenodd;
     fill: #f7f7fa;
     cursor: pointer;
+  }
+}
+.telephone{
+  @include media(margin-top,(8px, 8px, 0));
+  height: 18px;
+  grid-area: tel;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+  &__list{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    max-height: 0;
+    top: 100%;
+    padding-top: 18px;
+    overflow: hidden;
+    transition: max-height .3s ease;
+    padding-bottom: 1px;
+  }
+  &:hover &__list,&.active &__list{
+    max-height: 58px;
+  }
+  &__number{
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    font-size: 16px;
+    height: 18px;
+    pointer-events: none;
+    @extend .link-hover;
+  }
+  &.active &__number{
+    pointer-events: all;
   }
 }
 .body{
@@ -694,6 +719,10 @@ $duration-page-scroll: .6s;
     font-family: Arial;
     font-size: 17px;
     color: white;
+    white-space: nowrap;
+    @media (max-height: nth($screens,3)+"px") {
+      display: none;
+    }
   }
   &__info{
     grid-area: info;

@@ -17,7 +17,12 @@
 {*        <div class="language-switcher active">Ru</div>*}
 {*        <div class="language-switcher">En</div>*}
 {*    </div>*}
-    <a class="header__telephone" href="tel:+74953222233">+7 495 322-22-33</a>
+    <div class="header__telephone telephone">
+        <a class="telephone__number" href="tel:+74953222233">+7 495 322-22-33</a>
+        <div class="telephone__list">
+            <a class="telephone__number" href="tel:+74953222233">+7 495 322-22-33</a>
+        </div>
+    </div>
     <div class="header__share">
         <svg class="share-main-svg" xmlns="http://www.w3.org/2000/svg"
              width="23" height="23" viewBox="0 0 23 23">
