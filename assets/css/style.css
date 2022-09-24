@@ -2616,7 +2616,7 @@ a, a:visited {
     grid-area: unset;
   }
   .footer__contacts-mobile :nth-child(4) {
-    display: block;
+    display: none;
   }
 }
 .footer__contacts-mobile .icon-link {

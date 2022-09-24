@@ -762,7 +762,7 @@ $duration-page-scroll: .6s;
       justify-self: start;
       align-items: end;
       grid-area: unset;
-      :nth-child(4){ display: block; }
+      :nth-child(4){ display: none; }
     }
     .icon-link{
       height: 45px;
