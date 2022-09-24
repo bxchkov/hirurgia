@@ -851,14 +851,11 @@ $duration-page-scroll: .6s;
   @media (max-height: nth($screens,3)+"px") and (orientation:landscape), (max-width: nth($screens,3)+"px") and (orientation:portrait){
     .footer__interaction{
       display: flex;
-      [data-action="toggle-audio"]{
-        display: none;
-      }
-      [data-action="toggle-fullscreen"]{
-        height: 40px;
-        position: fixed;
-        right: 20px;
-        bottom: 20px;
+      position: fixed;
+      right: 30px;
+      bottom: 20px;
+      .interaction__svg{
+        height: 20px;
         svg{
           height: 100%;
         }

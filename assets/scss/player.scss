@@ -190,7 +190,7 @@
   &__video{
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     z-index: -1;
   }
   $player-UI-diameter-active: min(60vw, (calc(var(--vh, 1vh) * 60)));
