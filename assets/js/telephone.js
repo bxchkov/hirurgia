@@ -7,3 +7,9 @@ document.addEventListener('click', e=> {
        telephone.classList.remove('active');
    }
 });
+telephone.addEventListener('mouseover', e=> {
+    telephone.classList.add('active');
+});
+telephone.addEventListener('mouseleave', e=> {
+    telephone.classList.remove('active');
+});
