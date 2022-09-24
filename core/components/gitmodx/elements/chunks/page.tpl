@@ -29,7 +29,7 @@
                             <span class="page-player__time">0:00</span>
                         </div>
                         <canvas class="page-player__circle" width="786" height="786"></canvas>
-                        <canvas class="page-player__circle-small"></canvas>
+                        <canvas class="page-player__circle-small" width="300" height="300"></canvas>
                     </div>
                 </div>
             </div>

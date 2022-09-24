@@ -65,7 +65,7 @@
   // inner
   &__inner{
     opacity: 0;
-    background-color: #424242;
+    background-color: black;
     transition: opacity $duration-decrease linear;
     position: absolute;
     @include media(left,(calc(50% - 50vw - #{$preview-circle-diameter} / 2),calc(50% - 50vw - max(var(--vh, 1vh) * 100 - 200px, 520px) / 2)));
@@ -190,7 +190,7 @@
   &__video{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     z-index: -1;
   }
   $player-UI-diameter-active: min(60vw, (calc(var(--vh, 1vh) * 60)));
@@ -255,14 +255,27 @@
     width:100%;
     height: 100%;
     opacity: 0;
+    transition: opacity 1s ease;
+    @media (max-height: nth($screens,2)+"px") and (orientation: landscape), (max-width: nth($screens,2)+"px") and (orientation: portrait) {
+      opacity: 1;
+    }
   }
   &__UI.active &__circle{
     opacity: 1;
   }
   &__circle-small{
     position: absolute;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
+    transition: opacity 1s ease;
+    opacity: 1;
+    @media (max-height: nth($screens,2)+"px") and (orientation: landscape), (max-width: nth($screens,2)+"px") and (orientation: portrait) {
+      opacity: 0;
+    }
+  }
+  &__UI.active &__circle-small{
+    transition: opacity .3s ease;
+    opacity: 0;
   }
 }
 [data-action="toggle-audio"]{

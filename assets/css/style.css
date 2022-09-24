@@ -409,7 +409,7 @@ a, a:visited {
 }
 .page-player__inner {
   opacity: 0;
-  background-color: #424242;
+  background-color: black;
   transition: opacity 0.75s linear;
   position: absolute;
   left: calc(50% - 50vw - 785px / 2);
@@ -559,8 +559,8 @@ a, a:visited {
 .page-player__video {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   z-index: -1;
 }
 .page-player__UI {
@@ -633,14 +633,31 @@ a, a:visited {
   width: 100%;
   height: 100%;
   opacity: 0;
+  transition: opacity 1s ease;
+}
+@media (max-height: 1180px) and (orientation: landscape), (max-width: 1180px) and (orientation: portrait) {
+  .page-player__circle {
+    opacity: 1;
+  }
 }
 .page-player__UI.active .page-player__circle {
   opacity: 1;
 }
 .page-player__circle-small {
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
+  transition: opacity 1s ease;
+  opacity: 1;
+}
+@media (max-height: 1180px) and (orientation: landscape), (max-width: 1180px) and (orientation: portrait) {
+  .page-player__circle-small {
+    opacity: 0;
+  }
+}
+.page-player__UI.active .page-player__circle-small {
+  transition: opacity 0.3s ease;
+  opacity: 0;
 }
 
 [data-action=toggle-audio] {
@@ -798,7 +815,7 @@ a, a:visited {
 }
 .page-player__inner {
   opacity: 0;
-  background-color: #424242;
+  background-color: black;
   transition: opacity 0.75s linear;
   position: absolute;
   left: calc(50% - 50vw - 785px / 2);
@@ -948,8 +965,8 @@ a, a:visited {
 .page-player__video {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   z-index: -1;
 }
 .page-player__UI {
@@ -1022,14 +1039,31 @@ a, a:visited {
   width: 100%;
   height: 100%;
   opacity: 0;
+  transition: opacity 1s ease;
+}
+@media (max-height: 1180px) and (orientation: landscape), (max-width: 1180px) and (orientation: portrait) {
+  .page-player__circle {
+    opacity: 1;
+  }
 }
 .page-player__UI.active .page-player__circle {
   opacity: 1;
 }
 .page-player__circle-small {
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
+  transition: opacity 1s ease;
+  opacity: 1;
+}
+@media (max-height: 1180px) and (orientation: landscape), (max-width: 1180px) and (orientation: portrait) {
+  .page-player__circle-small {
+    opacity: 0;
+  }
+}
+.page-player__UI.active .page-player__circle-small {
+  transition: opacity 0.3s ease;
+  opacity: 0;
 }
 
 [data-action=toggle-audio] {
