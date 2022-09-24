@@ -488,20 +488,15 @@ $duration-page-scroll: .6s;
   display: flex;
   align-items: center;
   justify-content: center;
-  //background: url("/assets/images/shadow.png") no-repeat center;
-  //@include media(background-size,(1145px 786px, 825px 566px));
+  background: url("/assets/images/shadow.png") no-repeat center;
+  @include media(background-size,(1145px 786px, 825px 566px));
   &__background{
     height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
     position: absolute;
     object-fit: cover;
-  }
-  &__background-fix{
-    height: calc(var(--vh, 1vh) * 100);
-    width: 100vw;
-    position: absolute;
-    background-color: white;
-    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
   }
   &__loader{
     position: absolute;

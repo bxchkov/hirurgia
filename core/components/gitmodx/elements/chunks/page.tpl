@@ -1,6 +1,5 @@
 <div class="page">
     <img class="page__background" src="{$poster}" alt="{$poster}">
-    <div class="page__background-fix"></div>
     <svg class="page__loader" viewBox="0 0 100 100">
         <path d="M 50,50 m 0,-49.9 a 49.9,49.9 0 1 1 0,99.8 a 49.9,49.9 0 1 1 0,-99.8" stroke="transparent"
               stroke-width="0.2" fill-opacity="0"></path>
