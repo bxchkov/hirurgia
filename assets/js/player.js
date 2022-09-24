@@ -118,8 +118,8 @@ document.querySelectorAll('.page-player').forEach(item=>{
         trackMark.style.transform = "";
         video.currentTime = 0;
     })
-    video.addEventListener("fullscreenchange",e=>{
-        if(document.fullscreenElement){
+    document.addEventListener("fullscreenchange",e=>{
+        if(!document.fullscreenElement){
             close.dispatchEvent(new Event('click'));
         }
     })
