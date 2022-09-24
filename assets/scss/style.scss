@@ -699,8 +699,8 @@ $duration-page-scroll: .6s;
   @include media(grid-template-rows,(1fr, 1fr, 1fr 1fr));
   @include media(grid-template-columns,($footer-template-columns, $footer-template-columns, $footer-template-columns-mobile));
   @include media(grid-template-areas,($footer-template-areas, $footer-template-areas, $footer-template-areas-mobile));
-  @include media(bottom,(34px, 20px));
-  @include media(height,(25px, 25px, 85px));
+  @include media(bottom,(34px, 20px,10px));
+  @include media(height,(25px, 25px, 75px));
   @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
     grid-template-columns: 1fr;
     grid-template-areas: unset;
@@ -816,6 +816,18 @@ $duration-page-scroll: .6s;
   align-items: center;
   height: 16px;
   cursor: pointer;
+  &:nth-child(1){
+    .contacts__img{
+      @include media(width,(35px, 35px, 40px));
+      @include media(height,(35px, 35px, 40px));
+    }
+  }
+  &:nth-child(3){
+    .contacts__img{
+      @include media(width,(35px, 35px, 45px));
+      @include media(height,(35px, 35px, 45px));
+    }
+  }
 }
 .contacts{
   &__svg{
@@ -832,6 +844,7 @@ $duration-page-scroll: .6s;
   &__img{
     width: 35px;
     height: 35px;
+
   }
 }
 .contacts-more{
