@@ -2743,3 +2743,21 @@ a, a:visited {
 .body.video-opened .header, .body.video-opened .footer__title, .body.video-opened .footer__contacts-mobile, .body.video-opened .footer__info, .body.video-opened .footer__contacts, .body.video-opened .aside, .body.video-opened .page__info {
   z-index: -1;
 }
+@media (max-height: 650px) and (orientation: landscape), (max-width: 650px) and (orientation: portrait) {
+  .body.video-opened .footer__interaction {
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .body.video-opened .footer__interaction [data-action=toggle-audio] {
+    display: none;
+  }
+  .body.video-opened .footer__interaction [data-action=toggle-fullscreen] {
+    height: 40px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+  }
+  .body.video-opened .footer__interaction [data-action=toggle-fullscreen] svg {
+    height: 100%;
+  }
+}

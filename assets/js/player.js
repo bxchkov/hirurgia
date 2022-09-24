@@ -61,10 +61,10 @@ document.querySelectorAll('.page-player').forEach(item=>{
                 play.dispatchEvent(new Event('click'));
                 if(canvas)
                     drawCircle(canvas);
-                let itsMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-                if(itsMobile){
-                    video.requestFullscreen();
-                }
+                // let itsMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                // if(itsMobile){
+                //     video.requestFullscreen();
+                // }
                 item.removeEventListener('transitionend',windowFullOpened);
             }
             canvas?.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);

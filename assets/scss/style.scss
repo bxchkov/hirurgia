@@ -848,4 +848,21 @@ $duration-page-scroll: .6s;
   .header,.footer__title,.footer__contacts-mobile,.footer__info,.footer__contacts,.aside,.page__info{
     z-index: -1;
   }
+  @media (max-height: nth($screens,3)+"px") and (orientation:landscape), (max-width: nth($screens,3)+"px") and (orientation:portrait){
+    .footer__interaction{
+      display: flex;
+      [data-action="toggle-audio"]{
+        display: none;
+      }
+      [data-action="toggle-fullscreen"]{
+        height: 40px;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        svg{
+          height: 100%;
+        }
+      }
+    }
+  }
 }
