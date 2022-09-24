@@ -63,7 +63,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
                     drawCircle(canvas);
                 let itsMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
                 if(itsMobile){
-                    toggleFullScreen(item);
+                    video.requestFullscreen();
                 }
                 item.removeEventListener('transitionend',windowFullOpened);
             }
@@ -117,6 +117,11 @@ document.querySelectorAll('.page-player').forEach(item=>{
         trackMark.style.animationName = '';
         trackMark.style.transform = "";
         video.currentTime = 0;
+    })
+    video.addEventListener("fullscreenchange",e=>{
+        if(document.fullscreenElement){
+            close.dispatchEvent(new Event('click'));
+        }
     })
     // закрытие видоса
     close.addEventListener('click',e=>{
