@@ -255,7 +255,7 @@
     grid-template-columns: 1fr 1fr;
     //@include media(grid-template-areas,($menu-template-areas, $menu-template-areas, $menu-template-areas-mobile));
     //@include media(grid-template-rows,($menu-template-rows, $menu-template-rows, $menu-template-rows-mobile));
-    grid-template-rows: repeat(4,1fr);
+    //grid-template-rows: repeat(4,1fr);
   }
   &__footer {
     @include media(display, (none, none, flex));
