@@ -2578,9 +2578,6 @@ a, a:visited {
         align-items: end;
     grid-area: unset;
   }
-  .footer__contacts-mobile :nth-child(4) {
-    display: block;
-  }
 }
 .footer__contacts-mobile .icon-link {
   height: 45px;
