@@ -61,6 +61,13 @@ document.querySelectorAll('.page-player').forEach(item=>{
                 play.dispatchEvent(new Event('click'));
                 if(canvas)
                     drawCircle(canvas);
+                let itsMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                if(itsMobile){
+                    if (screen.orientation && screen.orientation.lock) {
+                        screen.orientation.lock('landscape');
+                    }
+                    toggleFullScreen(video);
+                }
                 item.removeEventListener('transitionend',windowFullOpened);
             }
             canvas?.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
