@@ -1154,7 +1154,7 @@ a, a:visited {
     grid-template-areas: "logo  ... tel   .... menu";
   }
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .header {
     -ms-grid-columns: auto 1fr auto 35px auto;
         grid-template-columns: auto 1fr auto 35px auto;
@@ -1223,7 +1223,7 @@ a, a:visited {
     letter-spacing: 2px;
   }
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .header__open-menu span {
     display: none;
   }
@@ -1286,7 +1286,7 @@ a, a:visited {
     overflow: hidden;
   }
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .header__logo {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
@@ -1746,7 +1746,7 @@ a, a:visited {
   font-size: 14px;
   font-weight: bold;
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .menu-item__title {
     bottom: 5%;
     font-size: 12px;
@@ -1843,7 +1843,7 @@ a, a:visited {
     gap: unset;
   }
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .aside__inner {
     gap: unset;
   }
@@ -1899,7 +1899,7 @@ a, a:visited {
   height: 0;
   transition: width 0.3s ease, height 0.3s ease;
 }
-@media (min-width: 650px) {
+@media (min-width: 650px) and (orientation: portrait) {
   .aside-item:hover {
     background-color: rgba(0, 0, 0, 0);
     border: 2px white solid;
@@ -1935,7 +1935,7 @@ a, a:visited {
     height: 16px;
   }
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .aside-item.active {
     width: 16px;
     height: 16px;
@@ -1956,7 +1956,7 @@ a, a:visited {
     display: none;
   }
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .aside-item.active .aside-item__icon {
     display: none;
   }
@@ -2224,7 +2224,7 @@ a, a:visited {
     font-size: 28px;
   }
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .preview__title {
     font-size: 26px;
     line-height: 30px;
@@ -2260,7 +2260,7 @@ a, a:visited {
     margin-top: 7px;
   }
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .preview__sub-title {
     font-size: 12px;
     line-height: 22px;
@@ -2456,7 +2456,7 @@ a, a:visited {
     height: 85px;
   }
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .footer {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -2482,6 +2482,11 @@ a, a:visited {
   .footer__title {
     display: -ms-flexbox;
     display: flex;
+  }
+}
+@media (max-height: 650px) and (orientation: landscape) {
+  .footer__title {
+    display: none;
   }
 }
 .footer__info {
@@ -2510,7 +2515,7 @@ a, a:visited {
     display: none;
   }
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .footer__info {
     display: none;
   }
@@ -2538,7 +2543,7 @@ a, a:visited {
     display: none;
   }
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .footer__contacts {
     display: none;
   }
@@ -2568,7 +2573,7 @@ a, a:visited {
 .footer__contacts-mobile :nth-child(4) {
   display: none;
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .footer__contacts-mobile {
     display: -ms-flexbox;
     display: flex;
@@ -2583,7 +2588,7 @@ a, a:visited {
   height: 45px;
   width: 45px;
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .footer__contacts-mobile .icon-link {
     height: 35px;
     width: 35px;
@@ -2594,7 +2599,7 @@ a, a:visited {
   height: 45px;
   width: 45px;
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .footer__contacts-mobile .contacts__svg {
     height: 35px;
     width: 35px;
@@ -2621,7 +2626,7 @@ a, a:visited {
     display: none;
   }
 }
-@media (max-height: 650px) {
+@media (max-height: 650px) and (orientation: landscape) {
   .footer__interaction {
     display: none;
   }
@@ -2743,7 +2748,7 @@ a, a:visited {
 .body.video-opened .header, .body.video-opened .footer__title, .body.video-opened .footer__contacts-mobile, .body.video-opened .footer__info, .body.video-opened .footer__contacts, .body.video-opened .aside, .body.video-opened .page__info {
   z-index: -1;
 }
-@media (max-height: 650px) and (orientation: landscape), (max-width: 650px) and (orientation: portrait) {
+@media (max-height: 650px) and (orientation: landscape) and (orientation: landscape), (max-width: 650px) and (orientation: portrait) {
   .body.video-opened .footer__interaction {
     display: -ms-flexbox;
     display: flex;
