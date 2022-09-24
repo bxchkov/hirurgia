@@ -8,8 +8,12 @@ document.addEventListener('click', e=> {
    }
 });
 telephone.addEventListener('mouseover', e=> {
-    telephone.classList.add('active');
+    let itsMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if(!itsMobile)
+        telephone.classList.add('active');
 });
 telephone.addEventListener('mouseleave', e=> {
-    telephone.classList.remove('active');
+    let itsMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if(!itsMobile)
+        telephone.classList.remove('active');
 });
