@@ -197,7 +197,6 @@
     object-fit: cover;
     z-index: -1;
   }
-  $player-UI-diameter-active: min(60vw, (calc(var(--vh, 1vh) * 60)));
   $player-UI-diameter: 200px;
   &__UI{
     position: absolute;
@@ -208,14 +207,18 @@
     width: $player-UI-diameter;
     height: $player-UI-diameter;
     opacity: 1;
-    @media (max-width: nth($screens,2) + "px") {
-      width: $player-UI-diameter-active;
-      height: $player-UI-diameter-active;
+    @media (max-width: nth($screens,2) + "px"), (max-height: nth($screens,3) + "px") {
+      width: min(60vw, (calc(var(--vh, 1vh) * 60)));
+      height: min(60vw, (calc(var(--vh, 1vh) * 60)));
+    }
+    @media (max-width: nth($screens,3) + "px"), (max-height: nth($screens,3) + "px") {
+      width: min(80vw, (calc(var(--vh, 1vh) * 80)));
+      height: min(80vw, (calc(var(--vh, 1vh) * 80)));
     }
   }
   &__UI:hover,&__UI.active{
-    width: $player-UI-diameter-active;
-    height: $player-UI-diameter-active;
+    width: min(60vw, (calc(var(--vh, 1vh) * 60)));
+    height: min(60vw, (calc(var(--vh, 1vh) * 60)));
   }
   &.hideUI &__UI{
     opacity: 0;

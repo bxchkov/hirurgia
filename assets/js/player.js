@@ -280,7 +280,11 @@ document.addEventListener('click',e=>{
     }
 })
 function drawCircle(canvas){
-    draw_video_lines(canvas, 2, 360, 15);
+    console.log((window.innerWidth < window.innerHeight && window.innerWidth < 650) || (window.innerWidth > window.innerHeight && window.innerHeight < 650));
+    if((window.innerWidth < window.innerHeight && window.innerWidth < 650) || (window.innerWidth > window.innerHeight && window.innerHeight < 650))
+        draw_video_lines(canvas, 4,180,25);
+    else
+        draw_video_lines(canvas, 2,360,15);
 }
 document.querySelectorAll('.page-player__circle-small').forEach(canvas=>{
     draw_video_lines(canvas, 2,180,10,0);
@@ -291,6 +295,7 @@ function draw_video_lines(canvas, width,count,line,intervalTic = 4) {
     radiusY = canvas.height / 2;
     _ctx.clearRect(0, 0, canvas.width, canvas.height);
     let i = 0;
+    console.log(line);
     const lines_int = setInterval(() => {
         let angle = (360 / count * i); // частота линий
         let radian = Math.PI * 2 / 360 * angle;
