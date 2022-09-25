@@ -260,7 +260,7 @@
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease;
-    @media (max-height: nth($screens,3)+"px") and (orientation: landscape), (max-width: nth($screens,3)+"px") and (orientation: portrait) {
+    @media (max-height: nth($screens,2)+"px") and (orientation: landscape), (max-width: nth($screens,2)+"px") and (orientation: portrait) {
       opacity: 1;
     }
   }
@@ -273,7 +273,7 @@
     height: 200px;
     transition: opacity 1s ease;
     opacity: 1;
-    @media (max-height: nth($screens,3)+"px") and (orientation: landscape), (max-width: nth($screens,3)+"px") and (orientation: portrait) {
+    @media (max-height: nth($screens,2)+"px") and (orientation: landscape), (max-width: nth($screens,2)+"px") and (orientation: portrait) {
       opacity: 0;
     }
   }
