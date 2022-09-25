@@ -8,8 +8,7 @@
   position: absolute;
   @include media(bottom,(unset, unset, calc(35% - (90px / 2))));
   @include media(right,(calc(-#{$player-circle-diameter-default} / 2), calc(-#{$player-circle-diameter-default} / 2), calc(50% - (90px / 2))));
-  background-color: rgba(255, 0, 0, 0.8);
-  backdrop-filter: blur(6px);
+  background-color: rgb(230, 0, 0);
   @include media(width,(($player-circle-diameter-default, $player-circle-diameter-default, 90px)));
   @include media(height,(($player-circle-diameter-default, $player-circle-diameter-default, 90px)));
   @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {

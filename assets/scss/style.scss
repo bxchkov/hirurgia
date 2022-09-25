@@ -538,6 +538,9 @@ $duration-page-scroll: .6s;
     @media (max-height: nth($screens,2) + "px") and (orientation:landscape){
       height:calc((var(--vh,1vh) * 100) - 200px);
     }
+    @media (max-height: 850px) and (orientation:portrait){
+      height:calc((var(--vh,1vh) * 100) - 125px);
+    }
     @media (max-height: nth($screens,3) + "px") and (orientation:landscape){
       height: calc((var(--vh,1vh) * 100) - 40px);
     }
@@ -549,9 +552,9 @@ $duration-page-scroll: .6s;
   &__preview{
     user-select: none;
     font-family: Arial;
-    @include media(position,(relative, relative, unset));
-    @include media(width,(785px, 566px));
-    @include media(height,(785px, 566px));
+    @include media(position, (relative, relative, unset));
+    @include media(width,($preview-circle-diameter, 566px));
+    @include media(height,($preview-circle-diameter, 566px));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -573,6 +576,10 @@ $duration-page-scroll: .6s;
       height: calc((var(--vh,1vh) * 100) - 200px);
       width: calc((var(--vh,1vh) * 100) - 200px);
     }
+    @media (max-height: 850px) and (orientation:portrait){
+      height: calc((var(--vh,1vh) * 100) - 125px);
+      width: calc((var(--vh,1vh) * 100) - 125px);
+    }
     @media (max-height: nth($screens,3) + "px") and (orientation:landscape){
       height: calc((var(--vh,1vh) * 100) - 40px);
       width: calc((var(--vh,1vh) * 100) - 40px);
@@ -584,7 +591,7 @@ $duration-page-scroll: .6s;
     @include media(display,(flex, flex, flex));
     align-items: center;
     justify-content: center;
-    position: absolute;
+    @include media(position,(fixed, fixed, absolute));
     width: $info-circle-diameter-default;
     height: $info-circle-diameter-default;
     border-radius: 100%;
@@ -613,6 +620,11 @@ $duration-page-scroll: .6s;
     @include media(font-size, (50px, 35px, 28px));
     text-transform: uppercase;
     text-align: center;
+    @media (max-height: 850px) and (orientation: landscape){
+      font-size: 44px;
+      line-height: 48px;
+      letter-spacing: 4px;
+    }
     @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       font-size: 26px;
       line-height: 30px;
@@ -635,6 +647,11 @@ $duration-page-scroll: .6s;
       line-height: 22px;
       letter-spacing: 0.3px;
       margin-top: 2px;
+    }
+    @media (max-height: 850px) and (orientation:portrait){
+      font-size: 22px;
+      line-height: 27px;
+      letter-spacing: 1.5px;
     }
     @media (max-width: nth($screens,3)+"px") and (orientation: portrait) {
       position: absolute;
