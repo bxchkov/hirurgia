@@ -1,4 +1,5 @@
 <div class="page">
+    <img class="page__shadow" src="/assets/images/shadow.png">
     <img class="page__background" src="{$poster}" alt="{$poster}">
     <svg class="page__loader" viewBox="0 0 100 100">
         <path d="M 50,50 m 0,-49.9 a 49.9,49.9 0 1 1 0,99.8 a 49.9,49.9 0 1 1 0,-99.8" stroke="transparent"

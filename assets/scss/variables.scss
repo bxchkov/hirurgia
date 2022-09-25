@@ -14,14 +14,18 @@ $info-circle-diameter-default: 36px;
 //header-grid
 $header-template-columns:   auto  minmax(20px, 1fr) auto  minmax(20px, 46px) 23px  minmax(20px, 91px) auto   ;
 $header-template-areas:  "\"logo  ................. tel   .................. share .................. menu\"";
+$header-template-columns-tablet:   auto  minmax(20px, 1fr) auto  minmax(20px, 25px) 23px  minmax(20px, 50px) auto   ;
+$header-template-areas-tablet:  "\"logo  ................. tel   .................. share .................. menu\"";
 $header-template-columns-mobile:   auto  1fr auto  35px  auto  ;
 $header-template-areas-mobile:  "\"logo  ... tel   .... menu\"";
+
     //footer-grid
-    $footer-template-columns:   290px minmax(30px, 69px) auto     minmax(30px, 1fr) auto          ;
-    $footer-template-areas:  "\"info  .................. contacts ................. interaction\"";
-    $footer-template-columns-mobile:   1fr    1fr    1fr      ;
-    $footer-template-areas-mobile:  "\"title  title  title \""
-                                    "\"mobile mobile mobile\"";
+    $footer-template-areas: "contacts interaction"
+                            "contacts interaction";
+    $footer-template-areas-tablet: "contacts contacts"
+                                   "contacts contacts";
+    $footer-template-areas-mobile: "title    title   "
+                                   "contacts contacts";
 //menu-grid
 $menu-template-rows: repeat(4,1fr);
 $menu-template-areas: none;

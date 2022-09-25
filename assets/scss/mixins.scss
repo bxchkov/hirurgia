@@ -43,7 +43,7 @@
   @return min(calc(#{$m*100}vw + #{$b}px),calc(#{$m*100}vh + #{$b}px));
 
 }
-$screens: (all, 1180, 650);
+$screens: (all, 1100, 650);
 @mixin media($property, $values){
   @for $i from 1 through length($values) {
     @if nth($values, $i) != ''{

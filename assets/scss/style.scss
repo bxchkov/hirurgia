@@ -18,18 +18,18 @@
   left: 0;
   color: white;
   width: 100%;
-  height: 76px;
+  height: 108px; //76
   display: grid;
   align-items: center;
   grid-template-rows: 1fr;
   z-index: 2;
-  @include media(grid-template-columns,($header-template-columns, $header-template-columns, $header-template-columns-mobile));
-  @include media(grid-template-areas,($header-template-areas, $header-template-areas, $header-template-areas-mobile));
+  @include media(grid-template-columns,($header-template-columns, $header-template-columns-tablet, $header-template-columns-mobile));
+  @include media(grid-template-areas,($header-template-areas, $header-template-areas-tablet, $header-template-areas-mobile));
   @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
     grid-template-columns: $header-template-columns-mobile;
   }
   &__open-menu{
-    @include media(margin-top,(8px, 8px, 0));
+    //@include media(margin-top,(8px, 8px, 0));
     grid-area: menu;
     display: flex;
     align-items: center;
@@ -138,9 +138,10 @@
   }
 }
 .header__share{
-  @include media(display,(block, block, none));
+  //@include media(display,(block, block, none));
+  display: none;
   height: 23px;
-  margin-top: 7px;
+  //margin-top: 7px;
   grid-area: share;
   position: relative;
   @media (max-height:nth($screens,3)+"px") {
@@ -179,28 +180,28 @@
   }
 }
 .telephone{
-  @include media(margin-top,(8px, 8px, 0));
+  //@include media(margin-top,(8px, 8px, 0));
   height: 18px;
   grid-area: tel;
   position: relative;
   cursor: pointer;
   white-space: nowrap;
-  &__list{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    max-height: 0;
-    top: 100%;
-    padding-top: 18px;
-    overflow: hidden;
-    transition: max-height .3s ease;
-    padding-bottom: 1px;
-  }
-  &.active &__list{
-    max-height: 58px;
-  }
+  //&__list{
+  //  position: absolute;
+  //  display: flex;
+  //  flex-direction: column;
+  //  align-items: center;
+  //  justify-content: start;
+  //  max-height: 0;
+  //  top: 100%;
+  //  padding-top: 18px;
+  //  overflow: hidden;
+  //  transition: max-height .3s ease;
+  //  padding-bottom: 1px;
+  //}
+  //&.active &__list{
+  //  max-height: 58px;
+  //}
   &__number{
     font-family: Arial;
     letter-spacing: 1.2px;
@@ -222,7 +223,6 @@
     overflow: hidden;
   }
   &.right-open &-left{
-    @include media(transform,(rotateY(40deg) scaleY(.8), none));
     pointer-events: none;
   }
   &-right{
@@ -354,7 +354,7 @@
     border-right: 1px solid #565555;
   }
   &__image{
-    transition: opacity .3s ease;
+    transition: opacity .6s ease;
     opacity: 0;
     left: 0;
     top: 0;
@@ -412,6 +412,11 @@
   &:hover{
     &:after{
       width: 100%;
+    }
+  }
+  @media (max-width: nth($screens,3)+"px") and (orientation: portrait),(max-height: nth($screens,3)+"px") and (orientation: landscape){
+    &:after{
+      display: none;
     }
   }
 }
@@ -513,8 +518,11 @@ $duration-page-scroll: .6s;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("/assets/images/shadow.png") no-repeat center;
-  @include media(background-size,(1145px 786px, 825px 566px));
+  &__shadow{
+    position: absolute;
+    height: 70%;
+    width: 100%;
+  }
   &__background{
     height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
@@ -684,7 +692,7 @@ $duration-page-scroll: .6s;
     @include media(left,(calc(100% - $page-content-width), calc(100% - $page-content-width-tablet), calc(100% - $page-content-width-mobile)));
   }
   &__inner{
-    @include media(padding,(0 55px 0, 0 55px 0, 0 33px 0));
+    @include media(padding,(0 55px 0 0, 0 55px 0 0, 0 33px 0));
     margin-right: 55px;
     overflow: auto;
     height: 100%;
@@ -727,18 +735,36 @@ $duration-page-scroll: .6s;
   position: absolute;
   width: 100%;
   @include media(padding,(0 32px 0 55px, 0 30px 0 40px, 0 13% 0 13%));
-  @include media(display,(grid, grid, grid));
-  @include media(grid-template-rows,(1fr, 1fr, 1fr 1fr));
-  @include media(grid-template-columns,($footer-template-columns, $footer-template-columns, $footer-template-columns-mobile));
-  @include media(grid-template-areas,($footer-template-areas, $footer-template-areas, $footer-template-areas-mobile));
-  @include media(bottom,(34px, 20px,10px));
-  @include media(height,(25px, 25px, 75px));
-  @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
-    grid-template-columns: 1fr;
-    grid-template-areas: unset;
-    height: 40px;
-    padding-left: 29px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+          "contacts interaction"
+          "contacts interaction";
+  align-items: center;
+  @media (max-height: nth($screens,2)+"px") and (orientation: landscape){
+    grid-template-areas:
+          "contacts interaction"
+          "contacts interaction";
   }
+  @media (max-height: nth($screens,3)+"px") and (orientation: landscape){
+    grid-template-areas:
+          "contacts interaction"
+          "contacts interaction";
+  }
+  @media (max-width: nth($screens,2)+"px") and (orientation: portrait){
+    grid-template-areas:
+          "contacts interaction"
+          "contacts interaction";
+  }
+  @media (max-width: nth($screens,3)+"px") and (orientation: portrait){
+    grid-template-areas:
+          "title    title"
+          "contacts contacts";
+    justify-items: center;
+  }
+  @include media(bottom,(34px, 20px));
+  height: auto;
   &__title{
     grid-area: title;
     justify-self: center;
@@ -752,48 +778,46 @@ $duration-page-scroll: .6s;
     }
   }
   &__info{
-    grid-area: info;
-    @include media(display,(flex, flex, none));
-    flex-direction: row;
-    align-items: center;
-    gap: 18px;
-    color: white;
-    font-family: Arial;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 1px;
-    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
-      display: none;
-    }
+    display: none;
+  //  grid-area: info;
+  //  @include media(display,(flex, flex, none));
+  //  flex-direction: row;
+  //  align-items: center;
+  //  gap: 18px;
+  //  color: white;
+  //  font-family: Arial;
+  //  font-size: 12px;
+  //  line-height: 16px;
+  //  letter-spacing: 1px;
+  //  @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
+  //    display: none;
+  //  }
   }
   &-link{
     @extend .link-hover;
   }
   &__contacts{
-    grid-area: contacts;
-    @include media(display,(flex, flex, none));
-    justify-content: start;
-    flex-direction: row;
-    gap: 17px;
-    align-items: center;
-    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
-      display: none;
-    }
+    display: none;
+  //  grid-area: contacts;
+  //  @include media(display,(flex, flex, none));
+  //  justify-content: start;
+  //  flex-direction: row;
+  //  gap: 17px;
+  //  align-items: center;
+  //  @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
+  //    display: none;
+  //  }
   }
   &__contacts-mobile{
-    grid-area: mobile;
-    @include media(display,(none, none, flex));
+    grid-area: contacts;
+    display: flex;
     flex-direction: row;
     gap: 45px;
-    justify-self: center;
-    align-self: center;
     :nth-child(4) { display: none; }
-    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
-      display: flex;
+    @media (max-height: nth($screens,3)+"px") and (orientation: portrait) {
       gap: 25px;
-      justify-self: start;
+      justify-self: center;
       align-items: end;
-      grid-area: unset;
       :nth-child(4){ display: none; }
     }
     .icon-link{
@@ -816,11 +840,13 @@ $duration-page-scroll: .6s;
   }
   &__interaction{
     grid-area: interaction;
-    @include media(display,(flex, flex, none));
-    flex-direction: row;
-    align-items: center;
+    justify-self: end;
+    display: flex;
     gap: 29px;
-    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape),(max-width: nth($screens,3)+"px") and (orientation: portrait) {
+      display: none;
+    }
+    @media (max-height: nth($screens,2)+"px") and (orientation: portrait){
       display: none;
     }
   }
