@@ -1140,6 +1140,11 @@ a, a:visited {
 }
 @media screen and (max-width: 1100px) {
   .header {
+    height: 76px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .header {
     -ms-grid-columns: auto minmax(20px, 1fr) auto minmax(20px, 25px) 23px minmax(20px, 50px) auto;
         grid-template-columns: auto minmax(20px, 1fr) auto minmax(20px, 25px) 23px minmax(20px, 50px) auto;
   }
