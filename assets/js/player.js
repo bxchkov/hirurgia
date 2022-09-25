@@ -240,6 +240,9 @@ document.querySelectorAll('.page-player').forEach(item=>{
         refreshTimeoutUI();
     })
     video.addEventListener('mousemove',e=>{
+        let itsMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if(itsMobile)
+            return;
         item.classList.remove('hideUI');
         refreshTimeoutUI()
     });
