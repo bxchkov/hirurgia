@@ -22,7 +22,7 @@
     'parents' => 2,
     'limit' => 0,
     'depth' => 0,
-    'includeTVs' => 'icon,video,poster',
+    'includeTVs' => 'icon,video,poster,shift',
     'tvPrefix' => '',
     'sortby'=>['menuindex'=>'ASC']
     ]}
