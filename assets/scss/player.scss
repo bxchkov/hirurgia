@@ -155,7 +155,7 @@
     }
   }
   &.active:not(.on-transition) &__play-stop{
-    @include media(left,(calc(50% - 50vw - #{$preview-circle-diameter} / 2 + 50vw - #{$play-stop-side} / 2), calc(50% - 50vw - #{$preview-circle-diameter-tablet} / 2 + 50vw - #{$play-stop-side} / 2)));
+    @include media(left,(calc(50% - 50vw - #{$preview-circle-diameter} / 2 + 50vw - #{$play-stop-side} / 2), calc(50% - 50vw - (100vw - 300px) / 2 + 50vw - #{$play-stop-side} / 2)));
     @media (max-width: nth($screens,3) + "px") and (orientation:portrait){
       left: calc((100% - $play-stop-side) / 2);
       top: calc(50% - (var(--vh, 1vh) * 65) + (var(--vh, 1vh) * 50) - $play-stop-side / 2);

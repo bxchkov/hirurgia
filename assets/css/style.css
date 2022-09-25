@@ -510,7 +510,7 @@ a, a:visited {
 }
 @media screen and (max-width: 1100px) {
   .page-player.active:not(.on-transition) .page-player__play-stop {
-    left: calc(50% - 50vw - 566px / 2 + 50vw - 33px / 2);
+    left: calc(50% - 50vw - (100vw - 300px) / 2 + 50vw - 33px / 2);
   }
 }
 @media (max-width: 650px) and (orientation: portrait) {
@@ -919,7 +919,7 @@ a, a:visited {
 }
 @media screen and (max-width: 1100px) {
   .page-player.active:not(.on-transition) .page-player__play-stop {
-    left: calc(50% - 50vw - 566px / 2 + 50vw - 33px / 2);
+    left: calc(50% - 50vw - (100vw - 300px) / 2 + 50vw - 33px / 2);
   }
 }
 @media (max-width: 650px) and (orientation: portrait) {
