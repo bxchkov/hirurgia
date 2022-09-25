@@ -329,7 +329,12 @@ document.addEventListener('click',e=>{
         e.stopPropagation()
     }
     else if(e.target.closest('[data-action="toggle-fullscreen"]')){
+        document.querySelector('.main').style.transition = "none";
         toggleFullScreen(document.querySelector('.body'));
+
+        setTimeout(()=>{
+            document.querySelector('.main').style.transition = "";
+        },10)
     }
 })
 function toggleFullScreen(elem) {

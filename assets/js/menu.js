@@ -25,7 +25,7 @@ document.addEventListener('click',e=>{
         case 'open':
             target.classList.add('active');
             document.querySelector('.body').classList.add('right-open');
-            if(!((window.innerHeight < window.innerWidth && window.innerWidth <= 1180) || (window.innerHeight > window.innerWidth && window.innerHeight <= 1180))){
+            if(!((window.innerHeight < window.innerWidth && window.innerWidth <= 1100) || (window.innerHeight > window.innerWidth && window.innerHeight <= 1100))){
                 console.log(Math.acos(1 - (target.clientWidth) / window.innerWidth));
                 document.querySelector('.body-left').style.transform = `rotateY(${Math.acos(1 - (target.clientWidth) / window.innerWidth)  * 180 / Math.PI  * 1.275 -  window.innerWidth * 0.01}deg)`;
             }else{
@@ -42,7 +42,7 @@ document.addEventListener('click',e=>{
 })
 window.addEventListener('resize',e=>{
     console.log(e);
-    if(!((window.innerHeight < window.innerWidth && window.innerWidth <= 1180) || (window.innerHeight > window.innerWidth && window.innerHeight <= 1180)) && document.querySelector('.body').classList.contains('right-open')){
+    if(!((window.innerHeight < window.innerWidth && window.innerWidth <= 1100) || (window.innerHeight > window.innerWidth && window.innerHeight <= 1100)) && document.querySelector('.body').classList.contains('right-open')){
         let target = document.querySelector('.body-right > *.active');
         document.querySelector('.body-left').style.transform = `rotateY(${Math.acos(1 - (target.clientWidth) / window.innerWidth)  * 180 / Math.PI  * 1.275 -  window.innerWidth * 0.01}deg)`;
     }else{

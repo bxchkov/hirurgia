@@ -692,7 +692,7 @@ $duration-page-scroll: .6s;
     @include media(left,(calc(100% - $page-content-width), calc(100% - $page-content-width-tablet), calc(100% - $page-content-width-mobile)));
   }
   &__inner{
-    @include media(padding,(0 55px 0 0, 0 55px 0 0, 0 33px 0));
+    @include media(padding,(0 55px 0 0, 0 55px 0, 0 33px 0));
     margin-right: 55px;
     overflow: auto;
     height: 100%;
