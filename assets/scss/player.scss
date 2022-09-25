@@ -6,7 +6,6 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  @include media(bottom,(unset, unset, calc(35% - (90px / 2))));
   @include media(right,(calc(-#{$player-circle-diameter-default} / 2), calc(-#{$player-circle-diameter-default} / 2), calc(50% - (90px / 2))));
   background-color: rgb(230, 0, 0);
   @include media(width,(($player-circle-diameter-default, $player-circle-diameter-default, 90px)));
@@ -23,6 +22,9 @@
   $duration-increase:6s;
   $duration-decrease:.75s;
   $duration-increase-active:1s;
+  @media (max-width: nth($screens,3)+"px") and (orientation: portrait) {
+    bottom: calc(35% - (90px / 2));
+  }
   &.hideUI{
     cursor: none;
   }
@@ -91,6 +93,9 @@
     }
     @media (max-height: nth($screens,3) + "px") and (orientation:landscape){
       left: calc(50% - 50vw - (var(--vh, 1vh) * 100 - 40px) / 2);
+    }
+    @media (max-height: 850px) and (max-width:850px) and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3){
+      left: calc(50% - 50vw - (100vw - 300px) / 2);
     }
   }
   &.hover &__inner, &.active &__inner{

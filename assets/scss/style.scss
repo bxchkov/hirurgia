@@ -526,7 +526,6 @@ $duration-page-scroll: .6s;
   &__loader{
     position: absolute;
     @include media(height,($preview-circle-diameter, $preview-circle-diameter-tablet, $preview-circle-diameter-mobile));
-    @include media(display,(block, block, none));
     stroke-dashoffset: 0;
     stroke-dasharray: 0, 313.644;
     @media (max-width: nth($screens,2) + "px") and (orientation:portrait){
@@ -534,15 +533,16 @@ $duration-page-scroll: .6s;
     }
     @media (max-width: nth($screens,3) + "px") and (orientation:portrait){
       height: calc(100vw - 40px);
+      display: none;
     }
     @media (max-height: nth($screens,2) + "px") and (orientation:landscape){
       height:calc((var(--vh,1vh) * 100) - 200px);
     }
-    @media (max-height: 850px) and (orientation:portrait){
-      height:calc((var(--vh,1vh) * 100) - 125px);
-    }
     @media (max-height: nth($screens,3) + "px") and (orientation:landscape){
       height: calc((var(--vh,1vh) * 100) - 40px);
+    }
+    @media (max-height: 850px) and (max-width:850px) and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3)  {
+      height: calc(100vw - 300px);
     }
   }
   &.is-loaded &__loader{
@@ -552,7 +552,7 @@ $duration-page-scroll: .6s;
   &__preview{
     user-select: none;
     font-family: Arial;
-    @include media(position, (relative, relative, unset));
+    @include media(position, (relative, relative));
     @include media(width,($preview-circle-diameter, 566px));
     @include media(height,($preview-circle-diameter, 566px));
     display: flex;
@@ -569,6 +569,7 @@ $duration-page-scroll: .6s;
     @media (max-width: nth($screens,3) + "px") and (orientation:portrait){
       height: calc(100vw - 40px);
       width: calc(100vw - 40px);
+      position: unset;
     }
     @media (max-height: nth($screens,2) + "px") and (orientation:landscape){
       //height: calc((var(--vh,1vh) * 100) - 200px);
@@ -576,18 +577,17 @@ $duration-page-scroll: .6s;
       height: calc((var(--vh,1vh) * 100) - 200px);
       width: calc((var(--vh,1vh) * 100) - 200px);
     }
-    @media (max-height: 850px) and (orientation:portrait){
-      height: calc((var(--vh,1vh) * 100) - 125px);
-      width: calc((var(--vh,1vh) * 100) - 125px);
-    }
     @media (max-height: nth($screens,3) + "px") and (orientation:landscape){
       height: calc((var(--vh,1vh) * 100) - 40px);
       width: calc((var(--vh,1vh) * 100) - 40px);
     }
+    @media (max-height: 850px) and (max-width:850px) and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3){
+      height: calc(100vw - 300px);
+      width: calc(100vw - 300px);
+    }
   }
   &__info{
-    @include media(right,(35px, 35px, 19px));
-    @include media(bottom,(unset, unset, calc(35% - ($info-circle-diameter-default / 2))));
+    right: 35px;
     @include media(display,(flex, flex, flex));
     align-items: center;
     justify-content: center;
@@ -600,6 +600,10 @@ $duration-page-scroll: .6s;
     transition: background-color .3s ease;
     &:hover{
       background-color: white;
+    }
+    @media (max-width: nth($screens,3)+"px") and (orientation: portrait) {
+      bottom: calc(35% - ($info-circle-diameter-default / 2));
+      right: 19px;
     }
   }
 }
@@ -615,47 +619,58 @@ $duration-page-scroll: .6s;
     top: -25px;
   }
   &__title {
-    @include media(line-height, (50px, 40px, 35px));
-    @include media(letter-spacing, (7px, 4.5px));
-    @include media(font-size, (50px, 35px, 28px));
+    //@include media(line-height, (50px, 40px, 35px));
+    line-height: 1.1;
+    font-size: 50px;
+    //@include media(font-size, (50px, 35px, 28px));
     text-transform: uppercase;
     text-align: center;
-    @media (max-height: 850px) and (orientation: landscape){
-      font-size: 44px;
-      line-height: 48px;
-      letter-spacing: 4px;
+    @media (max-height: nth($screens,2)+"px") and (orientation: landscape){
+      font-size: clamp(35px,5.5vh,50px);
     }
-    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
-      font-size: 26px;
-      line-height: 30px;
-      letter-spacing: 2px;
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape){
+      font-size: clamp(28px,7vh,35px);
+    }
+    @media (max-width: nth($screens,2)+"px") and (orientation: portrait){
+      font-size: clamp(35px,5vw,50px);
     }
     @media (max-width: nth($screens,3)+"px") and (orientation: portrait){
+      font-size: clamp(28px,8vw,35px);
       position: absolute;
-      bottom: calc(50% + 10px);
+      bottom: calc(50% - 4vw);
+    }
+    @media (max-height: 850px) and (max-width:850px) and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3)  {
+      font-size: 4vw;
     }
   }
   &__sub-title {
-    @include media(font-size, (22px, 16px, 16px));
-    @include media(margin-top, (20px, 7px));
-    letter-spacing: 1.7px;
-    line-height: 27px;
+    //@include media(font-size, (22px, 16px, 16px));
+    //letter-spacing: 1.7px;
+    line-height: 1.1;
     font-weight: 400;
     text-align: center;
-    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
-      font-size: 12px;
-      line-height: 22px;
-      letter-spacing: 0.3px;
-      margin-top: 2px;
+    font-size: 22px;
+    margin-top: 20px;
+    @media (max-height: nth($screens,2)+"px") and (orientation: landscape){
+      font-size: clamp(16px,2.5vh,22px);
     }
-    @media (max-height: 850px) and (orientation:portrait){
-      font-size: 22px;
-      line-height: 27px;
-      letter-spacing: 1.5px;
+    @media (max-height: nth($screens,3)+"px") and (orientation: landscape){
+      font-size: clamp(16px,4vh,22px);
+      margin-top: 10px;
     }
-    @media (max-width: nth($screens,3)+"px") and (orientation: portrait) {
+    @media (max-width: nth($screens,2)+"px") and (orientation: portrait){
+      font-size: clamp(16px,2.5vw,22px);
+      margin-top: 10px;
+    }
+    @media (max-width: nth($screens,3)+"px") and (orientation: portrait){
+      font-size:  clamp(16px,4vw,22px);
+      margin-top: 0;
       position: absolute;
-      top: calc(50% + 10px);
+      top: calc(50% + 7vh - 20px);
+    }
+    @media (max-height: 850px) and (max-width:850px) and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3)  {
+      font-size: 2vw;
+      margin-top: 10px;
     }
   }
 }
