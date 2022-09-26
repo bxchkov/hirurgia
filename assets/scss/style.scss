@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import "variables";
 @import "fonts";
 @import "mixins";
@@ -214,9 +213,10 @@
     pointer-events: all;
   }
 }
+
 .body{
   @include media(perspective,(1700px));
-  font-family: Roboto, Serif;
+  font-family: Arial;
   background-color: #cbc4c0;
   overflow: hidden;
   &.right-open{
@@ -522,6 +522,7 @@ $duration-page-scroll: .6s;
     position: absolute;
     width: 100%;
   }
+
   &__background{
     height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
