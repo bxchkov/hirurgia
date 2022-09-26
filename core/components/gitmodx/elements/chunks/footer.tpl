@@ -52,13 +52,13 @@
     </div>
     <div class="footer__contacts-mobile">
         <a class="icon-link" href="https://www.whatsapp.com/" aria-label="link-to-whatsapp">
-            <img class="contacts__img" src="/assets/icons/whatsapp_white_icon.png" alt="whatsapp">
+            <img class="contacts__img" src="/assets/icons/whatsapp_white_icon.webp" alt="whatsapp">
         </a>
         <a class="icon-link" href="https://telegram.org/" aria-label="link-to-telegram">
-            <img class="contacts__img" src="/assets/icons/telegram_white_icon.png" alt="telegram">
+            <img class="contacts__img" src="/assets/icons/telegram_white_icon.webp" alt="telegram">
         </a>
         <a class="icon-link" href="https://www.viber.com/" aria-label="link-to-viber">
-            <img class="contacts__img" src="/assets/icons/viber_white_icon.png" alt="viber">
+            <img class="contacts__img" src="/assets/icons/viber_white_icon.webp" alt="viber">
         </a>
         <a class="icon-link" href="https://vk.com/" style="height: 38px; width: 38px;" aria-label="link-to-vk">
             <svg class="contacts__svg" fill="white" xmlns="http://www.w3.org/2000/svg"
