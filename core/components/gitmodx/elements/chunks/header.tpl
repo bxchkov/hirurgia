@@ -1,6 +1,6 @@
 <header class="header">
     <div class="logo-anim-background"></div>
-    <a class="logo header__logo">
+    <a class="logo header__logo" href="{$_modx->config.site_url}">
         <img alt="logo" src="/assets/icons/logos/full-logo.regular.svg">
     </a>
     <script>

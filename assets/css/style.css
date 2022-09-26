@@ -1980,7 +1980,6 @@ a, a:visited {
 }
 .page__shadow {
   position: absolute;
-  height: 70%;
   width: 100%;
 }
 .page__background {
