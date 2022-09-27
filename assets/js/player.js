@@ -146,6 +146,7 @@ document.querySelectorAll('.page-player').forEach(item=>{
             let radian = Math.atan2(x,y);
             degrees = (radian / Math.PI * 180);
             degrees = degrees >0 ?degrees:degrees+360;
+            degrees = degrees % 360;
             let videoTime =  video.duration * degrees / 360;
             trackTime.innerHTML = Math.floor(videoTime / 60) +':'+ (videoTime % 60 < 10 ? '0':'') + Math.floor(videoTime % 60);
             video.currentTime = video.duration * degrees / 360;
@@ -298,7 +299,6 @@ function draw_video_lines(canvas, width,count,line,intervalTic = 4) {
     radiusY = canvas.height / 2;
     _ctx.clearRect(0, 0, canvas.width, canvas.height);
     let i = 0;
-    console.log(line);
     const lines_int = setInterval(() => {
         let angle = (360 / count * i); // частота линий
         let radian = Math.PI * 2 / 360 * angle;
