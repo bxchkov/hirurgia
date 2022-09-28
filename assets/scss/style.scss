@@ -137,8 +137,7 @@
   }
 }
 .header__share{
-  //@include media(display,(block, block, none));
-  display: none;
+  @include media(display,(block, block, none));
   height: 23px;
   //margin-top: 7px;
   grid-area: share;
