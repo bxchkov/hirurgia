@@ -37,7 +37,7 @@
                 'tvPrefix' => '',
                 'tpl'=>'@INLINE
                         <a class="icon-link" href="{$content}">
-                            <img class="share__svg" src="{$icon} alt="{$pagetitle}">
+                            <img class="share__svg" src="{$icon}" alt="{$pagetitle}">
                         </a>'
             ]}
 {*            <a class="icon-link" href="https://twitter.com/">*}
