@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="{$description}">
-    <title>{$pagetitle}</title>
+    <meta name="description" content="{$_modx->resource.description}">
+    <title>{$_modx->resource.pagetitle}</title>
     <base href="{$_modx->config.site_url}">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
