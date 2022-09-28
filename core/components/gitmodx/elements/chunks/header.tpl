@@ -32,7 +32,7 @@
         </svg>
         <div class="share">
             {'pdoResources' | snippet :[
-                'parents'=>'12',
+                'parents'=>12,
                 'includeTVs'=>'icon',
                 'tvPrefix' => '',
                 'tpl'=>'@INLINE
