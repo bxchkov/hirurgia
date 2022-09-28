@@ -52,7 +52,7 @@
     </div>
     <div class="footer__contacts-mobile">
         {'pdoResources' | snippet :[
-            'parents'=>12,
+            'parents'=>16,
             'limit'=>3,
             'includeTVs'=>'icon',
             'tvPrefix' => '',
