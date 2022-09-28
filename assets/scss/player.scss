@@ -204,8 +204,10 @@
     align-items: center;
     justify-content: center;
     transition: opacity .3s ease, width .3s ease, height .3s ease;
-    width: $player-UI-diameter;
-    height: $player-UI-diameter;
+    //width: $player-UI-diameter;
+    //height: $player-UI-diameter;
+    width: min(60vw, (calc(var(--vh, 1vh) * 60)));
+    height: min(60vw, (calc(var(--vh, 1vh) * 60)));
     opacity: 1;
     @media (max-width: nth($screens,2) + "px"), (max-height: nth($screens,3) + "px") {
       width: min(60vw, (calc(var(--vh, 1vh) * 60)));
@@ -231,7 +233,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    opacity: 0;
+    opacity: 1;
     @media (max-width: nth($screens,2) + "px") {
       opacity: 1;
     }
@@ -245,7 +247,7 @@
     gap: 10px;
     transform-origin: 10px center;
     left: 15px;
-    top: -6px;
+    top: -3px;
     &:before{
       content: "";
       display: block;
@@ -261,7 +263,7 @@
     transform: rotateZ(-90deg);
     width:100%;
     height: 100%;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 1s ease;
     @media (max-height: nth($screens,2)+"px") and (orientation: landscape), (max-width: nth($screens,2)+"px") and (orientation: portrait) {
       opacity: 1;
@@ -276,6 +278,7 @@
     height: 200px;
     transition: opacity 1s ease;
     opacity: 1;
+    display: none;
     @media (max-height: nth($screens,2)+"px") and (orientation: landscape), (max-width: nth($screens,2)+"px") and (orientation: portrait) {
       opacity: 0;
     }
