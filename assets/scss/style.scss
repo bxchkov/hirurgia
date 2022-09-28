@@ -17,7 +17,7 @@
   left: 0;
   color: white;
   width: 100%;
-  @include media(height,(108px, 76px));
+  height: 108px;
   display: grid;
   align-items: center;
   grid-template-rows: 1fr;
@@ -26,6 +26,12 @@
   @include media(grid-template-areas,($header-template-areas, $header-template-areas-tablet, $header-template-areas-mobile));
   @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
     grid-template-columns: $header-template-columns-mobile;
+  }
+  @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
+    height: 76px;
+  }
+  @media (max-width: nth($screens,3)+"px") and (orientation: portrait) {
+    height: 76px;
   }
   &__open-menu{
     //@include media(margin-top,(8px, 8px, 0));
@@ -59,8 +65,6 @@
     top: 32px;
     @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       align-self: center;
-    }
-    @media (max-height: nth($screens,3)+"px") and (orientation: landscape) {
       left: 29px;
       top: 16px;
     }
