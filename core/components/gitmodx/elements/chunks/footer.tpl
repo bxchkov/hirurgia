@@ -60,6 +60,7 @@
                 <a class="icon-link" href="{$content}" aria-label="link-to-{$pagetitle}">
                     <img class="contacts__img" src="{$icon}" alt="{$pagetitle}-icon">
                 </a>'
+            'sortby'=>['menuindex'=>"ASC"]
         ]}
     </div>
     <div class="footer__interaction">
