@@ -54,6 +54,7 @@
         {'pdoResources' | snippet :[
             'parents'=>16,
             'limit'=>3,
+            'includeContent'=>1,
             'includeTVs'=>'icon',
             'tvPrefix' => '',
             'tpl'=>'@INLINE

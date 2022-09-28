@@ -35,6 +35,7 @@
                 'parents'=>12,
                 'includeTVs'=>'icon',
                 'tvPrefix' => '',
+                'includeContent'=>1,
                 'tpl'=>'@INLINE
                         <a class="icon-link" href="{$content}">
                             <img class="share__svg" src="{$icon}" alt="{$pagetitle}">
